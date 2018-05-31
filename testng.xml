@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-4" />
+ <test name="CartPage" preserve-order="true">
+  <classes>
+   <class name="testCases.CartPage">
+   <methods>
+     <include name="Tc_Cart_01" />
+     <include name="Tc_Cart_03" />
+     <include name="Tc_Cart_05" />
+     <include name="Tc_Cart_06" />
+     <include name="Tc_Cart_07" />
+     <include name="Tc_Cart_08" />
+     <include name="Tc_Cart_09" />
+     <include name="Tc_Cart_10" />
+     <include name="Tc_Cart_12" />
+     <include name="Tc_Cart_11" />
+     <include name="Tc_Cart_13" />
+     <include name="Tc_Cart_14" />
+     <include name="Tc_Cart_15" />
+    </methods>
+	</class>
+  </classes>
+   </test>
+   <test name="PrefCard" preserve-order="true">
+   <classes>
+   <class name="testCases.PrefCard">
+   <methods>
+     <include name="Tc_prefCard_01" />
+     <include name="Tc_prefCard_02" />
+     <include name="Tc_prefCard_03_04" />
+     <include name="Tc_prefCard_06" />
+     <include name="Tc_prefCard_07" />
+     <include name="Tc_prefCard_08" />
+     <include name="Tc_prefCard_09" />
+     <include name="Tc_prefCard_010" />
+     <include name="Tc_prefCard_12" />
+     <include name="Tc_prefCard_14" />
+     <include name="Tc_prefCard_15" />
+    </methods>
+	</class>
+  </classes>
+   </test>
+   <test name="Shipments" preserve-order="true">
+   <classes>
+   <class name="testCases.Shipments">
+   <methods>
+     <include name="Tc_SH_01" />
+     <include name="Tc_SH_02" />
+     <include name="Tc_SH_03" />
+     <include name="Tc_SH_04" />
+	</methods>
+	</class>
+  </classes>
+   </test>
+   <test name="RequestService" preserve-order="true">
+   <classes>
+   <class name="testCases.RequestService">
+   <methods>
+     <include name="Tc_SPO_01" />
+     <include name="Tc_SPO_02" />
+     <include name="Tc_SPO_03" />
+     <include name="Tc_SPO_04" />
+	 <include name="Tc_SPO_05" />
+	</methods>
+	</class>
+  </classes>
+   </test>
+   <test name="ManageInventory" preserve-order="true">
+   <classes>
+   <class name="testCases.ManageInventory">
+   <methods>
+     <include name="Tc_manageInv_01" />
+     <include name="Tc_manageInv_03" />
+     <include name="Tc_manageInv_05_06" />
+     <include name="Tc_manageInv_07" />
+	 <include name="Tc_manageInv_02_09" />
+	</methods>
+	</class>
+  </classes>
+   </test>
+      <test name="AdminPart" preserve-order="true">
+   <classes>
+   <class name="testCases.AdminPart">
+   <methods>
+     <include name="Tc_ItemCat_01_02_03" />
+     <include name="Tc_ItemCat_04" />
+     <include name="Tc_PrintBarcode_01_02" />
+     <include name="Tc_PrintBarcode_03" />
+	 <include name="Tc_PrintBarcode_04" />
+	 <include name="Tc_PrintBarcode_06" />
+	 <include name="Tc_PrintBarcode_07" />
+	 <include name="Tc_PrintBarcode_08" />
+	 <include name="Tc_PrintBarcode_10" />
+	 <include name="Tc_SI_01_02" />
+	 <include name="Tc_SI_03" />
+	 <include name="Tc_SI_04" />
+	 <include name="Tc_PTerms_01_02" />
+	 <include name="Tc_PTerms_03_04" />
+	 <include name="Tc_News_01_02" />
+	 <include name="Tc_News_03_04" />
+	 <include name="Tc_News_05" />
+	 <include name="Tc_Vendor_01" />
+	 <include name="Tc_Vendor_02_03" />
+	 <include name="Tc_PriceTier_01_02"/>
+	 <include name="Tc_PriceTier_03_05"/>
+	 <include name="Tc_PriceTier_04"/>
+	 <include name="Tc_ItemCatalog_01_02"/>
+	 <include name="Tc_ItemCatalog_03"/>
+	 <include name="Tc_ItemCatalog_04"/>
+	 <include name="Tc_InventoryLoc_01_02"/>
+	 <include name="Tc_InventoryLoc_04_05"/>
+	 <include name="Tc_InventoryLoc_04_05"/>
+	</methods>
+	</class>
+  </classes>
+   </test>
+   <test name="Users" preserve-order="true">
+   <classes>
+   <class name="testCases.Users">
+   <methods>
+     <include name="Tc_Users_01"/>
+     <include name="Tc_Users_02"/>
+     <include name="Tc_Users_03_08"/>
+     <include name="Tc_Users_04_08"/>
+	 <include name="Tc_Users_09"/>
+	</methods>
+	</class>
+  </classes>
+   </test>
+   <test name="ShopPage" preserve-order="true">
+   <classes>
+   <class name="testCases.ShopPage">
+   <methods>
+     <include name="Tc_Shop_1"/>
+     <include name="Tc_Shop_2_3"/>
+     <include name="Tc_Shop_4"/>
+     <include name="Tc_Shop_5"/>
+	 <include name="Tc_Shop_6"/>
+	 <include name="Tc_Shop_7"/>
+	 <include name="Tc_Shop_08"/>
+	 <include name="Tc_Shop_09"/>
+	 <include name="Tc_Shop_10"/>
+	 <include name="Tc_Shop_12"/>
+	 <include name="Tc_Shop_15"/>
+	 <include name="Tc_Shop_16"/>
+	 <include name="Tc_Shop_17"/>
+	 <include name="Tc_Shop_19"/>
+	 <include name="Tc_Shop_21"/>
+	</methods>
+	</class>
+  </classes>
+   </test>
+   <test name="Receive" preserve-order="true">
+   <classes>
+   <class name="testCases.Receive">
+   <methods>
+     <include name="Tc_Receive_01"/>
+     <include name="Tc_Receive_03"/>
+     <include name="Tc_Receive_05_06"/>
+     <include name="Tc_Receive_07_19"/>
+	 <include name="Tc_Receive_09"/>
+	 <include name="Tc_Receive_10"/>
+	 <include name="Tc_Receive_11"/>
+	 <include name="Tc_Receive_12"/>
+	 <include name="Tc_Receive_014"/>
+	 <include name="Tc_Receive_017"/>
+	 <include name="Tc_Receive_20"/>
+	 <include name="Tc_Receive_21"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+  <test name="ReceiveDetails" preserve-order="true">
+   <classes>
+   <class name="testCases.ReceiveDetails">
+   <methods>
+     <include name="Tc_RECDET_01"/>
+     <include name="Tc_RECDET_03_04"/>
+     <include name="Tc_RECDET_05"/>
+     <include name="Tc_RECDET_06"/>
+	 <include name="Tc_RECDET_07"/>
+	 <include name="Tc_RECDET_08"/>
+	 <include name="Tc_RECDET_09"/>
+	 <include name="Tc_RECDET_10"/>
+	 <include name="Tc_RECDET_11"/>
+	 <include name="Tc_RECDET_12"/>
+	 <include name="Tc_RECDET_13"/>
+	 <include name="Tc_RECDET_14"/>
+	 <include name="Tc_RECDET_15_16"/>
+	 <include name="Tc_RECDET_17"/>
+	 <include name="Tc_RECDET_19"/>
+	 <include name="Tc_RECDET_20"/>
+	 <include name="Tc_RECDET_21"/>
+	 <include name="Tc_RECDET_22_23"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+ <test name="Procedures" preserve-order="true">
+   <classes>
+   <class name="testCases.Procedures">
+   <methods>
+     <include name="Tc_Procedures_01_02_03"/>
+     <include name="Tc_Procedures_04"/>
+     <include name="Tc_Procedures_05_06"/>
+     <include name="Tc_Procedures_07"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+   <test name="Cases" preserve-order="true">
+   <classes>
+   <class name="testCases.Cases">
+   <methods>
+     <include name="Tc_Cases_01"/>
+     <include name="Tc_Cases_02"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+<test name="Facility" preserve-order="true">
+   <classes>
+   <class name="testCases.Facility">
+   <methods>
+     <include name="Tc_Fac_01"/>
+     <include name="Tc_Fac_02"/>
+	 <include name="Tc_Fac_03"/>
+	 <include name="Tc_Fac_04"/>
+	 <include name="Tc_Fac_05_Dep_02"/>
+	 <include name="Tc_Dep_03_04"/>
+	 <include name="Tc_Dep_07"/>
+	 <include name="Tc_Dep_06"/>
+	 <include name="Tc_Phy_01_02_03"/>
+	 <include name="Tc_Phy_01"/>
+	 <include name="Tc_Phy_04"/>
+	 <include name="Tc_Phy_05"/>
+	 <include name="Tc_ManageApprovalFlow_01"/>
+	 <include name="Tc_Manufacturers_01"/>
+	 <include name="Tc_Manufacturers_02"/>
+	 <include name="Tc_GL_Code_01_02"/>
+	 <include name="Tc_GL_Code_04_05"/>
+	 <include name="Tc_Patterns_01_03"/>
+	 <include name="Tc_Patterns_06"/>
+	 <include name="Tc_Patterns_05"/>
+	 <include name="Tc_Patterns_02"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+  <test name="Planner" preserve-order="true">
+   <classes>
+   <class name="testCases.Planner">
+   <methods>
+     <include name="Tc_Planner_01"/>
+     <include name="Tc_Planner_02"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+  <test name="Patients" preserve-order="true">
+   <classes>
+   <class name="testCases.Patients">
+   <methods>
+     <include name="Tc_Patients_01_02"/>
+     <include name="Tc_Patients_03"/>
+	 <include name="Tc_Patients_05"/>
+	 <include name="Tc_Patients_07"/>
+	 <include name="Tc_Patients_08_09"/>
+	 <include name="Tc_Patients_10"/>
+	 <include name="Tc_Patients_11"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+	<test name="Organization" preserve-order="true">
+   <classes>
+   <class name="testCases.Organization">
+   <methods>
+     <include name="TC_ORG_01"/>
+	</methods>
+	</class>
+  </classes>
+  </test>  
+  <test name="OperatingRoom" preserve-order="true">
+   <classes>
+   <class name="testCases.OperatingRoom">
+   <methods>
+     <include name="Tc_OP_01_02"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+    <test name="InvoicePage" preserve-order="true">
+   <classes>
+   <class name="testCases.InvoicePage">
+   <methods>
+     <include name="Tc_INV_01"/>
+	 <include name="Tc_INV_09_10"/>
+	 <include name="Tc_INV_02"/>
+	 <include name="Tc_INV_03"/>
+	 <include name="Tc_INV_04"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+</suite>
+

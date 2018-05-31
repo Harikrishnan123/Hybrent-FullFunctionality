@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="browser" value="firefox" />
+ <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/" />
+ <parameter name="siteUrl" value="https://qa3.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-4" />
+ <parameter name="siteName" value="qa-3" />
+ <test name="Dashboard" preserve-order="true">
+  <classes>
+   <class name="testcases_functionality.TC_Users">
+   <methods>
+     <include name="Tc_User_001" />
+     </methods>
+	</class>
+  </classes>
+   </test>
+   </suite>
+

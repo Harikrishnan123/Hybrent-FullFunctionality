@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [example suite 1]">
+  <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="siteName" value="qa-4"/>
+  <parameter name="nodeUrl" value="http://localhost:4444/wd/hub"/>
+  <test name="Dashboard(failed)">
+    <classes>
+      <class name="testcases_functionality.TC_Itemcatalog">
+        <methods>
+          <include name="setBrowser"/>
+          <include name="Tc_Itemcatalog_004"/>
+          <include name="endReport"/>
+          <include name="startReport"/>
+        </methods>
+      </class> <!-- testcases_functionality.TC_Itemcatalog -->
+    </classes>
+  </test> <!-- Dashboard(failed) -->
+</suite> <!-- Failed suite [example suite 1] -->
