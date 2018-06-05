@@ -23,6 +23,8 @@ public class OR {
 	// Shop
 	public static String Shop_Menu= "ShopMenu#xpath=//*[@href='#/shop']";
 	public static String Shop_wait= "Shopwait#xpath=//*[@id='ng-view']";
+	public static String Shop_UpdatePrice= "UpdatePrice#xpath=//*[@ng-click=\"contractPriceCtrl.continue('update')\"]";
+	public static String Shop_UpdatePrice1= "UpdatePrice#xpath=(//*[@class='modal-footer']//button[text()='Update Price'])[1]";
 	public static String Shop_SearchItemin= "SearchItemin#xpath=//*[contains(text(),'Search item in')]";
 	public static String Shop_Shopfor = "ShopFor#xpath=//*[contains(text(),'Shopping for')]";
 	public static String Shop_Shopfor_selectedFacility = "selectedFacility#xpath=//*[@uib-tooltip='Click to change facility.']";
@@ -43,24 +45,31 @@ public class OR {
 	public static String Shop_SHopfor_SelectfirstItemvendorName= "SelectvendorName#xpath=(//vendor-info)[1]/span";
 	public static String Shop_SHopfor_clickvendorsinDropdown= "clickvendorsinDropdown#xpath=//*[@id='vendor']";
 	public static String Shop_SHopfor_allvendorsinDropdown= "allvendorsinDropdown#xpath=//*[@id='vendor']/option";
-	
 	public static String Shop_SHopfor_MyInventoryradiobutton="MyInventoryradiobutton#xpath=//*[@id='searchShop']/div[1]";
+	public static String Shop_Qty_Close="Qty_Close#xpath=//*[@title='Cancel']";
+	public static String Shop_Qty_Validation="Validation#xpath=//*[text()='Cart quantity can not be less than zero.']";
+	public static String Shop_Qty_ValidationOK="ValidationOK#xpath=//*[text()='OK']";
 	public static String Shop_SHopfor_RecentlyOrderedradiobutton="RecentlyOrderedradiobutton#xpath=//*[@id='searchShop']/div[2]";
 	public static String Shop_SHopfor_MostOrderedradiobutton="MostOrderedradiobutton#xpath=//*[@id='searchShop']/div[3]";
 	public static String Shop_SHopfor_FavOrderedradiobutton="FavOrderedradiobutton#xpath=//*[@id='searchShop']/div[4]";
 	public static String Shop_selectExactMatch= "selectExactMatch#xpath=//*[@id='matchselect']";
 	public static String Shop_SHopfor_ResultGridTab="ResultGridTab#xpath=//*[@id='ng-view']/div/div[2]/div[3]/grid-layout/div[2]/div/div/div/div/table/thead/tr/th[7]/a";
-
+	public static String Shop_Item_First="Item_First#xpath=(//*[@value='name'])[1]";
 	public static String Shop_SHopfor_LastorderedText="LastorderedText#xpath=//th[@class='ng-scope text-left']/a";
 	public static String Shop_SHopfor_PoCountText="PoCountText#xpath=//th[@class='ng-scope text-right'][1]/a";
-
 	public static String Shop_SHopfor_Addtocartt="Shop_SHopfor_Addtocartt#xpath=(//button[@ng-click='$ctrl.addItemToCart(item)'])[1]";
 	public static String Shop_SHopfor_updatePrice="Shop_SHopfor_updatePrice#xpath=//*[@class='modal-header']//i";
-	public static String Shop_SHopfor_favtab="favtab#xpath=//*[@ng-if=\"isShowFavorite == 'true'\"]/i";
+	public static String Shop_SHopfor_favtab="favtab#xpath=(//*[@ ng-if=\"isShowFavorite == 'true'\"]/i)[1]";
 	public static String Shop_SHopfor_myInventoryFavTab="myInventoryFavTab#xpath=//i[@ng-if='!isFavorite']";  
-
 	public static String Shop_orgPage="orgPage#xpath=//*[@href='#/admin/organization']";
 	public static String Shop_FeaturesPage="FeaturesPage#xpath=//ul[@class='nav nav-tabs']/li[2]/a";
+	public static String Shop_Contractpriecradiobtn="Contractpriecradiobtn#xpath=//*[@id='use_list_price_no']";
+	// validation
+	public static String Shop_Alertvalidation="Validation#xpath=//*[text()='This item is not under contract or a preference item from your distributor, It may cost more.']";
+	public static String Shop_Alert_Dontnotadd="DoNotAdd#xpath=//button[text()='Do not add to cart']";
+	public static String Shop_Alert_Dontnotadd_checkbox="AlertStop#xpath=//*[@ng-click='Ctrl.stopAlert()']";
+	public static String Shop_Checkoutbtn="Checkoutbtn#xpath=//button[contains(text(),'Checkout')]";
+	
 	// Most Ordered
 	public static String Shop_Mostordered_Itemdescription="Itemdescription#xpath=//*[contains(text(),'Item Description')]";
 
@@ -82,7 +91,7 @@ public class OR {
 	public static String Shop_SHopfor_allFieldsBtn="allFieldsBtn#xpath=//div[@options='searchKeysList']/div/button";
 
 	public static String Shop_SHopfor_Search_vendorName_Price= "Search_vendorName_price#xpath=//*[@current-price='item.purchase_price']/div";
-	public static String Shop_SHopfor_Search_Addtocart= "Search_AddtocartBtn#xpath=//*[@ng-click='$ctrl.addItemToCart(item)']";
+	public static String Shop_SHopfor_Search_Addtocart= "Search_AddtocartBtn#xpath=(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]";
 
 
 	public static String Shop_GrandTotal = "GrandTotal#xpath=//*[@tour-step='cart-grand-total']/td";
@@ -101,6 +110,10 @@ public class OR {
 	//public static String Shop_wait= "ifnoItemfield#xpath=//tr[@ng-if='!items.length']/td";
 
 	public static String Shop_showTour= "showTour#xpath=//li[@ng-click='startTour();']";
+	public static String Shop_showTour1= "showTour#xpath=//a[text()='Show Tour']";
+	public static String Shop_showTour_Message= "Message#xpath=//*[contains(@class, 'tourStep') and contains(@class, 'tether-enabled')]//*[@class='popover-content tour-step-content']";
+	public static String Shop_showTour_Next= "Next#xpath=//*[contains(@class, 'tourStep') and contains(@class, 'tether-enabled')]//button[text()='Next »']";
+	public static String Shop_showTour_EndTour= "EndTour#xpath=//*[contains(@class, 'tourStep') and contains(@class, 'tether-enabled')]//button[text()='End tour']";
 	public static String Shop_mouseoverviewtype= "ViewType#xpath=//*[text()='View Type']";
 
 	public static String Shop_waitfor = "mouseoverviewtype#xpath=//ul[@class='dropdown-menu dropdown-menu-less-padding dropdown-menu-round-bordered']";
@@ -160,17 +173,21 @@ public class OR {
 
 	// Item Catalog
 	public static String Shop_ItemNameDropDown_First = "ItemNameDropDown#xpath=(//*[@id='optionMenu']//*[@class='fa fa-chevron-down'])[1]";																																							 
-	public static String Shop_ItemNameDropDownPricechangeHistory_First = "ItemNameDropDownPriceHistory#xpath=//body/ul[@class='dropdown-menu']//*[text()='Price Change History']";
-	public static String Shop_ItemNameDropDownPurchaceHistory_First = "ItemNameDropDownPurchaceHistory#xpath=//body/ul[@class='dropdown-menu']//*[text()='Purchase History']";
-	public static String Shop_ItemNameDropDownEdit_First = "ItemNameDropDownEdit#xpath=//body/ul[@class='dropdown-menu']//a[text()='Edit']";
+	public static String Shop_ItemNameDropDownPricechangeHistory_First = "ItemNameDropDownPriceHistory#xpath=//*[@class='dropdown-menu']//*[text()='Price Change History']";
+	public static String Shop_ItemNameDropDownPurchaceHistory_First = "ItemNameDropDownPurchaceHistory#xpath=//*[@class='dropdown-menu']//*[text()='Purchase History']";
+	public static String Shop_ItemNameDropDownEdit_First = "ItemNameDropDownEdit#xpath=//a[@ng-show='canBeEdit']";
+	public static String Shop_ItemName_StockDropdown = "StockDropdown#xpath=//select[@ng-model='v.facilityItemVendors.stock_status']";
     	
 	public static String Shop_Match_Text = "Match_Text#xpath=//*[@for='matchselect']";
 	public static String Shop_Item_Qty_First = "Qty#xpath=(//*[@ng-click='item.qty=getCartItem(item.item_vendor_id).qty; textBtnForm.$show();'])[1]";										
     public static String Shop_Item_Qty_Increase_First = "Qty_Increase#xpath=(//*[@ng-click='incrementQty(getCartItem(item.item_vendor_id).id)'])[1]";										
     public static String Shop_Item_Qty_Derease_First = "Qty_Degrease#xpath=(//*[@ng-click='decrementQty(getCartItem(item.item_vendor_id).id)'])[1]";										
     public static String Shop_SHopfor_Search_Addtocart_First= "Search_Addtocart_First#xpath=(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]";
+    public static String Shop_SHopfor_Search_Input_First1= "InputQty#xpath=(//*[@editable-text='item.qty']/nobr/span)[1]";
+    public static String Shop_SHopfor_Search_Addtocart_InputQty= "InputQtyEnter#xpath=//*[@class='editable-controls form-group']/input";
     public static String Shop_checkout= "Shop_checkout#xpath=//*[@class='pull-right']//button[@ng-click='gotoCart()']";
 
+    public static String ItemTabVendor="TabVendor#xpath=//*[@heading='Vendors']//a[text()='Vendors']";
 	public static String ItemCatalog_statusDropdown="statusDropdown#xpath=//*[@id='status']";
 	public static String ItemCatalog_searchbutton="searchbutton#xpath=//button[text()='Search']";
 	public static String ItemCatalog_waitforeditbuttonclass="waitforeditbuttonclass#xpath=//*[@class='btn btn-primary ng-scope']"; 
@@ -205,6 +222,7 @@ public class OR {
 	public static String ItemCatalog_gpo = "gpo#xpath=//*[@class='v.facilityItemVendors.gpo_contract_price']";
 	public static String ItemCatalog_AddVendors = "AddVendors#xpath=//input[@value='Add Vendor']";
 	public static String ItemCatalog_Add_Vendorsname = "Vendorsname#xpath=//*[@name='vendor_name']";
+	public static String ItemCatalog_Add_Vendorsname1 = "Vendorsname#xpath=(//*[@name='vendor_name'])[2]";
 	public static String ItemCatalog_Add_VendorsnameSelect = "VendorsnameSelect#xpath=//table[@id='tbl_add_vendor1']/tbody/tr/td[4]/select";
 	public static String ItemCatalog_firstvendor = "firstvendor#xpath=//*[@id='tbl_add_vendor1']/tbody/tr[1]/td[2]/div[1]/div/span/span[2]/span";
 	public static String ItemCatalog_itemCategory = "itemCategory#xpath=//select[@ng-model='item.category_id']";
@@ -219,6 +237,7 @@ public class OR {
 	public static String ItemCatalog_FileUpload_FirstImg = "FirstImg#xpath=(//img)[1]";
 	public static String ItemCatalog_FileUpload_CloseBtn = "CloseBtn#xpath=//button[text()='Close']";
 	
+	
 	// Vendor
 	public static String ItemCatalog_Vendort_IsActive = "IsActive#xpath=//*[text()='Is Active']";
 	public static String ItemCatalog_Vendort_VendorName = "VendorName#xpath=//*[contains(text(),'Vendor Name')]";
@@ -232,24 +251,30 @@ public class OR {
 	
 	// public static String ItemCatalog_Add_allvendorsfromdropdown = "VendorsnameSelect#xpath=//table[@id='tbl_add_vendor1']/tbody/tr/td[4]/select";
 	public static String ItemCatalog_Add_VendorsSkuName ="VendorsSkuName#xpath=//input[@ng-model='v.sku']";
+	public static String ItemCatalog_Add_VendorsSkuName1 ="VendorsSkuName#xpath=(//input[@ng-model='v.sku'])[2]";
 	public static String ItemCatalog_Add_VendorsMinOrderQty = "VendorsMinOrderQty#xpath=//input[@ng-model='v.min_order_qty']";
+	public static String ItemCatalog_Add_VendorsMinOrderQty1 = "VendorsMinOrderQty#xpath=(//input[@ng-model='v.min_order_qty'])[2]";
 	public static String ItemCatalog_AddItem_MapValidation = "MapValidation#xpath=//*[contains(text(),'Do you want to map this item to your various facilities?')]";
 	public static String ItemCatalog_AddItem_MapValidation_Cancel = "MapValidation_Cancel#xpath=//*[@class='cancel']";
 	public static String ItemCatalog_AddItem_MapValidation_yes = "MapValidation_Yes#xpath=//*[@class='confirm']";
 	public static String ItemCatalog_AddItem_VendorSelect_First = "VendorSelect_First#xpath=(//*[@ng-bind-html='vendor.name | highlight: $select.search'])[2]";
 	public static String ItemCatalog_SaveButton ="SaveButton#xpath=//*[@type='submit']";
+	public static String ItemCatalog_Similaritem ="SimilarItem#xpath=(//*[text()='similar item'])[1]";
+	public static String ItemCatalog_MapfacilityButton ="MapfacilityButton#xpath=(//*[contains(text(),'Map Facility/Update Price')])[2]";
 	public static String ItemCatalog_mapallbuttontopright ="mapallbuttontopright#xpath=//*[contains(text(),'More Options')]";
 	public static String ItemCatalog_mapwithalltopright ="mapwithalltopright#xpath=//a[text()='Map with all facility']";
 	public static String ItemCatalog_Map_changeForMoreFacility ="changeForMoreFacility#xpath=//*[text()='Change for mapped facilities']";
 	public static String ItemCatalog_Map_PurchasePrice ="PurchasePrice#xpath=//label[text()='Purchase Price']";
 	public static String ItemCatalog_Map_StockPrice ="StockPrice#xpath=//label[text()='Stock Status']";
 	public static String ItemCatalog_Map_DiscountType ="Discounttype#xpath=//label[text()='Discount type']";
-	
-	
+	public static String ItemCatalog_Close ="Close#xpath=(//button[@class='close'])[1]";
+	public static String ItemCatalog_Replace_Btn="Replace#xpath=//*[@class=\"fa fa-shopping-cart\"]/following-sibling::text()[contains(., 'Replace')]";
 	
 	
 	public static String ItemCatalog_verifytextpopup ="verifytextpopup #xpath= //*[@class='modal-header']/div/span";
 	public static String ItemCatalog_purchaseprice ="purchaseprice#xpath= //input[@ng-model='purchase_price']";
+	public static String ItemCatalog_purchase_price_Edit ="purchaseprice#xpath= //*[@ng-model='v.facilityItemVendors.purchase_price']";
+	public static String ItemCatalog_GPo_price_Edit ="Gpoprice#xpath= //*[@ng-model='v.facilityItemVendors.gpo_contract_price']";
 	//public static String ItemCatalog_mapallbutton ="mapallbutton#xpath=//button[@type='submit']";
 	public static String ItemCatalog_mapallbutton ="mapallbutton#xpath=//button[@id='btnAdd']";
 	public static String ItemCatalog_txt_Addmanufacture ="AddmanufactureTxt#xpath=//*[text()='Add Manufacturer']";
@@ -352,8 +377,12 @@ public class OR {
 	public static String MyCart = "MyCart#xpath=//*[@href='#/my-cart']";
 	public static String MyCart_count = "countMyCart#xpath=//a[@ng-href='#/my-cart']/i/sup";
 	public static String MyCart_cartFor = "text_cartFor#xpath=//*[contains(text(),'Cart for')]";
-	public static String MyCart_cartFor_Details = "text_cartFor_Details#xpath=//*[@select-list='shippingLocations']/a";
+	public static String MyCart_cartFor_Details = "Facility#xpath=//*[@select-list='shippingLocations']/a";
+	public static String MyCart_cartFor_CartMore = "CartMore#xpath=//*[@tour-step='cart-more']/button";
+	public static String MyCart_cartFor_NoElementFound = "NoElementFound#xpath=//*[text()='No Items Found.']";
 	public static String MyCart_searchInCart = "searchInCart#xpath=//*[@id='searchInput']";
+	public static String MyCart_InputQty = "InputQty#xpath=//*[@ng-show='$ctrl.editQty']//big";
+	public static String MyCart_InputQty_InputQtyDecrease = "InputQtyDecrease#xpath=//*[@id='dcr']";
 	public static String MyCart_addItemInCart = "addItemInCart#xpath=(//button[@id='btnAdd'])[1]";
 	//public static String MyCart_warningPopup = "warningPopup#xpath=//*[@class='row']";
 	public static String MyCart_warningPopup = "warningPopup#xpath=//button[text()='Continue']";
@@ -363,7 +392,7 @@ public class OR {
 	public static String MyCart_firstItemNamewait = "firstItemNamewait#xpath=//ul[@id='suggestions']";
 	public static String MyCart_firstItemSkuName = "firstItemSkuName#xpath=//*[@id='suggestions']/li[1]/div/div[3]/div[1]/span/small";	
 	public static String MyCart_drillDown = "drillDown#xpath=//button[@class='btn btn-default dropdown-toggle' and @type='button']";
-
+	
 	public static String MyCart_drillDownDiv = "drillDownDiv#xpath=//*[@class='btn-group pull-right ng-scope' and @role='group']";
 
 	public static String MyCart_clearCurrentCart = "clearCurrentCart#xpath=//a[contains(text(),'Clear Current Cart')]";
@@ -380,13 +409,16 @@ public class OR {
 	public static String MyCart_SiTextBox = "SiTextBox#xpath=//input[@class='cart-comment-box-without-value text-primary ng-pristine ng-untouched ng-valid']";
 	public static String MyCart_UsemyPOCheckBox = "UsemyPOCheckBox#xpath=//*[@ng-click='test_check(key)']";
 	public static String MyCart_typePONumber = "typePONumber #xpath=//*[@ng-show='checked_pos[key].show']//*[@class='form-control ng-pristine ng-valid ng-valid-maxlength ng-touched input-sm ng-untouched ng-empty']";
-
-	public static String MyCart_drillDownVendor = "drillDownVendor#xpath=//span[@id='optionMenu']";
+	public static String Mycard_GenderFor ="Genderfor#xpath=//*[contains(text(),'Generate for')]";
+	public static String Mycard_GenderFor_vendor ="Vendoe#classname=vendor-bubble-left";
+	public static String MyCart_drillDownVendor = "drillDownVendor#xpath=//tr//*[@class='container-fluid']//*[@id='optionMenu']";
 	public static String MyCart_removeVendor = "removeVendor#xpath=//*[contains(text(), 'Remove Vendor from Cart')]";   
+	public static String MyCart_removeVendor_validation = "removeVailication#xpath=//*[text()=\"Are you sure you want to remove this vendor's items from cart?\"]";
 	public static String MyCart_confirmButton = "confirmButton#xpath=//button[@class='confirm']";
 	public static String MyCart_accountSetUp = "MyCart_accountSetUp#xpath=//*[contains(text(), 'Account setup')]"; 
+	public static String MyCart_Checkaccount = "check_account#xpath=//*[contains(text(), \"Check Item's Availability\")]";
 	public static String MyCart_emptycartText = "MyCart_emptycartText#xpath=//*[@class='table']/tbody/tr/td/h3";
-	public static String MyCart_vendorAccountSetUp = "vendorAccountSetUp#xpath=//*[@class='vendor-acc-header ng-binding']";
+	public static String MyCart_ItemReorder = "ItemReorder#xpath=//*[@class='modal-title']/i/following-sibling::text()";
 
 	public static String MyCart_AddDepartmenthyperLink = "AddDepartmenthyperLink#xpath=//a[@ng-click='selectDepartments(cartItem);']";
 	public static String MyCart_AddDepartmentText = "AddDepartmentText#xpath=(//h4)[1]";
@@ -400,6 +432,17 @@ public class OR {
 	public static String MyCart_showtourtextONPOPUP="showtourtextONPOPUP#xpath=//h3[contains(text(),'Cart: List of Items')]";
 	public static String MyCart_cartIconNumber="cartIconNumber#xpath=//*[@href='#/my-cart']/i/sup";
 	public static String MyCart_clearAllCarts2 = "clearAllCarts#xpath=//*[@ng-click='clearCart()']";	
+	public static String MyCart_Receiveonly = "Receiveonly#xpath=//*[text()='Receive Only']";
+	public static String MyCart_ReceiveonlyCheckbox = "Receiveonly#xpath=//*[text()='Receive Only']/preceding-sibling::input";
+	public static String MyCart_Sku = "Sku#xpath=//*[@ng-click=\"order('itemVendor.sku')\"]";
+	public static String MyCart_Qty = "Qty#xpath=//*[@ng-click=\"order('qty')\"]";
+	public static String MyCart_UOM = "UOM#xpath=//*[@ng-click=\"order('itemVendor.UOM')\"]";
+	public static String MyCart_status = "UOM#xpath=//*[@ng-click=\"order('facilityItemVendor.stock_status')\"]";
+	public static String MyCart_Price = "Price#xpath=//*[@ng-click=\"order('facilityItemVendor.purchase_price')\"]";
+	public static String MyCart_Price1 = "Price#xpath=(//*[@ng-click='$ctrl.setItemPrice()()'])[1]";
+	public static String MyCart_Price_updateprice = "UpdatepricePrice#xpath=//*[contains(text(),'Update Item Price')]";
+	public static String MyCart_TotalPrice = "TotalPrice#xpath=//*[@ng-click=\"order('itemVendor.v_total_price')\"]";
+	public static String MyCart_UpdatePrice = "UpdatePrice#xpath=//*[@ng-model='itemForm.price']";
 
 	// Profile
 	public static String Profile_UserProdile = "UserProfile#xpath=//span[text()='User Profile']";
@@ -1281,6 +1324,7 @@ public class OR {
 	    
 	    // Edit Item Page
 	    public static String EditItem_text = "EditItem#xpath=//*[text()='Edit Item']";
+	    public static String EditItem_btn = "EditItem#xpath=(//button[contains(text(),'Edit Item')])[1]";
 	    
 	
 		public static String Shop_drilldownRemoveLayout = "drilldownRemoveLayout#xpath=//a[contains(text(),'---automation layout---')]/../i";
@@ -1452,7 +1496,7 @@ public class OR {
 	    public static String Template_firstTemplate ="irstTemplate#xpath=//*[@class='table table-striped']//tbody//tr[1]/td[1]";
 	    public static String Template_Delete ="Delete#xpath=(//i[@class='fa fa-trash-o'])[1]";
 	    public static String Template_Use ="Use#xpath=(//a[@uib-tooltip='Use'])[1]";
-	    public static String Template_GeneratePO ="GeneratePO#xpath=//*[@id='btnAdd']//*[@id='btnAdd']";
+	    public static String Template_GeneratePO ="GeneratePO#xpath=//*[@id='btnAdd']";
 	    public static String Template_Warning ="Warning#xpath=//h2[text()='Warning']";
 	    public static String Template_WarningMsg ="WarningMsg#xpath=//*[text()='Increase qty. of at least one item to generate the PO.']";
 	    public static String Template_Warningok ="ok#xpath=//button[text()='OK']";

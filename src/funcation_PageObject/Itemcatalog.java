@@ -83,7 +83,7 @@ public class Itemcatalog extends ApplicationKeyword{
 		waitForElement(OR.ItemCatalog_itemalias, 30);
 		typeIn(OR.ItemCatalog_itemalias, aliasName);
 		LotEnabletoogle();
-		ActiveEnabletoogle();
+		//ActiveEnabletoogle();
 		ExpirationEnabletoogle();
 		BillOnlyEnabletoogle();
 		ImplantEnabletoogle();

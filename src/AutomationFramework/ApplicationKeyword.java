@@ -5,7 +5,12 @@ import java.util.Properties;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import AutomationFramework._OR;
 
@@ -114,5 +119,34 @@ public class ApplicationKeyword extends Generickeywords
 		}
 	}
 	
+	public static void pagesize()
+	{
+		int size = driver.findElements(By.xpath("//*[@id='pageSize']")).size();
+		for(int i =1; i<=size; i++)
+		{
+			Select s =  new Select(driver.findElement(By.xpath("//*[@id='pageSize']")));
+			s.selectByIndex(i);
+			WebElement option = s.getOptions().get(i);
+			String defaultItem = option.getText();
+			testLogPass("selected page size is "+defaultItem);
+		}
+	}
+	
+	public static String BootstrapgetToolTip(WebElement baseElement, WebElement tooltipElement, WebDriver driver)
+	{
+		// Actions class object
+		Actions action= new Actions(driver);
+		// Explicit wait
+		WebDriverWait wait= new WebDriverWait(driver,10);
+		// Moving mouse cursor to base element to make tooltip visible
+		action.moveToElement(baseElement).build().perform();
+		// Wait till tooltip is visible/displayed
+		WebElement tooltipTextEle=wait.until(ExpectedConditions.visibilityOf(tooltipElement));
+		// Get tool tip using getText method
+		String toolTip= tooltipTextEle.getText();
+		// return tool tip
+		return toolTip;
+	}
+
 }
 
