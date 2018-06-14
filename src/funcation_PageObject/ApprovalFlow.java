@@ -12,7 +12,9 @@ public class ApprovalFlow extends ApplicationKeyword
 {
 	public static void NavigateToApprovalflow()
 	{
+		waitForElement(_OR.DashBoard_Admin);
 		clickOn(_OR.DashBoard_Admin);
+		waitForElement(_OR.DashBoard_Admin_approvals);
 		clickOn(_OR.DashBoard_Admin_approvals);
 		getTextchild("//*[@class='pagehead']");
 	}

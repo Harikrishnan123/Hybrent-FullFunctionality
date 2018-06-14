@@ -167,15 +167,23 @@ public class Vendor extends ApplicationKeyword{
 	
 	public static void ActiveVendor()
 	{
+		waitUntilPageReady();
 		String Attribute = getAttributeValue(OR.Vendor_Edit_StatusInput, "class");
 		if(Attribute.contains("bootstrap-switch-off"))
 		{
 			testLogPass("Toggle button is Off");
 			clickOn(OR.Vendor_Edit_StatusInput);
 		}
+		waitUntilPageReady();
 		String one = driver.findElement(By.xpath("//*[@id='name']")).getAttribute("value");
 		clickOn(OR.PriceChangeDetails_Close);
+		waitUntilPageReady();
+		if(driver.findElements(By.xpath("//*[contains(text(),'You have some unsaved changes, do you want to save them before leaving the page?')]")).size()!=0)
+		{
+			clickOn(OR.InvLoc_Add_CancelBtn);
+		}
 		clickOn(OR.Shop_Menu);
+		waitForElement(OR.Shop_SHopfor_allvendorsinDropdown, 40);
 		int size = driver.findElements(By.xpath("//*[@id='vendor']/option")).size();
 		for(int i =1;i<=size;i++)
 		{
@@ -190,7 +198,7 @@ public class Vendor extends ApplicationKeyword{
 	public static void UOM()
 	{
 		clickOn(OR.Vendor_UOM);
-		verifyElement(OR.Vendor_UOM_UOM1);
+		//verifyElement(OR.Vendor_UOM_UOM1);
 	}
 	public static void Customersupport()
 	{
@@ -200,6 +208,7 @@ public class Vendor extends ApplicationKeyword{
 		verifyElement(OR.Vendor_Customersupport_Phone);
 		verifyElement(OR.Vendor_Customersupport_Addbtn);
 		AddCustom();
+		DeleteCustom();
 	}
 	
 	public static void AddCustom()
@@ -238,9 +247,11 @@ public class Vendor extends ApplicationKeyword{
 	}
 	public static void DeleteCustom()
 	{
+		waitForElement(OR.SI_DeleteButton);
 		clickOn(OR.SI_DeleteButton);
 		verifyElementText(OR.Vendor_Customersupport_Custom_Deletevalidation, "Are you sure you want to delete selected vendor information?");
 		clickOn(OR.Dep_Delete_Cancel);
+		waitForElement(OR.SI_DeleteButton);
 		clickOn(OR.SI_DeleteButton);
 		verifyElementText(OR.Vendor_Customersupport_Custom_Deletevalidation, "Are you sure you want to delete selected vendor information?");
 		clickOn(OR.Dep_Delete_Yes);

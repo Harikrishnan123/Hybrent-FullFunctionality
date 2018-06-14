@@ -45,7 +45,8 @@ public class VendorAccSetup extends ApplicationKeyword {
 				AccType.sendKeys("12");
 			}
 			mouseOver(OR.VendorAccSetup_Save);
-			clickOn(OR.VendorAccSetup_Save);		
+			WebElement element = driver.findElement(By.xpath("//button[text()='Save']"));
+			executor.executeScript("arguments[0].click();", element);	
 			ToastmesssageSucess();
 		}
 		

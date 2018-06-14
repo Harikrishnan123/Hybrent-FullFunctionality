@@ -39,6 +39,7 @@ public class Inventorylocations extends ApplicationKeyword{
 		verifyElement(OR.InvLoc_Add_CreateBtn);
 		String one = getProperty("UserAddfailityName");	
 		selectFromDropdown(OR.InvLoc_Add_Facility_Dropdown, getProperty("UserAddfailityName"));
+		waitForElement(OR.InvLoc_Add_CreateBtn);
 		clickOn(OR.InvLoc_Add_CreateBtn);
 		ToastmesssageSucess();
 		

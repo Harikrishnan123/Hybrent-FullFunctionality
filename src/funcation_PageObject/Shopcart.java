@@ -3,6 +3,7 @@ package funcation_PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.reporters.jq.TestPanel;
 
@@ -79,12 +80,24 @@ public class Shopcart extends ApplicationKeyword{
     	int countitem =Integer.parseInt(beforeadd);
 		testLogPass("before adding the item to cart is "+countitem);
 		SearchItem(getProperty("ItemDesc"));
-		waitUntilAngularReady();
+		waitUntilPageReady();
+		
+		if(driver.findElements(By.xpath("//*[@class='modal-title']")).size()!=0)
+		{
 		String one = getTextchild("//*[@class='modal-title']") ;
-		if(one.contains("Item reorder warning"))
+		if(one.contains("Price check"))
 		{
 			clickOn(OR.MyCart_warningPopup);
-			System.out.println();
+		}
+		waitUntilPageReady();
+		}
+		if(driver.findElements(By.xpath("//*[@class='modal-title']")).size()!=0)
+		{
+		String one1 = getTextchild("//*[@class='modal-title']") ;
+		if(one1.contains("Item reorder warning"))
+		{
+			clickOn(OR.MyCart_warningPopup);
+		}
 		}
 		AfterAdd = getText(OR.MyCart_count);
 		int AfterAdd1 =Integer.parseInt(AfterAdd);
@@ -145,7 +158,7 @@ public class Shopcart extends ApplicationKeyword{
     public static void SearchItem(String Search)
     {
     	typeIn(OR.MyCart_searchInCart, Search);
-		clickOn(OR.Shop_GeneratePo);
+    	clickOn(OR.Shop_GeneratePo);
     }
     
     public static void vendor()
@@ -177,8 +190,7 @@ public class Shopcart extends ApplicationKeyword{
     	    	verifyElement(OR.MyCart_accountSetUp);
     	    	clickOn(OR.MyCart_accountSetUp);
     	    	getTextchild("//*[@class='pagehead']");
-    	    	int size = driver.findElements(By.xpath("//input[starts-with(@id,'facility_account_text')]")).size();
-    	    	for(int i=1; i<=size; i++ )
+    	    	for(int i=1; i<=2; i++ )
     	    	{
     	    		driver.findElement(By.xpath("(//input[starts-with(@id,'facility_account_text')])["+i+"]")).sendKeys("123");
     	    		
@@ -215,15 +227,19 @@ public class Shopcart extends ApplicationKeyword{
 			verifyElementText(OR.MyCart_Price_updateprice, "Update Item Price");
 			verifyElement(OR.Shop_UpdatePrice1);
 			verifyElement(OR.ItemCatalog_FileUpload_CloseBtn);
-			clickOn(OR.HeaderClose);
+			waitForElement(OR.HeaderClose1);
+			clickOn(OR.HeaderClose1);
 		}
 		String s1 = driver.findElement(By.xpath("(//*[@ng-click='$ctrl.setItemPrice()()'])[1]")).getTagName();
 		if(s1.contains("a"))
 		{
+			testLogPass("Price is "+driver.findElement(By.xpath("(//nobr)")).getText());
+			waitForElement(OR.MyCart_Price1);
 			clickOn(OR.MyCart_Price1);
+			waitForElement(OR.ItemCatalog_FileUpload_CloseBtn);
 			clickOn(OR.ItemCatalog_FileUpload_CloseBtn);
 		}
-		String beforeprice = driver.findElement(By.xpath("//nobr")).getText();
+		String beforeprice = driver.findElement(By.xpath("//nobr/a")).getText().replaceAll("\\.?0*$", "").replace("$", "");
 		int pri = Integer.parseInt(beforeprice);
 		int priceupdate;
 		if(pri==0)
@@ -235,7 +251,9 @@ public class Shopcart extends ApplicationKeyword{
 			priceupdate = generateRandomInt1(2);
 		}
 		clickOn(OR.MyCart_Price1);
-		String jprice = getText(OR.MyCart_UpdatePrice);
+		waitForAngularLoad();
+		waitTime(2);
+		String jprice = getAttributeValue(OR.MyCart_UpdatePrice,"value").replaceAll(".00", "");
 		int piruceget = Integer.parseInt(jprice);
 		if(piruceget==priceupdate)
 		{
@@ -243,13 +261,78 @@ public class Shopcart extends ApplicationKeyword{
 		}
 		else
 		{
-		String sprice =Integer.toString(priceupdate);
+		String sprice ="10";
 			typeIn(OR.MyCart_UpdatePrice, sprice);
 			clickOn(OR.Shop_UpdatePrice1);
 		}
 		ToastmesssageSucess();
 		String afterupdate = driver.findElement(By.xpath("//nobr")).getText();
 		testLogPass("After updating the price is "+afterupdate);
+    }
+    
+    public static void Dropdown()
+    {
+    	waitTime(3);
+		 clickOn(OR.Shop_ItemNameDropDown_two);
+	
+			WebElement Edit = driver.findElement(By.xpath("(//a[@ng-show='canBeEdit'])[1]"));
+			Edit.click();
+			testLogPass("header is "+getTextchild("//*[@class='headtext']"));
+			clickOn(OR.ItemCatalog_Close);
+			
+			waitForElement(OR.Shop_ItemNameDropDown_two);
+			clickOn(OR.Shop_ItemNameDropDown_two);
+			WebElement dropdownValue1 = driver.findElement(By.xpath("(//a[text()='Price Change History'])[1]"));
+			dropdownValue1.click();
+			testLogPass("Dropdown value is '"+dropdownValue1.getText());
+			testLogPass(getText(OR.MyCart_CurrentPrice));
+			int si = driver.findElements(By.xpath("(//*[@ng-if='itemPriceDetail.priceChangeHistory.length']//th)")).size();
+					for(int i=1 ; i<=si;i++)
+					{
+						testLogPass(driver.findElement(By.xpath("(//*[@ng-if='itemPriceDetail.priceChangeHistory.length']//th)["+i+"]")).getText());
+					}
+					clickOn(OR.Template_CloseBtn);
+					
+					
+				waitForElement(OR.Shop_ItemNameDropDown_two);
+					
+			clickOn(OR.Shop_ItemNameDropDown_two);
+			WebElement dropdownValue2 = driver.findElement(By.xpath("(//a[text()='Purchase History'])[1]"));
+			dropdownValue2.click();
+			testLogPass("header is "+getTextchild("//*[@class='modal-title']"));
+		    String one = driver.getPageSource();
+		    String one1 = getProperty("UserAddDeptName");		
+		    if(one.contains(one1)) 
+		    {
+		    	testLogPass("Department assigned to item is displays in Purchase History");
+		    }
+			int si1 = driver.findElements(By.xpath("(//*[@class='table table-hover customtable']//th)")).size();
+			for(int j=1 ; j<=si1;j++)
+			{
+				testLogPass(driver.findElement(By.xpath("(//*[@class='table table-hover customtable']//th)["+j+"]")).getText());
+			}
+			//verifyPagination();
+			clickOn(OR.Template_CloseBtn);
+    }
+    
+    public static void MouseOverDetails()
+    {
+    	String one = getProperty("ItemDesc");
+		
+		if(driver.findElements(By.xpath("//*[text()='"+one+"']")).size()!=0)
+		{
+    	 WebElement Fav11 = driver.findElement(By.xpath("//*[text()='"+one+"']"));
+		    Actions toolAct = new Actions(driver);
+		    toolAct.moveToElement(Fav11).build().perform();
+		    String oned = driver.findElement(By.xpath("//*[@class='tooltip ng-scope ng-isolate-scope right fade in']")).getText();
+		    if(oned.contains("Favourite"))
+		    {
+				testLogPass("Toolip for is presnet");
+		    }
+    
+		}   
+		    
+		    
     }
 }
 

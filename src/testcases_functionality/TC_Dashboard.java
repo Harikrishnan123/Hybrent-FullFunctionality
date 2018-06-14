@@ -58,7 +58,7 @@ public class TC_Dashboard extends ApplicationKeyword{
 		testStarts("Tc_Dashboard_001", "Verify Menu options (as per permission to the user in Admin section) present below organization logo with list as follows:\n"
 				+ "Verify Admin drop down button appears on top of page.\r\n" + 
 				"" );
-		Loginpage.OpenBrowserAndLogin();
+		Loginpage.OpenBrowserAndLoginnew();
 		verifyElement(_OR.Dashboard_Submenu_Dashboard);
 		verifyElement(_OR.Dashboard_Submenu_shop);
 		verifyElement(_OR.Dashboard_Submenu_Orders);

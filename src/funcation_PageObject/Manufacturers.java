@@ -16,7 +16,7 @@ public class Manufacturers extends ApplicationKeyword{
 	public static void pageVerify()
 	{
 		Gridview();
-		verifyElementText(OR.Itemcatalog_SearchBy, "Search by");
+		verifyElementText(OR.manufacturer_searchby, "Search by");
 		verifyPagination();
 		String ibe = getText(_OR.DashBoard_Admin_manufacturersFirst);
 		typeIn(OR.InvoicePaymentTerm_SearchBox, ibe);

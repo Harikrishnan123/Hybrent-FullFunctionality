@@ -45,8 +45,8 @@ public class TC_Manufacturers extends ApplicationKeyword{
 	@Test
 	public void TC_Manufacturers_001() {
 		testStarts("TC_Manufacturers_001", "Verify that heading “Manage Manufacturers” appear on page.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
+		Loginpage.OpenBrowserAndLoginnew();
+		Manufacturers.NavigateToManufacture();
 		Manufacturers.pageVerify();
 	}
 	

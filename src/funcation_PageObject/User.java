@@ -300,7 +300,7 @@ public class User extends ApplicationKeyword{
 //			 clickOn(_OR.user_addUser_Addvendor_add);
 //		 }
 		 typeIn(_OR.user_addUser_Addvendor_input, "Medline");
-		 if(isElementDisplayed(_OR.user_addUser_Addvendor_add))
+		 if(driver.findElements(By.xpath("(//*[@ng-click='selectItem(item.name,item.id)'])[1]")).size()!=0)
 		 {
 			 clickOn(_OR.user_addUser_Addvendor_add);
 		 }
@@ -315,17 +315,17 @@ public class User extends ApplicationKeyword{
 //			 clickOn(_OR.user_addUser_Addvendor_add);
 //		 }
 		 typeIn(_OR.user_addUser_Addvendor_input, "McKesson");
-		 if(isElementDisplayed(_OR.user_addUser_Addvendor_add))
+		 if(driver.findElements(By.xpath("(//*[@ng-click='selectItem(item.name,item.id)'])[1]")).size()!=0)
 		 {
 			 clickOn(_OR.user_addUser_Addvendor_add);
 		 }
 		 typeIn(_OR.user_addUser_Addvendor_input, "HENRY SCHEIN");
-		 if(isElementDisplayed(_OR.user_addUser_Addvendor_add))
+		 if(driver.findElements(By.xpath("(//*[@ng-click='selectItem(item.name,item.id)'])[1]")).size()!=0)
 		 {
 			 clickOn(_OR.user_addUser_Addvendor_add);
 		 }
 		 typeIn(_OR.user_addUser_Addvendor_input, "ALCON LABORATORIES INC");
-		 if(isElementDisplayed(_OR.user_addUser_Addvendor_add))
+		 if(driver.findElements(By.xpath("(//*[@ng-click='selectItem(item.name,item.id)'])[1]")).size()!=0)
 		 {
 			 clickOn(_OR.user_addUser_Addvendor_add);
 		 }
@@ -344,7 +344,9 @@ public class User extends ApplicationKeyword{
 			clickOn(_OR.user_Agree);
 			waitForElement(_OR.user_TearmsService, 10);
 			verifyElementText(_OR.user_TearmsService, "HYBRENT TERMS OF SERVICE");
+			waitForElement(_OR.user_Agree);
 			actions.moveToElement(element);
+			waitForElement(_OR.user_Agree);
 			clickOn(_OR.user_Agree);
 			waitTime(3);
 			actions.moveToElement(element);
@@ -355,7 +357,14 @@ public class User extends ApplicationKeyword{
 			waitTime(3);
 			actions.moveToElement(element);
 			clickOn(_OR.user_Agree);
-			waitForElementToDisplay(_OR.user_readnotes_GeneralImprovement, 20);
+			//waitForElementToDisplay(_OR.user_readnotes_GeneralImprovement, 20);
+			waitTime(3);
+			if(driver.findElements(By.xpath("//b[text()='Terms']")).size()!=0)
+			{
+				actions.moveToElement(element);
+				clickOn(_OR.user_Agree);
+			}
+			
 			WebElement element2 = driver.findElement(By.xpath("//button[@ng-click='readNote()']"));
 			actions.moveToElement(element2);
 			if(driver.findElements(By.xpath("//*[@id='toast-container']/div/div/button")).size()!=0)

@@ -177,7 +177,7 @@ public class Itemcatalog extends ApplicationKeyword{
 				{
 					WebElement e = driver.findElement(By.xpath("(//*[@class='ui-select-choices-row-inner'])["+i+"]"));
 					waitTime(1);
-					if(e.getText().contains("Medline"))
+					if(e.getText().toLowerCase().contains("medline"))
 					{
 						e.click();
 					}
@@ -386,6 +386,7 @@ public class Itemcatalog extends ApplicationKeyword{
     	driver.findElement(By.xpath("(//*[@type='file'])[5]")).sendKeys(file);
     	ToastmesssageSucess();
     	clickOn(OR.ItemCatalog_FileUpload_CloseBtn);
+    	waitTime(6);
     	verifyElementText(OR.EditItem_text,"Edit Item");
     	clickOn(OR.ItemcaCategory_CreateCategory_btn_Save);
    	}

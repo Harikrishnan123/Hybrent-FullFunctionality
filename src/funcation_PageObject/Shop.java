@@ -281,7 +281,7 @@ public class Shop extends ApplicationKeyword{
 		typeIn(OR.ItemCatalog_purchase_price_Edit, "60");
 		typeIn(OR.ItemCatalog_GPo_price_Edit, "10");
 		clickOn(OR.PriceTire_Add_Save);
-		waitUntilAngularReady();
+		waitUntilPageReady();
 		DecreaseQty();
 		if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]")).size()!=0)
 		{
@@ -319,7 +319,7 @@ public class Shop extends ApplicationKeyword{
 				String one1 = driver.findElement(By.xpath("//*[@class='modal-body']//h4")).getText();
 				testLogPass("validation message is displays for vendor price is greater than contract price "+one1);
 				clickOn(OR.Shop_UpdatePrice);
-				waitUntilAngularReady();
+				waitUntilPageReady();
 				clickOn(OR.Shop_UpdatePrice1);
 			}
 			}
@@ -337,7 +337,7 @@ public class Shop extends ApplicationKeyword{
 		if(driver.findElements(By.xpath("//*[text('Organization settings updated, hit ok to update']")).size()!=0)
 		{
 			clickOn(OR.Template_Warningok);
-			waitUntilAngularReady();
+			waitUntilPageReady();
 		}
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));
@@ -345,14 +345,14 @@ public class Shop extends ApplicationKeyword{
 	
 	public static void Discontinued()
 	{
-		waitUntilAngularReady();
+		waitUntilPageReady();
 		clickOn(OR.Shop_ItemNameDropDown_First);
 		waitTime(2);
 		clickOn(OR.Shop_ItemNameDropDownEdit_First);
 		clickOn(OR.ItemTabVendor);
 		selectFromDropdown(OR.Shop_ItemName_StockDropdown, "Discontinued");
 		clickOn(OR.PriceTire_Add_Save);
-		waitUntilAngularReady();
+		waitUntilPageReady();
 		DecreaseQty();
 		if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]")).size()!=0)
 		{
@@ -392,7 +392,7 @@ public class Shop extends ApplicationKeyword{
 		clickOn(OR.ItemTabVendor);
 		selectFromDropdown(OR.Shop_ItemName_StockDropdown, "Back Ordered");
 		clickOn(OR.PriceTire_Add_Save);
-		waitUntilAngularReady();
+		waitUntilPageReady();
 		DecreaseQty();
 		if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]")).size()!=0)
 		{
@@ -429,7 +429,7 @@ public class Shop extends ApplicationKeyword{
 			for(int i = 1;i<=qtyysize;i++)
 			{
 				clickOn(OR.Shop_Item_Qty_Derease_First);
-				waitUntilAngularReady();
+				waitUntilPageReady();
 			}
 		}
 	}

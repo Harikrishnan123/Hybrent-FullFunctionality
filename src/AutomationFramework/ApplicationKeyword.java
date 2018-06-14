@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import AutomationFramework._OR;
+import funcation_PageObject.Loginpage;
 
 public class ApplicationKeyword extends Generickeywords 
 {
@@ -89,6 +90,7 @@ public class ApplicationKeyword extends Generickeywords
 	
 	public static void Gridview()
 	{
+		waitTime(2);
 		int size = driver.findElements(By.className("grid-item")).size();
 		if(size!=0)
 		{
@@ -148,5 +150,13 @@ public class ApplicationKeyword extends Generickeywords
 		return toolTip;
 	}
 
+	public static void ProfileUpdateLogmeOut()
+	{
+		if(isElementDisplayed(OR.ProfileUpdate))
+		{
+			clickOn(OR.ProfileUpdate_Logmeout);
+		}
+		Loginpage.newlogin(getProperty("created_NeUser"), getProperty("updated_NewPassword"));
+	}
 }
 

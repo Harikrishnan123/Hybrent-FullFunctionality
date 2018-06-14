@@ -45,8 +45,7 @@ public class TC_GL_Codes extends ApplicationKeyword{
 	@Test
 	public void Tc_Gl_Code_001() {
 		testStarts("Tc_Gl_Code_001", "Verify that heading “Manage GL Codes” appear on page.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
+		Loginpage.OpenBrowserAndLoginnew();
 		GlCode.NavigateToGlcode();
 		GlCode.verifyPage();
 		GlCode.AddGlCode();

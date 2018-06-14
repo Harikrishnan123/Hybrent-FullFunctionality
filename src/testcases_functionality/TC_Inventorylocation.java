@@ -76,9 +76,6 @@ public class TC_Inventorylocation extends ApplicationKeyword{
 		Inventorylocations.DeleteInvntory();
 	}
 	
-	
-	
-	
 	@AfterTest
 	public void endReport()
 	{

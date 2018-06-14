@@ -60,7 +60,7 @@ public class TC_Shop extends ApplicationKeyword{
 	@Test
 	public void Tc_Shop_002() {
 		testStarts("Tc_Shop_002", "Verify that \"Shopping For Facility Name\" label appears on top left of page.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		Shop.Organiationchange();
 		Shop.Grid();
 		Shop.MenuList();
@@ -75,7 +75,7 @@ public class TC_Shop extends ApplicationKeyword{
 	@Test
 	public void Tc_Shop_003() {
 		testStarts("Tc_Shop_002", "Verify that drop down appears with following options when user clicks the “down arrow” button on left of item name: ");
-		Loginpage.OpenBrowserAndLoginnew();
+	//	Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		  WebElement element = driver.findElement(By.xpath("//*[text()='TestItemDesNYAG']"));
 		    Actions toolAct = new Actions(driver);
@@ -143,7 +143,7 @@ public class TC_Shop extends ApplicationKeyword{
 	@Test
 	public void Tc_Shop_006() {
 		testStarts("Tc_Shop_006", "Verify that item gets added to cart on clicking Add button.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		String one = getText(OR.MyCart_count);
 		int S = Integer.parseInt(one);
@@ -197,7 +197,7 @@ public class TC_Shop extends ApplicationKeyword{
 	@Test
 	public void Tc_Shop_007() {
 		testStarts("Tc_Shop_007", "Verify that the popup does not appear again, if user selects the checkbox and tries to add item in cart.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));
 		if(driver.findElements(By.xpath("(//*[@editable-text='item.qty']/nobr/span)[1]")).size()!=0)
@@ -270,7 +270,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 	@Test
 	public void Tc_Shop_008() {
 		testStarts("Tc_Shop_008", "Verify that “Item reorder warning” popup appears when user tries to add corresponding item to cart which is not received completely within another PO created by current user.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(OR.MyCart);
 		typeIn(OR.MyCart_searchInCart,getProperty("ItemDesc"));
 		
@@ -281,7 +281,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 			for(int i = 1;i<=qtyysize;i++)
 			{
 				clickOn(OR.MyCart_InputQty_InputQtyDecrease);
-				waitUntilAngularReady();
+				waitUntilPageReady();
 			}
 		}
 		if(driver.findElements(By.xpath("(//button[@id='btnAdd'])[1]")).size()!=0)
@@ -323,7 +323,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 						for(int i = 1;i<=qtyysize;i++)
 						{
 							clickOn(OR.MyCart_InputQty_InputQtyDecrease);
-							waitUntilAngularReady();
+							waitUntilPageReady();
 						}
 					}
 					if(driver.findElements(By.xpath("(//button[@id='btnAdd'])[1]")).size()!=0)
@@ -350,7 +350,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 	@Test
 	public void Tc_Shop_009() {
 		testStarts("Tc_Shop_009", "Verify that popup message appears if vendor price is greater than contract price, and Contract Price Check toggle button is Active in Admin settings module.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));
 		Shop.pricevalidation();
@@ -359,7 +359,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 	@Test
 	public void Tc_Shop_010() {
 		testStarts("Tc_Shop_010", "Verify that confirmation popup appears with text “Item availability status is discontinued. Are you sure you want to order this item ?”, when user clicks “Add” button for item with Status as “Discontinued”.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));
 		Shop.Discontinued();
@@ -368,7 +368,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 	@Test
 	public void Tc_Shop_011() {
 		testStarts("Tc_Shop_011", "Verify that “Show Item Backorder Warning” toggle button is changed to “OFF”/”Inactive” on Alerts page and in User's module at Admin end.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));
 		Shop.backorder();
@@ -377,7 +377,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 	@Test
 	public void Tc_Shop_012() {
 		testStarts("Tc_Shop_012", "Down arrow icon>>Verify that following columns appear under the down arrow icon");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));
 		if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]")).size()!=0)
@@ -428,7 +428,7 @@ if(driver.findElements(By.xpath("(//*[@ng-click='$ctrl.addItemToCart(item)'])[1]
 	public void Tc_Shop_013() 
 	{
 		testStarts("Tc_Shop_013", "Verify that \"Similar Item\" hyperlink appear under item name, if same item with different vendors are not appearing on same page.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 //		Shop.SimilarItems();
 		clickOn(_OR.Dashboard_Submenu_shop);
 		typeIn(OR.Shop_SHopfor_SearchBox,getProperty("ItemDesc"));

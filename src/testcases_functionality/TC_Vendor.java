@@ -41,7 +41,7 @@ public class TC_Vendor extends ApplicationKeyword{
 	@Test
 	public void Tc_Vendor_001() {
 		testStarts("Tc_Vendor_001", "Verify that heading “Manage Vendors” appear on page.");
-		Loginpage.OpenBrowserAndLogin();
+		Loginpage.OpenBrowserAndLoginnew();
 		Vendor.NavigateToVendor();
 		Vendor.verifyVendor();
 		Vendor.verifyEdit();
@@ -74,6 +74,8 @@ public class TC_Vendor extends ApplicationKeyword{
 	@Test
 	public void Tc_Vendor_003() {
 		testStarts("Tc_Vendor_003", "Edit Vendor > Address > Verify that Address Line 1, Address Line 2, City, County, State, Postal Code, Country, Phone 1, Phone 2, Fax 1, Fax 2, Email 1 and Email 2 fields appear on page.");
+		
+		Loginpage.OpenBrowserAndLoginnew();
 		Vendor.NavigateToVendor();
 		waitForElement(OR.Vendor_EditFirst);
 		mouseOver(OR.Vendor_EditFirst);
@@ -82,13 +84,10 @@ public class TC_Vendor extends ApplicationKeyword{
 		Vendor.Interface();
 		Vendor.UOM();
 		Vendor.Customersupport();
-		Vendor.AddCustom();
-		Vendor.DeleteCustom();
 		Vendor.Sales();
 		Vendor.Editsales();
 		Vendor.DeleteSales();
 		clickOn(OR.Vendor_txt);
-		Vendor.ActiveVendor();
 		clickOn(OR.PriceChangeDetails_Close);
 		clickOn(OR.Dep_Delete_Cancel);
 	}

@@ -44,7 +44,7 @@ public class TC_Userprofile extends ApplicationKeyword{
 				directory.mkdir();
 			}
 
-			extent = new ExtentReports(folderPath+"/dashboard.html", true);
+			extent = new ExtentReports(folderPath+"/userprofile.html", true);
 			extent.addSystemInfo("User Name", "QA");
 			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 
@@ -60,7 +60,7 @@ public class TC_Userprofile extends ApplicationKeyword{
 		testStarts("Tc_UserProfile_001", "Verify that “Email” field should accept valid email. E.g : hybrent@test.com"
 				+ "Verify Admin drop down button appears on top of page.\r\n" + 
 				"Verify that validation message appears if user tries to upload large size (more than 3 mb) image." );
-		Loginpage.OpenBrowserAndLogin();
+		Loginpage.OpenBrowserAndLoginnew();
 		waitforclick(_OR.Dashboard_User);
 		clickOn(_OR.Dashboard_User);
 		verifyElement(_OR.Dashboard_User_Profile);
