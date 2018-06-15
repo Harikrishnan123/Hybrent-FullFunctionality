@@ -13,7 +13,7 @@ public class ApprovePO extends ApplicationKeyword{
 	
 	public static void NavigateApprovedPO()
 	{
-		waitForElement(OR.ApprovePOLink);
+		waitForElement(OR.ApprovePOLink, 30);
 		clickOn(OR.ApprovePOLink);
 	}
 	
@@ -169,6 +169,7 @@ public class ApprovePO extends ApplicationKeyword{
 	public static void SearchNavigation()
 	{
 		NavigateApprovedPO();
+		waitForElement(OR.Receive_SearchTextBox, 60);
 		typeIn(OR.Receive_SearchTextBox, getProperty("ApprovePONumber"));
 		clickOn(OR.News_searchButton);
 	}
@@ -200,17 +201,98 @@ public class ApprovePO extends ApplicationKeyword{
 	
 	public static void ApproveFlow()
 	{
-		waitForElement(OR.Receive_DrillDownIcon);
-		clickOn(OR.Receive_DrillDownIcon);
-		mouseOver(OR.ApprovePO_approve);
-		clickOn(OR.Approvalflow_Approve);
+		waitUntilPageReady();
+		if(driver.findElements(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).size()!=0)
+		{
+			driver.findElement(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).click();
+			clickOn(OR.Approvalflow_Approve);
+			//ToastmesssageSucess();
+		}
+		verifyElement(OR.Order_Search_txt);
 	}
 	
 	public static void RejectFlow()
 	{
-		waitForElement(OR.Receive_DrillDownIcon);
-		clickOn(OR.Receive_DrillDownIcon);
-		mouseOver(OR.ApprovePO_approve);
-		clickOn(OR.Approvalflow_Reject);
+		AddItemForVerify();
+			clickOn(OR.Approvalflow_Reject);
+			verifyElementText(OR.Approvalflow_Reject_validation, "Are you sure? Do you want to reject this order?");
+			clickOn(OR.Dep_Delete_Cancel);
+			waitForElement(OR.Approvalflow_Reject);
+			clickOn(OR.Approvalflow_Reject);
+			verifyElementText(OR.Approvalflow_Reject_validation, "Are you sure? Do you want to reject this order?");
+			clickOn(OR.MyCart_confirmButton);
+			
+		
+		verifyElement(OR.Order_Search_txt);
 	}
+	
+	public static void AddItemForVerify()
+	{
+		clickOn(OR.MyCart);
+		waitForElement(OR.MyCart_searchInCart);
+		typeIn(OR.MyCart_searchInCart, getProperty("ItemMfr"));
+		waitForElement(OR.MyCart_addItemInCart);
+		if(isElementDisplayed(OR.MyCart_addItemInCart))
+		{
+			clickOn(OR.MyCart_addItemInCart);
+			if(isElementDisplayed(OR.MyCart_warningPopup))
+			{
+				clickOn(OR.MyCart_warningPopup);
+			}
+		}	
+		waitForElement(OR.MyCart_usePo);
+			String one = getText(OR.Shop_SHopfor_SelectfirstItemvendorName);
+			setProperty("VendorNameShop", one);
+			clickOn(OR.MyCart_usePo);
+			String PONumber = "PONs-"+randomAlphaNumeric(6);
+			setProperty("ApprovePONumber", PONumber);
+			typeIn(OR.MyCart_usePo_value, getProperty("ApprovePONumber"));
+			clickOn(OR.MyCart_GeneratePo);
+			ToastmesssageSucess();
+		
+		NavigateApprovedPO();
+		waitUntilPageReady();
+		if(driver.findElements(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).size()!=0)
+		{
+			driver.findElement(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).click();
+		}
+	}
+	
+	   public static void PrintItem()
+	   {
+		   waitForElementToDisplayWithoutFail(OR.Order_dropDownIcon, 10);
+			clickOn(OR.OrderDetails_PO_Dropdown);
+			clickOn(OR.OrderDetails_PrintItems);
+			waitForElementToDisplayWithoutFail(OR.Receive_printPOText, 10);		
+			getText(OR.Receive_printPOText);
+			
+	   }
+	   
+	   public static void Barcode()
+	   {
+		   clickOn(OR.Approvalflow_PrintItem_GeneratePO);
+			verifyElement(OR.Approvalflow_PrintItem_Barcode);
+			verifyElement(OR.Approvalflow_PrintItem_QRCODE);
+		   clickOn(OR.Approvalflow_PrintItem_Barcode);
+		   String ItemName = driver.findElement(By.xpath("//*[@id='viewer']/div/div[2]/div[1]")).getText();
+		   testLogPass("ItemName is "+ItemName);
+		   String Sku = driver.findElement(By.xpath("//*[@id='viewer']/div/div[2]/div[3]")).getText();
+		   testLogPass(Sku);
+		   clickOn(OR.ItemCatalog_Close);
+	   }
+	   public static void QRcode()
+	   {
+		   clickOn(OR.Approvalflow_PrintItem_GeneratePO);
+			verifyElement(OR.Approvalflow_PrintItem_Barcode);
+		   clickOn(OR.Approvalflow_PrintItem_QRCODE);
+		   String ItemName = driver.findElement(By.xpath("//*[@id='viewer']/div/div[2]/div[1]")).getText();
+		   testLogPass("VendorName is "+ItemName);
+		   String Sku = driver.findElement(By.xpath("//*[@id='viewer']/div/div[2]/div[3]")).getText();
+		   testLogPass(Sku);
+		   clickOn(OR.ItemCatalog_Close);
+		   waitForElement(OR.csManufacture_Close);
+		   clickOn(OR.csManufacture_Close);
+	   }
+	   
+	
 }

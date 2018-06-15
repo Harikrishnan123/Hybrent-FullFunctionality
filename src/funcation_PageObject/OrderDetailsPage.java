@@ -88,11 +88,12 @@ public class OrderDetailsPage extends ApplicationKeyword{
 
 				waitForElementToDisplayWithoutFail(OR.Receive_PODetailNotesLinkDrillDown, 10);
 				clickOn(OR.Receive_PODetailNotesLinkDrillDown);
+				getText(OR.Planner_popUpText);
 			String Notes ="test"+randomAlphaNumeric(6);
 			clickOn(OR.Order_PO_Notes_AddIcon_btn);
 			getText(OR.Order_PO_Notes_HeaderTxt);
 			verifyElement(OR.Order_PO_Notes_Search);
-			verifyElement(OR.Order_PO_Notes_AddBtn);
+			verifyElement(OR.Order_PO_Notes_AddIcon_btn);
 			verifyElement(OR.Order_PO_Notes_CloseBtn);
 			getText(OR.Order_PO_Notes_Add_HeaderTxt);
 			typeIn(OR.Order_PO_Notes_Input,Notes);
@@ -100,7 +101,7 @@ public class OrderDetailsPage extends ApplicationKeyword{
 			waitForElement(OR.Order_PO_Notes_AddIcon_btn);
 			clickOn(OR.Order_PO_Notes_AddIcon_btn);
 			getText(OR.Order_PO_Notes_HeaderTxt);
-			verifyElement(OR.Order_PO_Notes_AddBtn);
+			verifyElement(OR.Order_PO_Notes_AddIcon_btn);
 			verifyElement(OR.Order_PO_Notes_CloseBtn);
 			getText(OR.Order_PO_Notes_Add_HeaderTxt);
 			typeIn(OR.Order_PO_Notes_Input,Notes);
@@ -158,6 +159,8 @@ public class OrderDetailsPage extends ApplicationKeyword{
 			   clickOn(OR.OrderDetails_PO_Dropdown);
 			   waitForElement(OR.Receive_PODocsDrillDown);
 			   clickOn(OR.Receive_PODocsDrillDown);
+			   testLogPass(driver.findElement(By.className("headtext")).getText());
+			   
 			   waitForElement(OR.Order_PO_Doc_CloseBtn);
 			   clickOn(OR.Order_PO_Doc_CloseBtn);
 			   waitForElement(OR.OrderDetails_PO_Dropdown);

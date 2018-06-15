@@ -15,8 +15,9 @@ import AutomationFramework.OR;
 import funcation_PageObject.*;
 import pageObject.Alertpage;
 import pageObject.Changepasswordpage;
+import testCases.ApproveDetails;
 
-public class TC_ApprovedPo extends ApplicationKeyword{
+public class TC_ApprovedPoDetails extends ApplicationKeyword{
 
 	@Parameters({"siteName", "siteUrl"})
 	@BeforeTest
@@ -32,7 +33,7 @@ public class TC_ApprovedPo extends ApplicationKeyword{
 				directory.mkdir();
 			}
 
-			extent = new ExtentReports(folderPath+"/ApprovedPo.html", true);
+			extent = new ExtentReports(folderPath+"/ApprovedPoDetails.html", true);
 			extent.addSystemInfo("User Name", "QA");
 			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 
@@ -44,45 +45,79 @@ public class TC_ApprovedPo extends ApplicationKeyword{
 
 	
 	@Test
-	public void Tc_ApprovedPo_001() {
-		testStarts("Tc_ApprovedPo_001", "Verify that 'ORDERS TO APPROVE' label text appear left of the page.");
+	public void Tc_ApprovedPoDetails_001() 
+	{
+		testStarts("Tc_ApprovedPoDetails_001", "Verify that user gets redirected to PO detail page on clicking PO number.");
 		Loginpage.OpenBrowserAndLoginnew();
-		ApprovePO.NavigateApprovedPO();
-		ApprovePO.Menu();
-		ApprovePO.Verifydetails();
-		clickOn(OR.ApprovePO_Menu_ShopApp);
-		Shopcart.Tour();
-	}
-	
-	@Test
-	public void Tc_ApprovedPo_002()
-	{
-		testStarts("Tc_ApprovedPo_002", "Verify that results appears when user performs search on the basis of filters.");
-		//Loginpage.OpenBrowserAndLoginnew();
-		ApprovePO.NavigateApprovedPO();
-		ApprovePO.VendorUnappove();
-		ApprovePO.AddItem();
-	}
-	
-	@Test
-	public void Tc_ApprovedPo_003()
-	{
-		testStarts("Tc_ApprovedPo_003", "Verify that results appears when user performs search on the basis of filters.");
-		//Loginpage.OpenBrowserAndLoginnew();
-		ApprovePO.NavigateApprovedPO();
 		ApprovePO.SearchNavigation();
-		ApprovePO.DrillDowntext();
-		ApprovePO.Apprvalicon();
+		ApprovePODetails.PONumberSelection();
+		ApprovePODetails.Verifydetails();
+		ApprovePODetails.ChangeFacilityDepart();
 	}
 	
 	@Test
-	public void Tc_ApprovedPo_004()
+	public void Tc_ApprovedPoDetails_002()
 	{
-		testStarts("Tc_ApprovedPo_004", "Verify that User can approve/reject po as per  Level and Rules added in Approval flow module.");
-		//Loginpage.OpenBrowserAndLoginnew();
+		testStarts("Tc_ApprovedPoDetails_002", "PO detail page> Verify that the status of PO changes as per the rules set by admin user in approval flow.");
+		ApprovePODetails.AddItem();
 		ApprovePO.NavigateApprovedPO();
+		waitForElement(OR.Receive_SearchTextBox, 60);
+		typeIn(OR.Receive_SearchTextBox, getProperty("ApprovePODetailsNumber"));
+		clickOn(OR.News_searchButton);
+		ApprovePODetails.PODetailsNumberSelection();
+		ApprovePODetails.UnappoveTOApprove();
+		
+	}
+	
+	@Test
+	public void Tc_ApprovedPoDetails_003()
+	{
+		testStarts("Tc_ApprovedPoDetails_003", "Verify that results appears when user performs search on the basis of filters.");
 		ApprovePO.SearchNavigation();
-		ApprovePO.ApproveFlow();
+		  String PONumberselect ="PONumberSelect#xpath=//*[text()='"+getProperty("ApprovePONumber")+"']";
+		   if(isElementDisplayed(PONumberselect))
+			{
+				clickOn(PONumberselect);
+			}
+		else
+		{
+			ApprovePO.AddItemForVerify();
+		}
+		   waitForElement(OR.OrderDetails_PO_Dropdown);
+		   clickOn(OR.OrderDetails_PO_Dropdown);
+		   int size = driver.findElements(By.xpath("//*[@class='dropdown-menu dropdown-menu-right']//li/a")).size();
+			for(int i=1 ;i<=size;i++)
+			{
+				String j = driver.findElement(By.xpath("(//*[@class='dropdown-menu dropdown-menu-right']//li/a)["+i+"]")).getText();
+				testLogPass(j);
+			}
+			  clickOn(OR.OrderDetails_PO_Dropdown);
+		OrderDetailsPage.PrintLog();
+		OrderDetailsPage.AddNotes();
+		OrderDetailsPage.viewDocumentForPO();
+		OrderDetailsPage.PrintItem();
+		ApprovePODetails.drillAdditems();
+		ApprovePODetails.IconAddNotes();
+		ApprovePODetails.iconviewDocumentForPO();
+	}
+	
+	@Test
+	public void Tc_ApprovedPoDetails_004()
+	{
+		testStarts("Tc_ApprovedPoDetails_004", "Verify that User can approve/reject po as per  Level and Rules added in Approval flow module.");
+		ApprovePO.SearchNavigation();
+		  String PONumberselect ="PONumberSelect#xpath=//*[text()='"+getProperty("ApprovePONumber")+"']";
+		   if(isElementDisplayed(PONumberselect))
+			{
+				clickOn(PONumberselect);
+			}
+		else
+		{
+			ApprovePO.AddItemForVerify();
+		}
+		 
+		ApprovePODetails.drillAdditems();
+		
 	}
 	
 	@Test

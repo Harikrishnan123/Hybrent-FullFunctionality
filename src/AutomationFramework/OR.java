@@ -385,7 +385,7 @@ public class OR {
 	public static String MyCart_searchInCart = "searchInCart#xpath=//*[@id='searchInput']";
 	public static String MyCart_InputQty = "InputQty#xpath=//*[@ng-show='$ctrl.editQty']//big";
 	public static String MyCart_InputQty_InputQtyDecrease = "InputQtyDecrease#xpath=//*[@id='dcr']";
-	public static String MyCart_addItemInCart = "addItemInCart#xpath=(//button[@id='btnAdd'])[1]";
+	public static String MyCart_addItemInCart = "addItemInCart#xpath=(//*[@id='btnAdd' and text()='Add '])[1]";
 	//public static String MyCart_warningPopup = "warningPopup#xpath=//*[@class='row']";
 	public static String MyCart_warningPopup = "warningPopup#xpath=//button[text()='Continue']";
 	public static String MyCart_useMYPO = "useMYPO#xpath=//*[@ng-click='test_check(key)']";
@@ -1452,6 +1452,7 @@ public class OR {
 	    public static String Order_PO_Notes_CloseBtn ="CloseBtn#xpath=//*[text()='Close']";
 	    public static String Order_PO_Notes_Search ="Search#xpath=//*[@ng-model='search.noteSearch']";
 	    public static String Order_PO_Notes_Add_HeaderTxt ="PO_Notes_HeaderTxt#xpath=(//*[@class='headtext']//*[@class='ng-binding'])[1]";
+	    public static String Order_PO_DocIcon ="DocumentIcon#xpath=(//button[@id='btnAdd'])[2]";
 	    
 	    public static String Order_PO_Doc_AfterUploadFiles ="Items#xpath=(//*[@ng-repeat='item in rows'])[1]";
 	
@@ -1518,6 +1519,7 @@ public class OR {
 	    public static String OrderDetails_userinfo="useringo#xpath=//*[contains(text(),'Created by')]";
 	    public static String OrderDetails_Approvedinfo="ApprovedUser#xpath=//*[contains(text(),'Approved by')]";
 	    public static String OrderDetails_TotalPo="TotalPo#xpath=//h5[@class='ng-binding']";
+	    public static String OrderDetails_Alert="Alert#xpath=//*[text()='Changing the ship to location would put the PO again in approval flow of new facility.']";
 	    public static String OrderDetails_itemToolTipDetails="ToolTip#xpath=//*[@class='popover ng-scope ng-isolate-scope top fade in']";
 	    
 	    // Templates
@@ -1533,6 +1535,7 @@ public class OR {
 	    public static String Templates_Editview="Editview#xpath=//*[@onbeforesave='updateTemplate()']";
 	    public static String Templates_SearchScan="SearchScan#xpath=//*[@id='searchInput']";
 	    public static String Template_Add_First = "Add#xpath=(//*[@id='btnAdd'])[1]";
+	    
 	    public static String Template_Uncheck_groupBYVendor = "Uncheck_groupBYVendor#xpath=//*[@class='pull-right']//input[@ng-model='groupedItems']";
 	    public static String Template_VerifytempName = "VerifytempName#xpath=//*[@class='pagehead']//span[@editable-text='tempData.template_name']";
 	    
@@ -1996,8 +1999,12 @@ public class OR {
 	 	public static String Approvalflow_MangeFlow_AddLevel_Dept_spec ="SelectDept#xpath=//*[contains(text(),'Select Departments')]/following-sibling::div//*[@class='item-menu-action']";
 	 	public static String Approvalflow_MangeFlow_AddLevel_AutoApproval ="AutoApproval#xpath=//*[@for='autoapprove']/following-sibling::div/div";
 	 	public static String Approvalflow_MangeFlow_Edit ="Edit#xpath=(//*[@class='fa fa-edit'])[1]";
-	 	public static String Approvalflow_Approve ="Approve#xpath=//tbody/tr[1]/td[8]/div/ul/li[1]/ul/li[1]/a";
-	 	public static String Approvalflow_Reject ="Reject#xpath=//tbody/tr[1]/td[8]/div/ul/li[1]/ul/li[2]/a";
+	 	public static String Approvalflow_Approve ="Approve#xpath=//*[@id='btnAdd' and contains(text(),'Approve')]";
+	 	public static String Approvalflow_Reject ="Reject#xpath=//*[text()='Reject ']";
+	 	public static String Approvalflow_Reject_validation ="Rejectvalidation#xpath=//*[text()='Are you sure? Do you want to reject this order?']";
+	 	public static String Approvalflow_PrintItem_GeneratePO ="GeneratePO#xpath=//*[contains(text(),'Generate PDF')]";
+	 	public static String Approvalflow_PrintItem_Barcode ="Barcode#xpath=//a[text()='Barcode']";
+	 	public static String Approvalflow_PrintItem_QRCODE ="QRCODE#xpath=//a[text()='QR code']";
 	 	
 	 	// Common
 	    public static String Pagination="Pagination#classname=pagination-first";
