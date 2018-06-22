@@ -146,11 +146,15 @@ public class Shopcart extends ApplicationKeyword{
     
     public static void Tour()
     {
+    	waitForElement(OR.Shop_showTour1);
     	clickOn(OR.Shop_showTour1);
+    	waitForElement(OR.Shop_showTour_Message);
 		testLogPass("Tour message is "+ getText(OR.Shop_showTour_Message));
+		waitForElement(OR.Shop_showTour_Next);
 		verifyElement(OR.Shop_showTour_Next);
 		verifyElement(OR.Shop_showTour_EndTour);
 		clickOn(OR.Shop_showTour_Next);
+		waitForElement(OR.Shop_showTour_Message);
 		testLogPass("Tour message is "+ getText(OR.Shop_showTour_Message));
 		clickOn(OR.Shop_showTour_EndTour);
     }

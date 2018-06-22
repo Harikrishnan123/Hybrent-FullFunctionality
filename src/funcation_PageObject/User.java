@@ -20,6 +20,7 @@ public class User extends ApplicationKeyword{
 	 public static void adminAndUserPage()
      {	
 		 	clickOn(_OR.DashBoard_Admin);
+		 	waitForElement(_OR.users_page);
 			clickOn(_OR.users_page);
 			verifyElement(_OR.users_SearchByText);
 			

@@ -3,6 +3,7 @@ package funcation_PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import AutomationFramework.ApplicationKeyword;
@@ -59,7 +60,7 @@ public class ApprovePODetails extends ApplicationKeyword{
 	   {
 		   waitUntilPageReady();
 		   String PONumberselect ="PONumberSelect#xpath=//*[text()='"+getProperty("ApprovePONumber")+"']";
-		   if(isElementDisplayed(PONumberselect))
+		   if(driver.findElements(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).size()!=0)
 			{
 				clickOn(PONumberselect);
 			}
@@ -79,13 +80,14 @@ public class ApprovePODetails extends ApplicationKeyword{
 			{
 				clickOn(OR.MyCart_addItemInCart);
 				
-				if(isElementDisplayed(OR.MyCart_warningPopup))
+				if(driver.findElements(By.xpath("//button[text()='Continue']")).size()!=0)
 				{
 					clickOn(OR.MyCart_warningPopup);
 				}
 				
 				String one = getText(OR.Shop_SHopfor_SelectfirstItemvendorName);
 				setProperty("VendorNameShop", one);
+				waitForElement(OR.MyCart_drillDownVendor);
 				clickOn(OR.MyCart_drillDownVendor);
 				waitForElement(OR.MyCart_accountSetUp);
 				clickOn(OR.MyCart_accountSetUp);
@@ -230,5 +232,132 @@ public class ApprovePODetails extends ApplicationKeyword{
 				clickOn(OR.Order_CloseButton);
 
 			}
+		 
+		 public static void MarkAsReceived()
+		 {
+			 	waitForElement(OR.OrderDetails_PO_Dropdown);
+			   clickOn(OR.OrderDetails_PO_Dropdown);
+			   waitForElement(OR.ApprovePO_markAsReceive);
+			   mouseOver(OR.ApprovePO_markAsReceive);
+			   getText(OR.OrderDetails_tootlipvaliadtion);
+			   //verifyElementText(OR.OrderDetails_ToltipMarkAsReceivedd, "");
+			   if(driver.findElements(By.xpath("//a[text()='Mark as Receive Only']")).size()!=0)
+			   {
+				   clickOn(OR.ApprovePO_markAsReceive);
+				   if(isElementDisplayed(OR.OrderDetails_valiadtion))
+				   {
+					   verifyElementText(OR.OrderDetails_valiadtion, "Will change this order to Receive Only order. Do you want to perform this action ?");
+				   }
+			   }
+			   else if(driver.findElements(By.xpath("//*[text()='Mark as Non Receive Only']")).size()!=0)
+			   {
+				   clickOn(OR.ApprovePO_markAsReceiveNon);
+				   if(isElementDisplayed(OR.OrderDetails_valiadtionnon))
+				   {
+					   verifyElementText(OR.OrderDetails_valiadtionnon, "Will change this order to non Receive Only order. Do you want to perform this action ?");
+				   }
+				   
+			   }
+			   waitForElement(OR.Template_Cancel);
+			   clickOn(OR.Template_Cancel);
+			   waitForElement(OR.OrderDetails_PO_Dropdown);
+			   clickOn(OR.OrderDetails_PO_Dropdown);
+			   waitForElement(OR.ApprovePO_markAsReceive);
+			   if(driver.findElements(By.xpath("//a[text()='Mark as Receive Only']")).size()!=0)
+			   {
+				   clickOn(OR.ApprovePO_markAsReceive);
+				   if(isElementDisplayed(OR.OrderDetails_valiadtion))
+				   {
+					   verifyElementText(OR.OrderDetails_valiadtion, "Will change this order to Receive Only order. Do you want to perform this action ?");
+					   clickOn(OR.MyCart_confirmButton);
+					   verifyElement(OR.Order_PO_RevceiveOnly);
+				   }
+			   }
+			   else if(driver.findElements(By.xpath("//*[text()='Mark as Non Receive Only']")).size()!=0)
+			   {
+				   clickOn(OR.ApprovePO_markAsReceiveNon);
+				   if(isElementDisplayed(OR.OrderDetails_valiadtionnon))
+				   {
+					   verifyElementText(OR.OrderDetails_valiadtionnon, "Will change this order to non Receive Only order. Do you want to perform this action ?");
+					   clickOn(OR.MyCart_confirmButton);
+				   }
+			   }
+			   waitForElement(OR.OrderDetails_PO_Dropdown);
+			   clickOn(OR.OrderDetails_PO_Dropdown);
+			   waitForElement(OR.ApprovePO_markAsReceive);
+			   if(driver.findElements(By.xpath("//a[text()='Mark as Receive Only']")).size()!=0)
+			   {
+				   clickOn(OR.ApprovePO_markAsReceive);
+				   if(isElementDisplayed(OR.OrderDetails_valiadtion))
+				   {
+					   verifyElementText(OR.OrderDetails_valiadtion, "Will change this order to Receive Only order. Do you want to perform this action ?");
+					   clickOn(OR.MyCart_confirmButton);
+					   verifyElement(OR.Order_PO_RevceiveOnly);
+				   }
+			   }
+			   else if(driver.findElements(By.xpath("//*[text()='Mark as Non Receive Only']")).size()!=0)
+			   {
+				   clickOn(OR.ApprovePO_markAsReceiveNon);
+				   if(driver.findElements(By.xpath("//button[@class='confirm']")).size()!=0)
+				   {
+					   verifyElementText(OR.OrderDetails_valiadtionnon, "Will change this order to non Receive Only order. Do you want to perform this action ?");
+					   clickOn(OR.MyCart_confirmButton);
+				   }
+			   }
+			   
+		 }
+		 
+		 public static void Fav()
+		 {
+				String Fav = getAttributeValue(OR.Shop_SHopfor_favtab, "ng-if");
+				if (Fav.equals("isFavorite")) {
+					testLogPass("item is isFavorite");
+					String one = getProperty("ItemDesc");
+					
+					if(driver.findElements(By.xpath("//*[text()='"+one+"']")).size()!=0)
+					{
+						clickOn(OR.Shop_SHopfor_FavOrderedradiobutton);
+						if(driver.findElements(By.xpath("//*[text()='"+one+"']")).size()!=0)
+						{
+							testLogPass("item in Favorite then it isdisplay under the Favourite Item radio button.");
+						}
+					}
+					
+					
+				} else
+
+					if (Fav.equals("!isFavorite")) {
+						testLogPass("item is !isFavorite");
+					}
+				clickOn(OR.Shop_SHopfor_favtab);
+				String Fav1 = getAttributeValue(OR.Shop_SHopfor_favtab, "ng-if");
+				if (Fav1.equals("!isFavorite")) {
+					testLogPass("item is !isFavorite");
+				} else if (Fav1.equals("isFavorite")) {
+					testLogPass("item is isFavorite");
+
+					String one = getProperty("ItemDesc");
+					
+					if(driver.findElements(By.xpath("//*[text()='"+one+"']")).size()!=0)
+					{
+						clickOn(OR.Shop_SHopfor_FavOrderedradiobutton);
+						if(driver.findElements(By.xpath("//*[text()='"+one+"']")).size()!=0)
+						{
+							testLogPass("item in Favorite then it isdisplay under the Favourite Item radio button.");
+						}
+					}
+					
+				}
+				
+				 WebElement Fav11 = driver.findElement(By.xpath("//*[text()='"+getProperty("ItemDesc")+"']"));
+				    Actions toolAct = new Actions(driver);
+				    toolAct.moveToElement(Fav11).build().perform();
+				    String one = driver.findElement(By.xpath("//*[@class='tooltip ng-scope ng-isolate-scope right fade in']")).getText();
+				    if(one.contains("Favourite"))
+				    {
+						testLogPass("Toolip for is presnet");
+				    }
+				
+		 }
 		   
 }

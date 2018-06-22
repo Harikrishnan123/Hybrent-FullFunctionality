@@ -116,45 +116,40 @@ public class TC_ApprovedPoDetails extends ApplicationKeyword{
 			ApprovePO.AddItemForVerify();
 		}
 		 
-		ApprovePODetails.drillAdditems();
+		ApprovePODetails.MarkAsReceived();
+		waitForElement(OR.OrderDetails_PO_Dropdown);
+		clickOn(OR.OrderDetails_PO_Dropdown);
+		Shopcart.Tour();
 		
+		//OrderDetailsPage.Refresh();
 	}
-	
 	@Test
-	public void Tc_ApprovedPo_005()
+	public void Tc_ApprovedPoDetails_005()
 	{
-		testStarts("Tc_ApprovedPo_005", "Verify that on click Reject button Warning popup appear \"Are you sure?Do you want to reject this order?\" ");
-		//Loginpage.OpenBrowserAndLoginnew();
-		ApprovePO.NavigateApprovedPO();
-		ApprovePO.RejectFlow();
-	}
-	
-	
-	@Test
-	public void Tc_ApprovedPo_006()
-	{
-		testStarts("Tc_ApprovedPo_006", "Verify that when user haver on Print Items then following o");
-		//Loginpage.OpenBrowserAndLoginnew();
-		ApprovePO.NavigateApprovedPO();
-		ApprovePO.AddItemForVerify();
-		ApprovePO.PrintItem();
-		ApprovePO.Barcode();
-		ApprovePO.QRcode();
-	}
-	
-	@Test
-	public void Tc_ApprovedPo_007()
-	{
-		testStarts("Tc_ApprovedPo_007", "Verify that on clicking on PO Log link, PO logs popup opens for that PO");
-	//	Loginpage.OpenBrowserAndLoginnew();
+		testStarts("Tc_ApprovedPoDetails_005", "Verify that vendor address appears on mouse hover on the corresponding Vendor name hyperlink.");
 		ApprovePO.SearchNavigation();
-		if(driver.findElements(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).size()!=0)
+		  String PONumberselect ="PONumberSelect#xpath=//*[text()='"+getProperty("ApprovePONumber")+"']";
+		   if(isElementDisplayed(PONumberselect))
+			{
+				clickOn(PONumberselect);
+			}
+		else
 		{
-			driver.findElement(By.xpath("//*[text()='"+getProperty("ApprovePONumber")+"']")).click();
+			ApprovePO.AddItemForVerify();
 		}
-//		OrderDetailsPage.PrintLog();
-//		OrderDetailsPage.AddNotes();
-		OrderDetailsPage.viewDocumentForPO();
+		 
+		   mouseOver(OR.Shop_SHopfor_SelectfirstItemvendorName);
+		   getText(OR.OrderDetails_infos);
+		   String one = getAttributeValue(OR.Template_Color, "class").replaceAll("ng-scope ", "");
+		   testLogPass("color of the item is "+one);
+		   ApprovePODetails.Fav();
+		   int size = driver.findElements(By.xpath("//table/thead/tr/th")).size();
+			for(int i=2 ;i<=size;i++)
+			{
+			testLogPass(driver.findElement(By.xpath("(//table/thead/tr/th)["+i+"]")).getText());
+			}
+		
+		
 	}
 	
 	@AfterTest

@@ -129,7 +129,7 @@ public class TC_Shop extends ApplicationKeyword{
 			
 		}
 		
-		 WebElement Fav11 = driver.findElement(By.xpath("//*[text()='TestItemDesNYAG']"));
+		 WebElement Fav11 = driver.findElement(By.xpath("//*[text()='"+getProperty("ItemDesc")+"']"));
 		    Actions toolAct = new Actions(driver);
 		    toolAct.moveToElement(Fav11).build().perform();
 		    String one = driver.findElement(By.xpath("//*[@class='tooltip ng-scope ng-isolate-scope right fade in']")).getText();

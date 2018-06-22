@@ -66,6 +66,7 @@ public class ApplicationKeyword extends Generickeywords
 	}
 	public static String getTextchild(String xpath)
 	{
+		waitUntilPageReady();
 		WebElement element = driver.findElement(By.xpath(xpath));
 		String text = element.getText();
 	    	for (WebElement child : element.findElements(By.xpath("./*"))) {
@@ -103,7 +104,7 @@ public class ApplicationKeyword extends Generickeywords
 	}
 	
 	public static void ToastmesssageSucess()
-	{
+	{ waitUntilPageReady();
 		WebElement toast =driver.findElement(By.className("toast-title"));
 		if(toast.getText().contains("Success"))
 		{
@@ -123,11 +124,11 @@ public class ApplicationKeyword extends Generickeywords
 	
 	public static void pagesize()
 	{
-		int size = driver.findElements(By.xpath("//*[@id='pageSize']")).size();
+		waitUntilPageReady();
+		int size = driver.findElements(By.xpath("//*[@id='pageSize']/option")).size();
 		for(int i =1; i<=size; i++)
 		{
 			Select s =  new Select(driver.findElement(By.xpath("//*[@id='pageSize']")));
-			s.selectByIndex(i);
 			WebElement option = s.getOptions().get(i);
 			String defaultItem = option.getText();
 			testLogPass("selected page size is "+defaultItem);
