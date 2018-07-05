@@ -48,7 +48,9 @@ public class Physicians extends ApplicationKeyword{
     	verifyElement(OR.Physicians_Label_Facility);
     	
     	String FirstName = "First"+randomAlphaNumeric(5);
+    	setProperty("Procedure_FirstName", FirstName);
     	String LastName = "Last"+randomAlphaNumeric(5);
+    	setProperty("Procedure_LastName", LastName);
     	int NIPNumber = getRandomNumberInRange(10, 1000);
     	String s = Integer.toString(NIPNumber);
     	typeIn(OR.Physicians_FirstName, FirstName);
@@ -65,10 +67,36 @@ public class Physicians extends ApplicationKeyword{
     		
     	}
     	clickOn(OR.Template_Schedule_Savebtn);
+    	ToastmesssageSucess();
     	SearchPhysician(FirstName);
     	EdtPhysic();
     }
     
+    public static void Addphy()
+    {
+    	clickOn(OR.Physicians_Addbtn);
+    	
+    	String FirstName = "First"+randomAlphaNumeric(5);
+    	setProperty("Procedure_FirstName", FirstName);
+    	String LastName = "Last"+randomAlphaNumeric(5);
+    	setProperty("Procedure_LastName", LastName);
+    	int NIPNumber = getRandomNumberInRange(10, 1000);
+    	String s = Integer.toString(NIPNumber);
+    	typeIn(OR.Physicians_FirstName, FirstName);
+    	typeIn(OR.Physicians_last_name, LastName);
+    	typeIn(OR.Physicians_mrn_number, s);
+    	clickOn(OR.Physicians_Facility_ItemList);
+    	
+    		typeIn(OR.Approvalflow_Input_Facilities, getProperty("UserAddfailityName"));
+    		if(driver.findElements(By.xpath("//*[@class='glyphicon glyphicon-plus autocomplete-show']")).size()!=0)
+    		{
+    			driver.findElement(By.xpath("(//*[@class='glyphicon glyphicon-plus autocomplete-show'])[1]")).click();	
+    		}
+    		
+    	
+    	clickOn(OR.Template_Schedule_Savebtn);
+    	ToastmesssageSucess();
+    }
     public static void SearchPhysician(String SerachInput)
     {
     	typeIn(OR.Phy_SearchTextBox, SerachInput);

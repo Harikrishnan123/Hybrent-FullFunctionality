@@ -254,7 +254,7 @@ public class TC_ShopCart extends ApplicationKeyword{
 	public void TC_ShopCart_009()
 	{
 		testStarts("TC_ShopCart_009", "Verify that “Special Instruction” text field appears for each vendor.");
-		Loginpage.OpenBrowserAndLoginnew();
+		//Loginpage.OpenBrowserAndLoginnew();
 		clickOn(OR.MyCart);
 		String beforeadd = getText(OR.MyCart_count);
 		int countitem =Integer.parseInt(beforeadd);

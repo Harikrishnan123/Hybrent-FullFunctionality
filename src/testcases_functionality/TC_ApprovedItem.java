@@ -15,7 +15,7 @@ import AutomationFramework.OR;
 import funcation_PageObject.*;
 import pageObject.Alertpage;
 
-public class TC_DisplayPriority extends ApplicationKeyword{
+public class TC_ApprovedItem extends ApplicationKeyword{
 
 	@Parameters({"siteName", "siteUrl"})
 	@BeforeTest
@@ -31,7 +31,7 @@ public class TC_DisplayPriority extends ApplicationKeyword{
 				directory.mkdir();
 			}
 
-			extent = new ExtentReports(folderPath+"/DisplayPriority.html", true);
+			extent = new ExtentReports(folderPath+"/Alert.html", true);
 			extent.addSystemInfo("User Name", "QA");
 			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 
@@ -43,13 +43,12 @@ public class TC_DisplayPriority extends ApplicationKeyword{
 
 	
 	@Test
-	public void Tc_DisplayPriority_001() {
-		testStarts("Tc_DisplayPriority_001", "Verify that \"DISPLAY PRIORITY\" module appears in menu bar only when \"Is Vendor display Order\" option is set as Active in Admin part.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
-		Displaypriority.NavigateDisplayPriority();
-		Displaypriority.VerifyPage();
+	public void TC_ApprovedItem_001() {
+		testStarts("TC_ApprovedItem_001", "Verify that \"APPROVE ITEMS FOR Facility Name\" label appears on top left of page.");
+		Loginpage.OpenBrowserAndLogin();
 		
+		ApproveItem.navigateApprvedItem();
+
 	}
 	
 	@AfterTest

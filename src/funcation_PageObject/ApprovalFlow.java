@@ -236,7 +236,8 @@ public class ApprovalFlow extends ApplicationKeyword
 		clickOn(OR.Approvalflow_MangeFlow_DeleteRule);
 		waitForElement(OR.Approvalflow_MangeFlow_DeleteRule_validation);
 		verifyElementText(OR.Approvalflow_MangeFlow_DeleteRule_validation, "Are you sure you want to delete this level rule ?");
-		waitForElement(OR.MyCart_confirmButton, 20);
+		waitUntilPageReady();
+		waitTime(3);
 		clickOn(OR.MyCart_confirmButton);
 		ToastmesssageSucess();
 	}

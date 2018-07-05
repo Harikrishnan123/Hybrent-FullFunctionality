@@ -65,9 +65,13 @@ public class Loginpage  extends ApplicationKeyword{
 		{
 			clickOn(_OR.Label_signinnewuser);
 		}
-		
 			Loginpage.login(UserName, Password);
-
+			waitUntilPageReady();
+			waitTime(2);
+			if(driver.findElements(By.xpath("//*[text()='Past Due Notice.']")).size()!=0)
+			{
+				clickOn(OR.Template_Warningok);
+			}
 		
 		waitForElementToDisplay(OR.Shop_Menu, 60); 
 
@@ -78,6 +82,13 @@ public static void OpenBrowserAndLoginnew()
 {
 	openBrowser(URL);		
 		Loginpage.newlogin(getProperty("created_NeUser"), getProperty("updated_NewPassword"));
+		waitUntilPageReady();
+		waitTime(2);
+		if(driver.findElements(By.xpath("//*[text()='Past Due Notice.']")).size()!=0)
+		{
+			clickOn(OR.Template_Warningok);
+		}
+	
 	waitForElementToDisplay(OR.Shop_Menu, 60); 
 
 

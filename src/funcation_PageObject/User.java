@@ -366,15 +366,15 @@ public class User extends ApplicationKeyword{
 				clickOn(_OR.user_Agree);
 			}
 			
-			WebElement element2 = driver.findElement(By.xpath("//button[@ng-click='readNote()']"));
-			actions.moveToElement(element2);
-			if(driver.findElements(By.xpath("//*[@id='toast-container']/div/div/button")).size()!=0)
-			{
-				driver.findElement(By.xpath("//*[@id='toast-container']/div/div/button")).click();
-			}
-			waitTime(3);
-			waitForElementToDisplay(_OR.user_readnotes_ok, 10);
-			clickOn(_OR.user_readnotes_ok);
+//			WebElement element2 = driver.findElement(By.xpath("//button[@ng-click='readNote()']"));
+//			actions.moveToElement(element2);
+//			if(driver.findElements(By.xpath("//*[@id='toast-container']/div/div/button")).size()!=0)
+//			{
+//				driver.findElement(By.xpath("//*[@id='toast-container']/div/div/button")).click();
+//			}
+//			waitTime(3);
+//			waitForElementToDisplay(_OR.user_readnotes_ok, 10);
+//			clickOn(_OR.user_readnotes_ok);
 	 }
 	 
 }

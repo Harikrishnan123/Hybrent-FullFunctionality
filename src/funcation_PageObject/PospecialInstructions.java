@@ -49,8 +49,7 @@ public class PospecialInstructions extends ApplicationKeyword
     }
     public static void Edit(String search)
     {
-    	String SpecialInstName = "Special"+randomAlphaNumeric(6);
-    	setProperty("NameSpecialInstruct", SpecialInstName);
+
     	verifyElement(OR.PoSpecialInst_Edit_SpecialInstruction);
     	typeIn(OR.PoSpecialInst_SearchInput, "dhjkdhdjfkhdfhkjdhjkfhdkjhfkjdhkfjhk");
     	clickOn(OR.PoSpecialInst_SearchBtn);
@@ -60,6 +59,8 @@ public class PospecialInstructions extends ApplicationKeyword
     	clickOn(OR.PoSpecialInst_SearchBtn);
     	clickOn(OR.PoSpecialInst_EditIcon);
     	verifyElement(OR.PoSpecialInst_Add_SpecialInstruction);
+    	String SpecialInstName = "Special"+randomAlphaNumeric(6);
+    	setProperty("NameSpecialInstruct", SpecialInstName);
     	typeIn(OR.PoSpecialInst_Add_InputName, SpecialInstName);
 		clickOn(OR.PoSpecialInst_Add_Close);
 		clickOn(OR.PoSpecialInst_Add);

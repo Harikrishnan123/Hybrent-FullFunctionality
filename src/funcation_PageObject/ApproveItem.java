@@ -1,18 +1,35 @@
 package funcation_PageObject;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import AutomationFramework.ApplicationKeyword;
 import AutomationFramework.OR;
-import pageObject.MycartPage;
 
-public class ApprovePODetails extends ApplicationKeyword{
+public class ApproveItem extends ApplicationKeyword{
 
+	public static void scanned_out_items()
+	{	 
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+		WebElement element = driver.findElement(By.xpath("//*[@href='#/bill-only-items']"));
+		je.executeScript("arguments[0].scrollIntoView(true);",element);
+		clickOn(OR.ApproveItem);
+	}
+	
+	public static void verifyPage()
+	{
+		verifyElement(OR.Scanout_SearchSku);
+		verifyElement(OR.Barcode_SearchItemByTxt);
+	}
 
+	public static void navigateApprvedItem()
+	{
+		scanned_out_items();
+		getTextchild("//*[@class='pagehead']");
+	}
+	
 	public static void Verifydetails()
     {
 		waitForElementToDisplay(OR.OrderDetails_Change_Facility_Department, 60);

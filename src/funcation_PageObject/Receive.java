@@ -200,4 +200,34 @@ public class Receive extends ApplicationKeyword
 		   }
 		  
 	   }
+	   
+	   public static void shopFacility()
+		{
+			String fac=getProperty("userdefaultFac");
+			waitForElementToDisplayWithoutFail(OR.Receive_selectedFacInDropDown, 10);
+			String alreadySelectedFac=getText(OR.Receive_selectedFacInDropDown);
+			System.out.println(alreadySelectedFac);
+			boolean flag=false;
+			boolean flaf_02=false;
+			if(!alreadySelectedFac.equals(fac))
+			{
+				clickOn(OR.Receive_facilityDropdown);
+				WebElement elem=driver.findElement(By.xpath("//*[text()='"+fac+"']"));
+				elem.click();
+				flag=true;
+			}						
+			String alreadySelectedUser=getText(OR.Receive_selectedUserInDropDown);
+			System.out.println(alreadySelectedUser);
+			if(!alreadySelectedUser.equals("All"))
+			{
+				clickOn(OR.Receive_UsersDropdown);
+				WebElement elem2=driver.findElement(By.xpath("//*[text()='All']"));
+				elem2.click();
+				flaf_02=true;
+			}
+			if(flag||flaf_02)
+			{
+				clickOn(OR.Receive_searchButton);
+			}
+		} 
 }

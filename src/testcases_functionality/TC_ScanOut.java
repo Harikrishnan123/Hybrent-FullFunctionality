@@ -15,7 +15,7 @@ import AutomationFramework.OR;
 import funcation_PageObject.*;
 import pageObject.Alertpage;
 
-public class TC_DisplayPriority extends ApplicationKeyword{
+public class TC_ScanOut extends ApplicationKeyword{
 
 	@Parameters({"siteName", "siteUrl"})
 	@BeforeTest
@@ -31,7 +31,7 @@ public class TC_DisplayPriority extends ApplicationKeyword{
 				directory.mkdir();
 			}
 
-			extent = new ExtentReports(folderPath+"/DisplayPriority.html", true);
+			extent = new ExtentReports(folderPath+"/ScanOut.html", true);
 			extent.addSystemInfo("User Name", "QA");
 			extent.loadConfig(new File(System.getProperty("user.dir") + "/extent-config.xml"));
 
@@ -42,16 +42,43 @@ public class TC_DisplayPriority extends ApplicationKeyword{
 	}
 
 	
+
+	
+	
+	
 	@Test
-	public void Tc_DisplayPriority_001() {
-		testStarts("Tc_DisplayPriority_001", "Verify that \"DISPLAY PRIORITY\" module appears in menu bar only when \"Is Vendor display Order\" option is set as Active in Admin part.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
-		Displaypriority.NavigateDisplayPriority();
-		Displaypriority.VerifyPage();
-		
+	public void TC_ScanOut_001() {
+		testStarts("TC_ScanOut_001", "Verify that \"Scan out Items\" button appear when user add items to cart.");
+		Loginpage.OpenBrowserAndLoginnew();
+		Scanout.navigateScanout();
+		//Scanout.HeaderVerify();
+		Scanout.funcScanout_btn();
+		Scanout.DDEdit();
+		Scanout.DD_PriceChangeHistory();
+		Scanout.DD_PurchaseHistory();
+		Scanout.ScanOutdetails();
+		Scanout.ScannedItem();
 	}
 	
+	
+	@Test
+	public void TC_ScanOut_002() {
+		testStarts("TC_ScanOut_002", "Verify that drop down appears with following options when user clicks the “down arrow”");
+		//Loginpage.OpenBrowserAndLogin();
+		Scanout.navigateScannedoutItem();
+		Scanout.Pageverify();
+		Scanout.HeaderVerify();
+		waitUntilPageReady();
+		typeIn(OR.Scanout_SearchComment, "07983-02");
+		clickOn(OR.Scanout_Searchbtn);
+		Scanout.ScannedItem();
+		Scanout.DDEdit();
+		Scanout.DD_PriceChangeHistory();
+		Scanout.DD_PurchaseHistory();
+		verifyPagination();
+	}
+	
+
 	@AfterTest
 	public void endReport()
 	{

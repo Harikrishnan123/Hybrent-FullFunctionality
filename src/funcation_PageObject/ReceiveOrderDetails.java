@@ -82,7 +82,6 @@ public class ReceiveOrderDetails extends ApplicationKeyword
 	
 	   public static void PrintLog()
 	   {
-		   waitUntilPageReady();
 		   waitForElement(OR.OrderDetails_PO_Dropdown);
 		   clickOn(OR.OrderDetails_PO_Dropdown);
 			waitForElementToDisplayWithoutFail(OR.Order_PO_first_PoLog, 10);
@@ -165,7 +164,7 @@ public class ReceiveOrderDetails extends ApplicationKeyword
 					clickOn(OR.Dep_Delete_Yes);
 					clickOn(OR.Invoice_DocPopUPText);
 					clickOn(OR.Order_CloseButton);
-
+					waitUntilPageReady();
 				}
 	   public static void PrintItem()
 	   {
@@ -213,7 +212,7 @@ public class ReceiveOrderDetails extends ApplicationKeyword
 		   clickOn(OR.OrderDetails_AdditemsToCart);
 		   if(driver.findElements(By.className("toast-title")).size()!=0)
 		   {
-			   ToastmesssageSucess();
+			  // ToastmesssageSucess();
 		   }
 		   if(driver.findElements(By.xpath("//*[text()='All the items of order already added in the cart.']")).size()!=0)
 		   {
@@ -259,6 +258,7 @@ public class ReceiveOrderDetails extends ApplicationKeyword
 		   {
 			   testLogPass(driver.findElement(By.xpath("(//*[@id='viewer']/div/div[2]/div)["+i+"]")).getText());
 		   }
+		   clickOn(OR.Order_PrintPReviewclose);
 		   
 	   }
 	   
@@ -336,5 +336,47 @@ public class ReceiveOrderDetails extends ApplicationKeyword
 		   testLogPass( getText(OR.Invoice_DiscountAmount_TaxLabel)+ getText(OR.Invoice_Discount_Amount));
 		   testLogPass( getText(OR.Invoice_InvoiceLabel)+ getText(OR.Invoice_InvoiceDesc));
 		   testLogPass( getText(OR.Invoice_BatchLabel)+ getText(OR.Invoice_Batch_Input));
+		   clickOn(OR.Request_calander_SelectDate);
+		   getText(OR.Request_calander_Value);
+		   clickOn(OR.Request_calander);
+	   }
+	   
+	   
+	   public static void AddPaymentTerm()
+	   {
+		   verifyElement(OR.Receive_PODetailAddInvoice);
+		   clickOn(OR.Receive_PODetailAddInvoice);
+		   verifyElementText(OR.InvoicePaymentTerm_AddPayment_Header, "Add Payment Term");
+			verifyElementText(OR.InvoicePaymentTerm_AddPayment_Description_Label, "Description :");
+			verifyElementText(OR.InvoicePaymentTerm_AddPayment_Type_Label, "Type :");
+			verifyElementText(OR.InvoicePaymentTerm_AddPayment_Day_Label, "Day(s) :");
+			verifyElementText(OR.InvoicePaymentTerm_AddPayment_Percent_Label, "Percent (%) :");
+			verifyElementText(OR.InvoicePaymentTerm_AddPayment_APIntegratiot_Label, "AP Integration ID :");
+			verifyElement(OR.InvoicePaymentTerm_AddPayment_CancelButtton);
+			verifyElement(OR.InvoicePaymentTerm_AddPayment_addButtton);
+			String Desc = "TestDEs"+randomAlphaNumeric(7);
+			int size = driver.findElements(By.xpath("//*[@id='paymentTermType']/option")).size();
+					for(int i=1;i<=size;i++)
+					{
+						String one = driver.findElement(By.xpath("(//*[@id='paymentTermType']/option)["+i+"]")).getText();
+						testLogPass("Payement options are "+one);
+						selectFromDropdown(OR.InvoicePaymentTerm_AddPayment_paymentTermType_Selectdropdown, one);
+					}
+					typeIn(OR.Pterms_addDesc, Desc);
+					typeIn(OR.InvoicePaymentTerm_AddPayment_Day_Input, "2");
+					typeIn(OR.InvoicePaymentTerm_AddPayment_Percent, "103");
+					typeIn(OR.InvoicePaymentTerm_AddPayment_APIntegratiot, "text");
+					clickOn(OR.InvoicePaymentTerm_AddPayment_CancelButtton);
+					waitForElement(OR.Receive_PODetailAddInvoice, 40);
+					clickOn(OR.Receive_PODetailAddInvoice);
+					typeIn(OR.Pterms_addDesc, "12");
+					typeIn(OR.InvoicePaymentTerm_AddPayment_Day_Input, "2");
+					typeIn(OR.InvoicePaymentTerm_AddPayment_Percent, "2");
+					typeIn(OR.InvoicePaymentTerm_AddPayment_APIntegratiot, "text");
+					clickOn(OR.InvoicePaymentTerm_AddPayment_addButtton);
+					ToastmesssageSucess();
+					typeIn(OR.Pterms_addDesc,Desc);
+					clickOn(OR.InvoicePaymentTerm_AddPayment_addButtton);
+					ToastmesssageSucess();
 	   }
 }

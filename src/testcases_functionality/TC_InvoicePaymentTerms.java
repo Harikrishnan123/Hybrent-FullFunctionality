@@ -45,8 +45,7 @@ public class TC_InvoicePaymentTerms extends ApplicationKeyword{
 	@Test
 	public void Tc_InvoicePaymentTerms_001() {
 		testStarts("Tc_InvoicePaymentTerms_001", "Verify that “Manage Invoice Payment Terms” heading appears on top left side of page.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
+		Loginpage.OpenBrowserAndLoginnew();
 		InvoicePaymentTerms.NavigateToInvoicePaymentTerms();
 		InvoicePaymentTerms.AddPayment();
 	}
@@ -54,8 +53,6 @@ public class TC_InvoicePaymentTerms extends ApplicationKeyword{
 	@Test
 	public void Tc_InvoicePaymentTerms_002() {
 		testStarts("Tc_InvoicePaymentTerms_002", "Add Payment Term > Verify that validation message appears for field, if user tries to save Payment Term with invalid data.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
 		InvoicePaymentTerms.NavigateToInvoicePaymentTerms();
 		InvoicePaymentTerms.Duplicate();
 	}

@@ -183,7 +183,7 @@ public class Vendor extends ApplicationKeyword{
 			clickOn(OR.InvLoc_Add_CancelBtn);
 		}
 		clickOn(OR.Shop_Menu);
-		waitForElement(OR.Shop_SHopfor_allvendorsinDropdown, 40);
+		waitTime(4);
 		int size = driver.findElements(By.xpath("//*[@id='vendor']/option")).size();
 		for(int i =1;i<=size;i++)
 		{
