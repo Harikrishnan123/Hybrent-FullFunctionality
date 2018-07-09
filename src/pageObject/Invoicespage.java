@@ -31,7 +31,7 @@ public class Invoicespage extends ApplicationKeyword{
 	{	
 		clickOn(OR.Request_InvoicePageLink);
 		waitForElementToDisplayWithoutFail(OR.Receive_selectedFacInDropDown, 10);
-		ReceivePageObject.shopFacility();
+		ReceivePageObject.InvoiceshopFacility();
 		waitTime(2);
 		String invoiceName=getProperty("invoiceName");
 		//ReceivePageObject.selectByDefaultUser();	

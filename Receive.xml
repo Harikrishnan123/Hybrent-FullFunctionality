@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-1" />
+ <test name="Receive" preserve-order="true">
+   <classes>
+   <class name="testCases.Receive">
+   <methods>
+     <include name="Tc_Receive_01"/>
+     <include name="Tc_Receive_03"/>
+     <include name="Tc_Receive_05_06"/>
+     <include name="Tc_Receive_07_19"/>
+	 <include name="Tc_Receive_09"/>
+	 <include name="Tc_Receive_10"/>
+	 <include name="Tc_Receive_11"/>
+	 <include name="Tc_Receive_12"/>
+	 <include name="Tc_Receive_014"/>
+	 <include name="Tc_Receive_017"/>
+	 <include name="Tc_Receive_20"/>
+	 <include name="Tc_Receive_21"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+</suite>
+

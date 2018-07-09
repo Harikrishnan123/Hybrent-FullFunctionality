@@ -69,7 +69,7 @@ public class ManageInventory extends ApplicationKeyword{
 		}
 		clearEditBox(OR.manageInv_searchTextBox);
 		waitForElementToDisplayWithoutFail(OR.manageInv_wait2, 20);
-		String Sku=getProperty("ItemtestID");
+		String Sku=getProperty("Sku");
 		typeIn(OR.manageInv_searchTextBox,Sku);
 		clickOn(OR.manageInv_searchButton);
 		waitForElementToDisplayWithoutFail(OR.manageInv_firstItemSku, 20);
@@ -112,7 +112,7 @@ public class ManageInventory extends ApplicationKeyword{
 		{
 			testLogFail("Item is not searched with " + alias);			
 		}
-		
+		//waitTime(3);
 	}
 
 

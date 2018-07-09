@@ -32,16 +32,16 @@ public class MycartPage extends ApplicationKeyword{
 	}
 
 	public static void checkIfCartIsEmpty()
-	{	
+	{	waitForElement(OR.MyCart_drillDownDiv);
 		if(isElementDisplayedwithoutFail(OR.MyCart_drillDownDiv, 10))
 		{
 			System.out.println("________Drill down is present");
-			clickOn(OR.MyCart_drillDown);
-			//			//clickOn(OR.MyCart_clearCurrentCart);
+			clickOn(OR.MyCart_drillDownDiv);
+			waitForElement(OR.MyCart_clearAllCarts2);
 			clickOn(OR.MyCart_clearAllCarts2);
-			waitForElementToDisplayWithoutFail(OR.MyCart_yesInPopup, 10);
+			waitForElement(OR.MyCart_yesInPopup);
 			clickOn(OR.MyCart_yesInPopup);
-			waitForElementToDisplayWithoutFail(OR.MyCart_OKInPopup, 10);
+			waitForElement(OR.MyCart_OKInPopup);
 			clickOn(OR.MyCart_OKInPopup);
 		}
 		else
@@ -113,9 +113,10 @@ public class MycartPage extends ApplicationKeyword{
 
 	public static void showTourPopUP()
 	{
+		waitForElement(OR.MyCart_drillDownDiv);
 
-		clickOn(OR.MyCart_drillDown);
-		clickOn(OR.MyCart_showTourButton);
+		clickOn(OR.MyCart_drillDownDiv);
+		clickOn(OR.Receive_ShowTour);
 		String s=getText(OR.MyCart_showtourtextONPOPUP);	
 	}
 
@@ -126,46 +127,14 @@ public class MycartPage extends ApplicationKeyword{
 			String mfr=getProperty(mfrToreterive);
 			typeIn(OR.ItemCatalog_AddItem_ItemDetails_MfrDetails, mfr);
 			clickOn(OR.ItemCatalog_AddItem_ItemDetails_MfrDetailsDropdown);
-			if(isElementDisplayed(OR.ItemCat_SearchTextBox, 60))
-			{
-				typeIn(OR.ItemCat_SearchTextBox, "didosdjksjdsjdjsdhsdkjsdhshdskdhksdhs");
-				verifyElementText(OR.ItemCat_NoDataAvailable, "No data available");
-				typeIn(OR.ItemCat_SearchTextBox, "");
-				verifyPagination();
-				if(isElementDisplayed(OR.ItemCat_Import))
-				{
-					waitForElementToDisplay(OR.ItemCat_Import, 60);
-					mouseOver(OR.ItemCat_Import);
-					clickOn(OR.ItemCat_Import);
-					verifyElementText(OR.manufacturer_csManufacture, "CS Manufacturers");
-					if(driver.findElements(By.xpath("(//button[@class='close'])[1]")).size()!=0)
-					{
-						driver.findElement(By.xpath("(//button[@class='close'])[1]")).click();
-						waitForElementToDisplay(OR.ItemCat_Import, 60);
-						mouseOver(OR.ItemCat_Import);
-						clickOn(OR.ItemCat_Import);
-					}
-					waitForElementToDisplay(OR.manufacturer_searchby, 60);
-					verifyElementText(OR.manufacturer_searchby, "Search by");
-					verifyElement(OR.manufacturer_searchTextBox);
-					verifyPagination();
-					if(isElementDisplayed(OR.csManufacture_AddNewimport))
-					{
-						clickOn(OR.csManufacture_AddNewimport);
-						verifyElementText(OR.ItemCatalog_txt_Addmanufacture, "Add Manufacturer");
-						verifyElementText(OR.ItemCatalog_txt_Addmanufacture_labelName, "Name*");
-						String Manufacture = "Manu"+randomAlphaNumeric(10);
-						typeIn(OR.ItemCatalog_txt_Addmanufacture_Name, Manufacture);
-						clickOn(OR.Template_Schedule_Savebtn);
-						setProperty("NewManufacture", Manufacture);
-					}
-				}
-			}
+			waitForElementToDisplayWithoutFail(OR.ItemCatalog_AddItem_Man_Select, 30);
+			clickOn(OR.ItemCatalog_AddItem_Man_Select);
 		}
 	}
 
 	public static String getFac()
 	{
+		waitForElement(OR.Shop_Menu);
 		clickOn(OR.Shop_Menu);		
 		waitForElementToDisplayWithoutFail(OR.Shop_wait, 10);
 		String facility_Name=getText(OR.Shop_SHopfor_getfacilityName);
@@ -177,25 +146,22 @@ public class MycartPage extends ApplicationKeyword{
 	
 	public static void matchFac(String facName)
 	{	
-	
 	clickOn(OR.Shop_SHopfor_ShopfaclitySelect);
 	waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_Shopfaclity, 10);
 	verifyElementText(OR.Shop_SHopfor_Shopfaclity, "Select Facility");
-	waitForElementToDisplayWithoutFail(OR.Shop_countoffacilities, 10);
-	int one = driver.findElements(By.xpath("//*[@style='border-right: none;vertical-align: middle;']")).size();
+	typeIn(OR.Invoice_SearchInInvoiceTextBox, facName);	
+	int one = driver.findElements(By.xpath("(//*[@class='table table-responsive table-striped table-bordered']//tbody//td[1])")).size();
 	boolean facFound=false;
-	String xpath;
 	String selectedFacility;
 	WebElement btn;
 	for(int i=1; i<=one; i++)
 	{
-		xpath="(//table[@class='table table-responsive table-striped table-bordered']/tbody/tr["+i+"]";
-		selectedFacility=driver.findElement(By.xpath(xpath+"/td)")).getText();
+		selectedFacility=driver.findElement(By.xpath("(//*[@class='table table-responsive table-striped table-bordered']//tbody//td[1])["+i+"]")).getText();
 		//System.out.println(selectedFacility);
 		if(selectedFacility.equals(facName))
 		{  
 			facFound=true;
-			btn= driver.findElement(By.xpath(xpath+"/td[2]/div/button)"));
+			btn= driver.findElement(By.xpath("(//*[starts-with(@class, 'table table-responsive')]//tbody//td[1])/following-sibling::td//button"));
 			if(btn.getAttribute("disabled")!=null)
 			{
 				testLogPass("Go the text '"+selectedFacility+ "' Matches with selected Facility" );

@@ -156,7 +156,7 @@ public class Patients extends ApplicationKeyword
 	@Test
 	public void Tc_Patients_05()
 	{
-		testStarts("Tc_Patients_07", "Drill-down > Verify that edit case page opens when user clicks Edit button.");
+		testStarts("Tc_Patients_05", "Drill-down > Verify that edit case page opens when user clicks Edit button.");
 		NavigateUrl(DashBoardURL);	
 		  System.out.println("Tc_Patients_05");
 		PrefcardPageObject.patientsPageLinkandwait();

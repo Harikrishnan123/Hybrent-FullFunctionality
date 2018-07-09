@@ -1,15 +1,11 @@
 package pageObject;
 
-import java.util.ArrayList;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import AutomationFramework.ApplicationKeyword;
 import AutomationFramework.ApplicationKeyword;
 import AutomationFramework.OR;
-import AutomationFramework._OR;
-import groovy.util.CliBuilder;
 
 public class Dashboardpage extends ApplicationKeyword{
 	  public static void NotificationCount()
@@ -34,7 +30,6 @@ public class Dashboardpage extends ApplicationKeyword{
               }
               verifyElement(OR.Notification_Mynotification);
               verifyElement(OR.Notification_Btn_Refresh);
-              verifyElement(OR.NotficationPage_FirstNotificationDelete);
           }
           catch(Exception e)
           {
@@ -113,38 +108,8 @@ public class Dashboardpage extends ApplicationKeyword{
           getText(OR.DashBoard_Report_NewsEvent_txt);
           getText(OR.DashBoard_Report_News);
           clickOn(OR.DashBoard_Report_News);
-          verifyPageTitle("News");	
+          waitTime(5);
+          verifyPageTitle("News");
       }
-      
-      public static void DeleteNotification()
-      {
-    	  NotificationName();
-    	  clickOn(OR.NotficationPage_FirstNotificationDelete);
-    	  verifyElementText(_OR.Delete_Areyousure, "Are you sure?");
-    	  verifyElementText(_OR.Notification_Delete_Confirmation, "Are you sure you want to delete this notification?");
-    	  verifyElement(_OR.Delete_Confirm_Cancel);
-    	  waitforclick(_OR.Delete_Confirm_Yes);
-    	  clickOn(_OR.Delete_Confirm_Yes);
-    	  waitTime(5);
-      }
-      
-      public static void NotificationName()
-      {
-    	  String Name = driver.findElement(By.xpath("(//*[@class='well well-sm']//p)[1]")).getText().replace("Template schedule execution failed for template (", "").replaceAll("", "");
-    	  testLogPass("Name of the notification for deletion is "+Name);
-      }
-      
-      public static void partialOrderverifystatus()
-      {
-    	  clickOn(_OR.Dashboard_partialOrder);
-    	  String one1 = driver.findElement(By.xpath("//*[@id='status']//*[@class='ng-binding ng-scope']")).getText();
-    	  if(one1.contains("Partial Received"))
-    	  {
-    		  testLogPass("Partial Received is selected in the dropdown ");
-    	  }
-    	  else
-    	  {
-    		  testLogFail("Partial Received is Not selected in the dropdown seleceted the values is '"+one1);
-    	  }
-      }
+
 }

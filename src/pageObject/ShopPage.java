@@ -14,15 +14,6 @@ public class ShopPage extends ApplicationKeyword{
         verifyElementText(OR.Shop_SHopfor_Shopfaclity, "Select Facility");
     }
 	
-	public static void verifyShop()
-	{
-		waitForElementToDisplay(OR.Shop_Shopfor, 20);
-		verifyElementText(OR.Shop_Shopfor, "Shopping for");
-		
-		
-	}
-	
-	
 	public static void MatchDropdown()
 	{
 		verifyElementText(OR.Shop_Match_Text, "Match");

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-1" />
+ <test name="ReceiveDetails" preserve-order="true">
+   <classes>
+   <class name="testCases.ReceiveDetails">
+   <methods>
+     <include name="Tc_RECDET_01"/>
+     <include name="Tc_RECDET_03_04"/>
+     <include name="Tc_RECDET_05"/>
+     <include name="Tc_RECDET_06"/>
+	 <include name="Tc_RECDET_07"/>
+	 <include name="Tc_RECDET_08"/>
+	 <include name="Tc_RECDET_09"/>
+	 <include name="Tc_RECDET_10"/>
+	 <include name="Tc_RECDET_11"/>
+	 <include name="Tc_RECDET_12"/>
+	 <include name="Tc_RECDET_13"/>
+	 <include name="Tc_RECDET_14"/>
+	 <include name="Tc_RECDET_15_16"/>
+	 <include name="Tc_RECDET_17"/>
+	 <include name="Tc_RECDET_19"/>
+	 <include name="Tc_RECDET_20"/>
+	 <include name="Tc_RECDET_21"/>
+	 <include name="Tc_RECDET_22_23"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+</suite>
+

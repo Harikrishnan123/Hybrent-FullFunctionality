@@ -128,7 +128,7 @@ public class ShopPage extends ApplicationKeyword{
 		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_SearchBox, 30);
 		String itemDsc=getProperty("ItemDesc");
 		typeIn(OR.Shop_SHopfor_SearchBox,itemDsc);
-		waitTime(7);
+		
 		String itemname=getAttributeValue(OR.Shop_SHopfor_Search_itemdesc, "name");
 		if(itemname.equals(itemDsc))
 		{
@@ -143,7 +143,7 @@ public class ShopPage extends ApplicationKeyword{
 		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_SearchBox, 15);
 		String Sku=getProperty("Sku");
 		typeIn(OR.Shop_SHopfor_SearchBox,Sku);
-		waitTime(7);
+		
 		//waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_Search_itemdesc, 10);
 		String itemname2=getAttributeValue(OR.Shop_SHopfor_Search_itemdesc, "name");
 		if(itemname.equals(itemname2))
@@ -159,7 +159,7 @@ public class ShopPage extends ApplicationKeyword{
 		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_SearchBox, 15);
 		String mfr=getProperty("ItemMfr");
 		typeIn(OR.Shop_SHopfor_SearchBox,mfr);
-		waitTime(7);
+		
 		//waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_Search_itemdesc, 10);
 		String itemname3=getAttributeValue(OR.Shop_SHopfor_Search_itemdesc, "name");
 		if(itemname.equals(itemname3))
@@ -173,7 +173,7 @@ public class ShopPage extends ApplicationKeyword{
 		//search with vendor name
 		String vendor=getProperty("vendorName");
 		selectFromDropdown(OR.Shop_VendorSelect, vendor);
-		waitTime(7);
+		
 		//waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_SelectfirstItemvendorName, 15);
 		String vendoraftersearch=getText(OR.Shop_SHopfor_SelectfirstItemvendorName);     
 		waitForElementToDisplayWithoutFail(OR.Shop_wait, 10);
@@ -194,20 +194,15 @@ public class ShopPage extends ApplicationKeyword{
 		NavigateUrl(DashBoardURL);
 		System.out.println("Tc_Shop_5");
 		clickOn(OR.Shop_Menu);
-		waitTime(5);
 		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_RecentlyOrderedradiobutton, 10);
 		clickOn(OR.Shop_SHopfor_RecentlyOrderedradiobutton);
-		waitTime(2);
 		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_LastorderedText, 10);
-		verifyElementText(OR.Shop_SHopfor_LastorderedText, "Last Ordered");
+		getText(OR.Shop_SHopfor_LastorderedText);
 		clickOn(OR.Shop_SHopfor_MostOrderedradiobutton);
-		waitTime(2);
 		verifyElementText(OR.Shop_SHopfor_PoCountText, "PO Count");      	
 		clickOn(OR.Shop_SHopfor_FavOrderedradiobutton);
-		waitTime(8);
 		verifyAttribute(OR.Shop_SHopfor_favtab, "ng-if", "isFavorite");		
 		clickOn(OR.Shop_SHopfor_MyInventoryradiobutton);
-		waitTime(2);
 		verifyAttribute(OR.Shop_SHopfor_myInventoryFavTab, "ng-if", "!isFavorite");	
 
 	}
@@ -289,7 +284,7 @@ public class ShopPage extends ApplicationKeyword{
 		clickOn(OR.Shop_Menu);
 		clickOn(OR.Shop_SHopfor_drilldownicon);
 		//waitForElementToDisplay(OR.Shop_SHopfor_waitdrilldownicon, 60);  
-		clickOn(OR.Shop_SHopfor_showTourText);
+		clickOn(OR.Receive_ShowTour);
 		//Since the xpath is relative to text of the element, we do not need to compare the text again. 
 		//No need for explicit messages because method 'getText' implicitly does messaging on the basis of whether text found or not.
 		getText(OR.Shop_SHopfor_showtourtextONPOPUP);
@@ -394,15 +389,14 @@ public class ShopPage extends ApplicationKeyword{
 
 		}
 		clickOn(OR.Shop_drilldownChangeLayoutClose);
+		waitForElement(OR.Shop_SHopfor_drilldownicon);
 		clickOn(OR.Shop_SHopfor_drilldownicon);
 		waitForElementToDisplayWithoutFail(OR.Shop_drilldownLayouts, 10);
 		mouseOver(OR.Shop_drilldownLayouts);
 		//clickOn(OR.Shop_drilldownRemoveLayout);
-		WebElement elem=driver.findElement(By.xpath("//a[contains(text(),'"+layout+"')]/../i"));
+		WebElement elem=driver.findElement(By.xpath("//*[contains(text(),'"+layout+"')]"));
 		elem.click();
-		waitForElementToDisplayWithoutFail(OR.Shop_drilldownRemoveLayoutYes, 10);
-		clickOn(OR.Shop_drilldownRemoveLayoutYes);
-		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_drilldownicon, 30);
+		ToastmesssageSucess();
 
 	}
 
@@ -573,7 +567,6 @@ public class ShopPage extends ApplicationKeyword{
 		typeIn(OR.Shop_SHopfor_SearchBox,itemDsc);
 		waitForElementToDisplayWithoutFail(OR.Shop_wait, 60);
 
-		waitForElementToDisplayWithoutFail(OR.Shop_SHopfor_Search_Addtocart_First, 60);
 		String one = getAttributeValue(OR.Shop_SHopfor_Search_Addtocart_First, "class");
 		if (one.contains("btn btn-default btn-xs ng-hide")) {
 			String BeforeIncrease = getText(OR.Shop_Item_Qty_First);
@@ -599,7 +592,6 @@ public class ShopPage extends ApplicationKeyword{
 			if(isElementDisplayedwithoutFail(OR.MyCart_warningPopup, 10))
 			{      
 				clickOn(OR.MyCart_continueButton);     
-				waitTime(3);
 			}
 
 			String BeforeIncrease = getText(OR.Shop_Item_Qty_First);

@@ -49,11 +49,11 @@ public class InvoicePage extends ApplicationKeyword
 	@Test
 	public void Tc_INV_01() throws InterruptedException
 	{
-		testStarts("Tc_INV_01_", "Verify that following dropdown filters(Vendor,Status,Search By ,Due Date,Facility,Departments,Ordered By	) appear on page");
+		testStarts("Tc_INV_01", "Verify that following dropdown filters(Vendor,Status,Search By ,Due Date,Facility,Departments,Ordered By	) appear on page");
 		Loginpage.OpenBrowserAndLogin();	
 		System.out.println("Tc_INV_01");
 		waitForElementToDisplayWithoutFail(OR.Shop_Menu, 60);
-		//get the By default Facility Name of USer	
+		//get the By default Facility Name of User	
 		clickOn(OR.Orders_Link);	
 		waitForElementToDisplayWithoutFail(OR.Receive_selectedFacInDropDown, 5);
 		ReceivePageObject.shopFacility();
@@ -132,7 +132,7 @@ public class InvoicePage extends ApplicationKeyword
 			clickOn(OR.Invoice_ConfirmButton);
 			testLogPass("Second Test case starts");
 			waitForElementToDisplayWithoutFail(OR.Invoice_PONUmInHeader, 5);
-			String PONUmberHeader=getText(OR.Invoice_PONUmInHeader).trim();
+			String PONUmberHeader=getText(OR.Invoice_PONUmInHeader).trim().replace(" (ASSIGNED)", "");
 			System.out.println(PONUmberHeader);
 			clickOn(OR.Invoice_SelectFirstInvoice);
 			waitForElementToDisplayWithoutFail(OR.Invoice_PageHeadTextIncludingPONum, 5);
@@ -168,7 +168,7 @@ public class InvoicePage extends ApplicationKeyword
 			clickOn(OR.Invoice_closeButton);
 			clickOn(OR.Request_InvoicePageLink);
 			waitForElementToDisplayWithoutFail(OR.Receive_selectedFacInDropDown, 10);
-			ReceivePageObject.shopFacility();	
+			ReceivePageObject.InvoiceshopFacility();	
 			typeIn(OR.Invoice_SearchInInvoiceTextBox, PoNum);
 			clickOn(OR.Invoice_SearchButton);
 			//Thread.sleep(4000);
@@ -307,9 +307,19 @@ public class InvoicePage extends ApplicationKeyword
 		if(!Invoicespage.IntactAndQucikBook_Toggle())
 		{
 			Invoicespage.typeAndSearchInvoice();
+			waitTime(2);
 			clickOn(OR.Invoice_SelectFirstInvoice);
-			verifyElementText(OR.Invoice_SentToAccounting, "Send To Accounting");
-			testLogPass("Sent to Accounting button is present");
+			waitTime(3);
+			String one = driver.findElement(By.xpath("//*[contains(text(),'Send To Accounting')]")).getText();
+			
+			if(one.contains("Send To Accounting"))
+			{
+				testLogPass("Sent to Accounting button is present");
+			}
+			else
+			{
+				testLogFail("Sent to Accounting button is NOt present");
+			}
 		}
 		else
 		{

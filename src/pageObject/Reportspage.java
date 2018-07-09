@@ -13,7 +13,7 @@ public class Reportspage extends ApplicationKeyword {
 	 public static void VerifyViewReport()
      {
          waitForElementToDisplay(OR.ViewMoreReport, 60);
-         waitforclick(OR.ViewMoreReport);
+
          clickOn(OR.ViewMoreReport);
          int sClass = driver.findElements(By.xpath("//*[@role='menuitem']")).size();
 

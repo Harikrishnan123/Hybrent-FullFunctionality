@@ -79,6 +79,7 @@ public class PrefcardPageObject extends ApplicationKeyword {
 		PrefcardPageObject.prefCardPagePageLinkandwait();
 		waitForElementToDisplay(OR.prefCard_AddPrefCard, 10);
 		clickOn(OR.prefCard_AddPrefCard);
+		waitForElement(OR.prefCard_addStage);
 		clickOn(OR.prefCard_addStage);
 		String sName=getProperty("Prefcard_StageName");
 		typeIn(OR.prefCard_addStageName, sName);

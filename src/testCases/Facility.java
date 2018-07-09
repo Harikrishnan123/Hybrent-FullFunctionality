@@ -587,9 +587,9 @@ public class Facility extends ApplicationKeyword{
 			testLogPass("SAVE/Create Button is disabled if mandatory fields are not filled");
 		}
 		String glCode="TestGLCOde"+ApplicationKeyword.randomAlphaNumeric(2);		
-		typeIn(OR.glCode_add_code, glCode);
+		typeIn(OR.glCode_addcode, glCode);
 		String glCodeName="Name"+ApplicationKeyword.randomAlphaNumeric(2);
-		typeIn(OR.glCode_add_Name, glCodeName);
+		typeIn(OR.glCode_addName, glCodeName);
 		setProperty("glCodeName", glCodeName);
 		if(Organisation_settingspage.ifButtonDisabled(OR.glCode_saveButton))
 		{

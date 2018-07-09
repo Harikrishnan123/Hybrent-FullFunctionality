@@ -2,17 +2,31 @@
  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="example suite 1" verbose="1" >
  <parameter name="browser" value="chrome" />
- <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
  <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
- <parameter name="siteName" value="qa-4" />
- <test name="Alert" preserve-order="true">
-  <classes>
-   <class name="testcases_functionality.TC_Shop">
+ <parameter name="siteName" value="qa-1" />
+  <test name="ShopPage" preserve-order="true">
+   <classes>
+   <class name="testCases.ShopPage">
    <methods>
-     <include name="Tc_Shop_001" />
-     </methods>
+     <include name="Tc_Shop_1"/>
+     <include name="Tc_Shop_2_3"/>
+     <include name="Tc_Shop_4"/>
+     <include name="Tc_Shop_5"/>
+	 <include name="Tc_Shop_6"/>
+	 <include name="Tc_Shop_7"/>
+	 <include name="Tc_Shop_08"/>
+	 <include name="Tc_Shop_09"/>
+	 <include name="Tc_Shop_10"/>
+	 <include name="Tc_Shop_12"/>
+	 <include name="Tc_Shop_15"/>
+	 <include name="Tc_Shop_16"/>
+	 <include name="Tc_Shop_17"/>
+	 <include name="Tc_Shop_19"/>
+	 <include name="Tc_Shop_21"/>
+	</methods>
 	</class>
   </classes>
    </test>
-   </suite>
+</suite>
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-4" />
+  <test name="Patients" preserve-order="true">
+   <classes>
+   <class name="testCases.Patients">
+   <methods>
+     <include name="Tc_Patients_01_02"/>
+     <include name="Tc_Patients_03"/>
+	 <include name="Tc_Patients_05"/>
+	 <include name="Tc_Patients_07"/>
+	 <include name="Tc_Patients_08_09"/>
+	 <include name="Tc_Patients_10"/>
+	 <include name="Tc_Patients_11"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+</suite>
+

@@ -14,7 +14,6 @@ import pageObject.Organisation_settingspage;
 import AutomationFramework.ApplicationKeyword;
 import AutomationFramework.Generickeywords;
 import AutomationFramework.OR;
-import AutomationFramework._OR;
 
 public class Users extends ApplicationKeyword{
 
@@ -52,9 +51,6 @@ public class Users extends ApplicationKeyword{
 		testStarts("Tc_Users_01" , "Verify that Search text field with facilities and status dropdown appear on page.");
 		Loginpage.OpenBrowserAndLogin();	
 		Organisation_settingspage.adminAndUserPage();
-		clickOn(_OR.Dashboard_User);
-		verifyElement(_OR.Dashboard_User_Profile);
-		clickOn(_OR.Dashboard_User_Profile);
 		verifyElementText(OR.Users_SearchByText, "Search by");
 		verifyElementText(OR.Users_FacilityText, "Facilities");
 		verifyElementText(OR.Users_StatusText, "Status");

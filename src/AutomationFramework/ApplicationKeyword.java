@@ -5,15 +5,8 @@ import java.util.Properties;
 import java.util.Random;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import AutomationFramework._OR;
-import funcation_PageObject.Loginpage;
 
 public class ApplicationKeyword extends Generickeywords 
 {
@@ -51,60 +44,12 @@ public class ApplicationKeyword extends Generickeywords
 	
 	public static int generateRandomInt(int upperRange)
 	{
-		int input =100000+upperRange; 
 	    Random random = new Random();
-	    return random.nextInt(input);
+	    return random.nextInt(upperRange);
 	   
 	}
-	
-	public static int generateRandomInt1(int upperRange)
-	{
-		int input =upperRange; 
-	    Random random = new Random();
-	    return random.nextInt(input);
-	   
-	}
-	public static String getTextchild(String xpath)
-	{
-		waitUntilPageReady();
-		WebElement element = driver.findElement(By.xpath(xpath));
-		String text = element.getText();
-	    	for (WebElement child : element.findElements(By.xpath("./*"))) {
-	    		text = text.replaceFirst(child.getText(), "");
-	    	}
-	    testLogPass("Got the child text ' "+text);
-		return text;
-	}	
-	
-	
-	public static int getRandomNumberInRange(int min, int max) {
-		
-		Random r = new Random();
-		return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
-		
-	}
-	
-	public static void verifyPagination()
-	{
-		verifyElement(OR.Pagination);
-	}
-	
-	public static void Gridview()
-	{
-		waitTime(2);
-		int size = driver.findElements(By.className("grid-item")).size();
-		if(size!=0)
-		{
-			testLogPass("Grid view");
-		}
-		else
-		{
-			testLogFail("Its not in Grid View");
-		}	
-	}
-	
 	public static void ToastmesssageSucess()
-	{ waitUntilPageReady();
+	{ waitforPaageload();
 		WebElement toast =driver.findElement(By.className("toast-title"));
 		if(toast.getText().contains("Success"))
 		{
@@ -122,42 +67,5 @@ public class ApplicationKeyword extends Generickeywords
 		}
 	}
 	
-	public static void pagesize()
-	{
-		waitUntilPageReady();
-		int size = driver.findElements(By.xpath("//*[@id='pageSize']/option")).size();
-		for(int i =1; i<=size; i++)
-		{
-			Select s =  new Select(driver.findElement(By.xpath("//*[@id='pageSize']")));
-			WebElement option = s.getOptions().get(i);
-			String defaultItem = option.getText();
-			testLogPass("selected page size is "+defaultItem);
-		}
-	}
-	
-	public static String BootstrapgetToolTip(WebElement baseElement, WebElement tooltipElement, WebDriver driver)
-	{
-		// Actions class object
-		Actions action= new Actions(driver);
-		// Explicit wait
-		WebDriverWait wait= new WebDriverWait(driver,10);
-		// Moving mouse cursor to base element to make tooltip visible
-		action.moveToElement(baseElement).build().perform();
-		// Wait till tooltip is visible/displayed
-		WebElement tooltipTextEle=wait.until(ExpectedConditions.visibilityOf(tooltipElement));
-		// Get tool tip using getText method
-		String toolTip= tooltipTextEle.getText();
-		// return tool tip
-		return toolTip;
-	}
-
-	public static void ProfileUpdateLogmeOut()
-	{
-		if(isElementDisplayed(OR.ProfileUpdate))
-		{
-			clickOn(OR.ProfileUpdate_Logmeout);
-		}
-		Loginpage.newlogin(getProperty("created_NeUser"), getProperty("updated_NewPassword"));
-	}
 }
 

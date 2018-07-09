@@ -22,7 +22,9 @@ public class ManageInventoryPOpage extends ApplicationKeyword
     }
 	public static String getDefaultFac()
     {
+		waitForElement(OR.User);
 		clickOn(OR.User);
+		waitForElement(OR.User_Profile);
 		clickOn(OR.User_Profile);
 		String fac=getText(OR.Profile_defaultFacility);
 		setProperty("userdefaultFac", fac);
@@ -97,19 +99,27 @@ public class ManageInventoryPOpage extends ApplicationKeyword
 		//clearEditBox(OR.ItemCatalog_gpo);
 		//typeIn(OR.ItemCatalog_gpo, "3");
 		clickOn(OR.manageInv_InventoryTab);
+		waitForElement(OR.Template_Schedule_Savebtn);
 		List<WebElement> checkBoxes=driver.findElements(By.xpath("//*[contains(@id,'tbl_add_vendor')]/tbody[2]//input[@type='checkbox']"));		
 		System.out.println("CHK SIZE----"+checkBoxes.size());
 		for(WebElement chk:checkBoxes)
 		{
-			chk.click();
-			waitTime(2);
-			int i=ApplicationKeyword.generateRandomInt(10);
-			String s=String.valueOf(i);
-			chk.findElement(By.xpath("../..//input[@ng-model='inventory.qoh']")).clear();
-			chk.findElement(By.xpath("../..//input[@ng-model='inventory.qoh']")).sendKeys(s);
-			waitTime(2);
+			if(chk.isSelected())
+			{
+				
+			}
+			else
+			{
+				chk.click();
+				int i=ApplicationKeyword.generateRandomInt(10);
+				String s=String.valueOf(i);
+				chk.findElement(By.xpath("../..//input[@ng-model='inventory.qoh']")).clear();
+				chk.findElement(By.xpath("../..//input[@ng-model='inventory.qoh']")).sendKeys(s);	
+			}
+			
 		}
-		clickOn(OR.manageInv_SaveButton);
-		waitTime(2);
+		clickOn(OR.Template_Schedule_Savebtn);
+		ToastmesssageSucess();
+		
 	}
 }

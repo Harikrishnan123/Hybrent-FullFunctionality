@@ -77,7 +77,9 @@ public class Organisation_settingspage extends ApplicationKeyword {
 
 	public static void AdminAndPrintBarcodeLink()
 	{	
+		waitForElement(OR.DashBoard_AdminDropdown);
 		clickOn(OR.DashBoard_AdminDropdown);
+		waitForElement(OR.PrintBarcodes_PageLink);
 		clickOn(OR.PrintBarcodes_PageLink);	
 		//waitForElementToDisplayWithoutFail(OR.PrintBarcodes_waitforForFIrst, 10);
 	}
@@ -105,19 +107,24 @@ public class Organisation_settingspage extends ApplicationKeyword {
 	}
 
 	public static void newsPage()
-	{	
+	{	waitForElement(OR.DashBoard_AdminDropdown);
 		clickOn(OR.DashBoard_AdminDropdown);
+			waitForElement(OR.News_PageLink);
 		clickOn(OR.News_PageLink);			
 	}
 	
 	public static void vendorsPage()
 	{	
+		waitForElement(OR.DashBoard_AdminDropdown);
 		clickOn(OR.DashBoard_AdminDropdown);
+		waitForElement(OR.Vendor_PageLink);
 		clickOn(OR.Vendor_PageLink);	
 	}
 	public static void priceTierPage()
 	{	
+		waitForElement(OR.DashBoard_AdminDropdown);
 		clickOn(OR.DashBoard_AdminDropdown);
+		waitForElement(OR.priceTier_PageLink);
 		clickOn(OR.priceTier_PageLink);	
 	}
 	public static void itemCatalogPage()
@@ -129,6 +136,7 @@ public class Organisation_settingspage extends ApplicationKeyword {
 	
 	public static void InvLocationPage()
 	{	
+		waitForElement(OR.DashBoard_AdminDropdown);
 		clickOn(OR.DashBoard_AdminDropdown);
 		clickOn(OR.InvLoc_PageLink);
 		//waitForElementToDisplay(OR.ItemCatalog_AddItem, 60);	

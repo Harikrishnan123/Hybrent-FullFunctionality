@@ -34,9 +34,9 @@ public class Common
 	    partiallinktext, 
 	    classname, 
 	    cssselector, 
-	    angular_model,
+	    tagname,
 	    Angular_ButtonText,
-	    tagname;
+	    angular_model;
 	  }
 	  
 }

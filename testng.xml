@@ -2,9 +2,9 @@
  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="example suite 1" verbose="1" >
  <parameter name="browser" value="chrome" />
- <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
  <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
- <parameter name="siteName" value="qa-4" />
+ <parameter name="siteName" value="qa-1" />
  <test name="CartPage" preserve-order="true">
   <classes>
    <class name="testCases.CartPage">
@@ -19,7 +19,6 @@
      <include name="Tc_Cart_10" />
      <include name="Tc_Cart_12" />
      <include name="Tc_Cart_11" />
-     <include name="Tc_Cart_13" />
      <include name="Tc_Cart_14" />
      <include name="Tc_Cart_15" />
     </methods>

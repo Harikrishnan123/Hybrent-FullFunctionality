@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-1" />
+ <test name="Procedures" preserve-order="true">
+   <classes>
+   <class name="testCases.Procedures">
+   <methods>
+     <include name="Tc_Procedures_01_02_03"/>
+     <include name="Tc_Procedures_04"/>
+     <include name="Tc_Procedures_05_06"/>
+     <include name="Tc_Procedures_07"/>
+	</methods>
+	</class>
+  </classes>
+  </test>
+</suite>
+

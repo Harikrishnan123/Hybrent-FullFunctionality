@@ -195,7 +195,6 @@ public class PrefCard extends ApplicationKeyword
 		String itemDesc=getProperty("ItemDesc");
 		typeIn(OR.ItemCatalog_searchTextBox, itemDesc);
 		clickOn(OR.ItemCatalog_searchButtoncommon);	
-		waitTime(4);
 		waitForElementToDisplayWithoutFail(OR.ItemCatalog_firstitemName, 30);
 		String firstCategory=null;
 		if(getText(OR.ItemCatalog_firstitemName).equals(itemDesc))
@@ -204,7 +203,6 @@ public class PrefCard extends ApplicationKeyword
 			firstCategory = getDropDownText(OR.ItemCatalog_itemCategory,1);
 			setProperty("firstCategory", firstCategory);
 			clickOn(OR.ItemCatalog_SaveButton);
-			waitTime(3);
 		}
 		else
 		{
@@ -266,6 +264,7 @@ public class PrefCard extends ApplicationKeyword
 		NavigateUrl(DashBoardURL);
 		PrefcardPageObject.addStageAndItem();
 		clickOn(OR.prefCard_deleteQty);
+		waitForElement(OR.prefCard_confirmButton);
 		clickOn(OR.prefCard_confirmButton);
 		waitForElementToDisplayWithoutFail(OR.prefCard_NoItemText, 10);
 		verifyElementText(OR.prefCard_NoItemText ," No item in this stage.");
@@ -284,7 +283,9 @@ public class PrefCard extends ApplicationKeyword
 		String sName=getProperty("Prefcard_StageName");
 		typeIn(OR.prefCard_addStageName, sName);
 		clickOn(OR.prefCard_addStageButton);
+		waitForElement(OR.prefCard_removeStage);
 		clickOn(OR.prefCard_removeStage);
+		waitForElement(OR.prefCard_removeStage);
 		clickOn(OR.prefCard_confirmButton);
 		if(!isElementDisplayed(OR.prefCard_removeStage, 10))
 		{
@@ -309,7 +310,6 @@ public class PrefCard extends ApplicationKeyword
 		clickOn(OR.prefCard_copyStages);
 		waitForElementToDisplayWithoutFail(OR.prefCard_copyStagesPopUpText,50);
 		selectFromDropdown(OR.prefCard_copyPredCardDrpDown, 1);
-		waitTime(2);
 		String stageName=getDropDownText(OR.prefCard_copyPredCardStageDroppDown, 1);
 		System.out.println(stageName);
 		clickOn(OR.prefCard_addButtton);
@@ -332,8 +332,8 @@ public class PrefCard extends ApplicationKeyword
 	{
 		testStarts("Tc_prefCard_14" , "Verify that corresponding preference card gets deleted when user clicks Delete button if corresponding card has no stages in it.");
 		System.out.println("Tc_prefCard_14");
+		Loginpage.OpenBrowserAndLogin();
 		NavigateUrl(DashBoardURL);
-		//Loginpage.OpenBrowserAndLogin();
 		PrefcardPageObject.prefCardPagePageLinkandwait();
 		waitForElementToDisplayWithoutFail(OR.prefCard_AddPrefCard, 10);
 		clickOn(OR.prefCard_AddPrefCard);
@@ -341,18 +341,16 @@ public class PrefCard extends ApplicationKeyword
 		typeIn(OR.prefCard_CardName, cardName);
 		selectFromDropdown(OR.prefCard_PhysicianName, 1);
 		waitForElementToDisplayWithoutFail(OR.prefCard_saveButton, 10);
-		waitTime(2);
 		clickOn(OR.prefCard_saveButton);
 		waitForElementToDisplayWithoutFail(OR.prefCard_searchTextBox, 10);
 		typeIn(OR.prefCard_searchTextBox, cardName);
-		waitTime(8);
 		waitForElementToDisplayWithoutFail(OR.prefCard_firstprefcard, 10);
 		if(getText(OR.prefCard_firstprefcard).contains(cardName))
 		{
 			clickOn(OR.prefCard_removePrefCard);
+			waitForElementToDisplayWithoutFail(OR.prefCard_confirmButton, 20);
 			clickOn(OR.prefCard_confirmButton);
 			typeIn(OR.prefCard_searchTextBox, cardName);
-			waitTime(5);
 			verifyElementText(OR.prefCard_NoPrefCardText, "No Preference cards Found.");			
 		}
 		else
