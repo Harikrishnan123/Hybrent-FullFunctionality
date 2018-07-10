@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="example suite 1" duration-ms="59191" started-at="2018-07-09T15:14:04Z" finished-at="2018-07-09T15:15:03Z">
+  <suite name="example suite 1" duration-ms="212152" started-at="2018-07-10T12:01:12Z" finished-at="2018-07-10T12:04:44Z">
     <groups>
     </groups>
-    <test name="Cases" duration-ms="59191" started-at="2018-07-09T15:14:04Z" finished-at="2018-07-09T15:15:03Z">
-      <class name="testCases.Cases">
-        <test-method status="PASS" signature="startReport(java.lang.String, java.lang.String)[pri:0, instance:testCases.Cases@5f9d02cb]" name="startReport" is-config="true" duration-ms="779" started-at="2018-07-09T20:44:04Z" finished-at="2018-07-09T20:44:05Z">
+    <test name="Patients" duration-ms="212152" started-at="2018-07-10T12:01:12Z" finished-at="2018-07-10T12:04:44Z">
+      <class name="testCases.Patients">
+        <test-method status="PASS" signature="startReport(java.lang.String, java.lang.String)[pri:0, instance:testCases.Patients@5f9d02cb]" name="startReport" is-config="true" duration-ms="1017" started-at="2018-07-10T17:31:12Z" finished-at="2018-07-10T17:31:13Z">
           <params>
             <param index="0">
               <value>
@@ -23,7 +23,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReport -->
-        <test-method status="PASS" signature="setBrowser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.Cases@5f9d02cb]" name="setBrowser" is-config="true" duration-ms="3385" started-at="2018-07-09T20:44:05Z" finished-at="2018-07-09T20:44:08Z">
+        <test-method status="PASS" signature="setBrowser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.Patients@5f9d02cb]" name="setBrowser" is-config="true" duration-ms="9091" started-at="2018-07-10T17:31:13Z" finished-at="2018-07-10T17:31:22Z">
           <params>
             <param index="0">
               <value>
@@ -44,19 +44,39 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method status="PASS" signature="Tc_Cases_01()[pri:0, instance:testCases.Cases@5f9d02cb]" name="Tc_Cases_01" duration-ms="45104" started-at="2018-07-09T20:44:08Z" finished-at="2018-07-09T20:44:54Z">
+        <test-method status="PASS" signature="Tc_Patients_01_02()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_01_02" duration-ms="41915" started-at="2018-07-10T17:31:22Z" finished-at="2018-07-10T17:32:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Tc_Cases_01 -->
-        <test-method status="PASS" signature="Tc_Cases_02()[pri:0, instance:testCases.Cases@5f9d02cb]" name="Tc_Cases_02" duration-ms="9159" started-at="2018-07-09T20:44:54Z" finished-at="2018-07-09T20:45:03Z">
+        </test-method> <!-- Tc_Patients_01_02 -->
+        <test-method status="PASS" signature="Tc_Patients_03()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_03" duration-ms="10381" started-at="2018-07-10T17:32:04Z" finished-at="2018-07-10T17:32:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Tc_Cases_02 -->
-        <test-method status="PASS" signature="endReport()[pri:0, instance:testCases.Cases@5f9d02cb]" name="endReport" is-config="true" duration-ms="725" started-at="2018-07-09T20:45:03Z" finished-at="2018-07-09T20:45:03Z">
+        </test-method> <!-- Tc_Patients_03 -->
+        <test-method status="PASS" signature="Tc_Patients_05()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_05" duration-ms="10699" started-at="2018-07-10T17:32:14Z" finished-at="2018-07-10T17:32:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Tc_Patients_05 -->
+        <test-method status="PASS" signature="Tc_Patients_07()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_07" duration-ms="24602" started-at="2018-07-10T17:32:25Z" finished-at="2018-07-10T17:32:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Tc_Patients_07 -->
+        <test-method status="PASS" signature="Tc_Patients_08_09()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_08_09" duration-ms="33926" started-at="2018-07-10T17:32:49Z" finished-at="2018-07-10T17:33:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Tc_Patients_08_09 -->
+        <test-method status="PASS" signature="Tc_Patients_10()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_10" duration-ms="65024" started-at="2018-07-10T17:33:23Z" finished-at="2018-07-10T17:34:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Tc_Patients_10 -->
+        <test-method status="PASS" signature="Tc_Patients_11()[pri:0, instance:testCases.Patients@5f9d02cb]" name="Tc_Patients_11" duration-ms="14351" started-at="2018-07-10T17:34:28Z" finished-at="2018-07-10T17:34:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Tc_Patients_11 -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:testCases.Patients@5f9d02cb]" name="endReport" is-config="true" duration-ms="1050" started-at="2018-07-10T17:34:43Z" finished-at="2018-07-10T17:34:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- testCases.Cases -->
-    </test> <!-- Cases -->
+      </class> <!-- testCases.Patients -->
+    </test> <!-- Patients -->
   </suite> <!-- example suite 1 -->
 </testng-results>
