@@ -53,7 +53,7 @@
 					<i class='mdi-hardware-desktop-windows'></i>
 				</li>
 				<li>
-					<span class='suite-started-time'>2018-05-24 15:52:41</span>
+					<span class='suite-started-time'>2018-07-11 17:12:57</span>
 				</li>
 				<li>
 					<span>v2.41.1</span>
@@ -83,25 +83,25 @@
 					<div class='col l2 m4 s12'>
 						<div class='card suite-total-time-current'> 
 							<span class='panel-name'>Total Time Taken (Current Run)</span> 
-							<span class='suite-total-time-current-value panel-lead'>0h 2m 49s+430ms</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 4m 22s+822ms</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s12'>
 						<div class='card suite-total-time-overall'> 
 							<span class='panel-name'>Total Time Taken (Overall)</span> 
-							<span class='suite-total-time-overall-value panel-lead'>0h 2m 49s+430ms</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 4m 22s+822ms</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s6 suite-start-time'>
 						<div class='card accent green-accent'> 
 							<span class='panel-name'>Start</span> 
-							<span class='panel-lead suite-started-time'>2018-05-24 15:49:51</span> 
+							<span class='panel-lead suite-started-time'>2018-07-11 17:08:34</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s6 suite-end-time'>
 						<div class='card accent pink-accent'> 
 							<span class='panel-name'>End</span> 
-							<span class='panel-lead suite-ended-time'>2018-05-24 15:52:41</span> 
+							<span class='panel-lead suite-ended-time'>2018-07-11 17:12:57</span> 
 						</div> 
 					</div>
 				</div>
@@ -237,19 +237,19 @@
 						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
 							<div class='wrapper'>
 								<ul id='test-collection' class='test-collection'>
-										<li class='collection-item test displayed active pass ' extentid='9777f431-46b7-4a01-83de-e49dc0bef2cd'>
+										<li class='collection-item test displayed active fail ' extentid='e7a0d7f9-ddf2-4684-8f27-35552354f5ff'>
 											<div class='test-head'>
-												<span class='test-name'>Tc_Itemcatalog_004 </span>
-												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='test-name'>Tc_Itemcatalog_002 </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
 												<span class='category-assigned hide '></span>
 											</div>
 											<div class='test-body'>
 												<div class='test-info'>
-													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-05-24 15:49:55</span>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-07-11 17:08:38</span>
 													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
 													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
 												</div>
-												<div class='test-desc'>Verify that user can search facilities by their name.</div>
+												<div class='test-desc'>Verify that User can only Add/Edit items if he/she has access to Add/Edit items in 'Inventory Catalog access' in User profile.</div>
 												<div class='test-attributes'>
 												</div>
 												<div class='test-steps'>
@@ -264,172 +264,692 @@
 														<tbody>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:50:14</td>
+																	<td class='timestamp'>17:09:18</td>
 																	<td class='step-details'>Open the url https://qa1.test.hybrent.com/b/#/login/</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:01</td>
-																	<td class='step-details'>Type 'admin' in : Input_UserName</td>
+																	<td class='timestamp'>17:09:36</td>
+																	<td class='step-details'>Click on :LoginHybrent</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:01</td>
-																	<td class='step-details'>Type 'goouser' in : Input_Password</td>
+																	<td class='timestamp'>17:09:36</td>
+																	<td class='step-details'>Type 'Ankur158MRH' in : Input_UserName</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:02</td>
+																	<td class='timestamp'>17:09:37</td>
+																	<td class='step-details'>Type 'gouser1' in : Input_Password</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:09:37</td>
 																	<td class='step-details'>Sucessfully got the attribute value 'password'</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:02</td>
+																	<td class='timestamp'>17:09:37</td>
 																	<td class='step-details'>Password is masked</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:02</td>
+																	<td class='timestamp'>17:09:37</td>
 																	<td class='step-details'>Click on :LoginBtn</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:12</td>
+																	<td class='timestamp'>17:09:59</td>
 																	<td class='step-details'>Click on :DropDown_Admin</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:12</td>
+																	<td class='timestamp'>17:10:00</td>
 																	<td class='step-details'>Click on :ItemCatalog</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:51:20</td>
-																	<td class='step-details'>Type 'test desccccc' in : searchTextBox</td>
+																	<td class='timestamp'>17:10:01</td>
+																	<td class='step-details'>verify if the AddItemText element contains text 'Add Item</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:21</td>
-																	<td class='step-details'>Click on :ManageFacilityUpdateprive</td>
+																	<td class='timestamp'>17:10:02</td>
+																	<td class='step-details'>Click on :Btn_AddItem</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:28</td>
-																	<td class='step-details'>Click on :mapallbuttontopright</td>
+																	<td class='timestamp'>17:10:03</td>
+																	<td class='step-details'>verify if the Description element contains text 'Description*</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:32</td>
-																	<td class='step-details'>Verify Element : 'changeForMoreFacility' is present as expected</td>
+																	<td class='timestamp'>17:10:03</td>
+																	<td class='step-details'>verify if the alias element contains text 'Alias</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:33</td>
-																	<td class='step-details'>Click on :changeForMoreFacility</td>
+																	<td class='timestamp'>17:10:04</td>
+																	<td class='step-details'>verify if the Manufacture element contains text 'Manufacturer*</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
-																	<td class='step-details'>verify if the verifytextpopup  element contains text 'Map with all facilities</td>
+																	<td class='timestamp'>17:10:04</td>
+																	<td class='step-details'>verify if the Txt_ItemDetails element contains text 'Item Detail</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
+																	<td class='timestamp'>17:10:04</td>
+																	<td class='step-details'>verify if the Billonly element contains text 'Bill Only</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:05</td>
+																	<td class='step-details'>Verify Element : 'Notes' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:05</td>
+																	<td class='step-details'>Verify Element : 'QualityinStock' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:05</td>
+																	<td class='step-details'>Verify Element : 'LotTracking' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:06</td>
+																	<td class='step-details'>Type 'TestItemDesAMCA' in : ItemDetails_Description</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:07</td>
+																	<td class='step-details'>Type 'TestItmMfrNmbr5NVJ' in : ItemDetails_MfrDetails</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:07</td>
+																	<td class='step-details'>Click on :ItemDetails_MfrDropdown</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:13</td>
+																	<td class='step-details'>Type 'didosdjksjdsjdjsdhsdkjsdhshdskdhksdhs' in : SearchTextBox</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:14</td>
+																	<td class='step-details'>verify if the NoDataAvailableText element contains text 'No data available</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:14</td>
+																	<td class='step-details'>Type '' in : SearchTextBox</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:14</td>
+																	<td class='step-details'>Verify Element : 'Pagination' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:15</td>
+																	<td class='step-details'>Move the mouse over 'Import'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:16</td>
+																	<td class='step-details'>Click on :Import</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:10:17</td>
+																	<td class='step-details'>verify if the csManufacture element contains text 'CS Manufacturers</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:18</td>
+																	<td class='step-details'>Import element is present but its not in clickable/editable state within '60' timeout</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:19</td>
+																	<td class='step-details'>Move the mouse over 'Import'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:19</td>
+																	<td class='step-details'>Click on :Import</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:21</td>
+																	<td class='step-details'>verify if the searchbyText element contains text 'Search by</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:21</td>
+																	<td class='step-details'>Verify Element : 'searchTextBox' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:21</td>
+																	<td class='step-details'>Verify Element : 'Pagination' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:22</td>
+																	<td class='step-details'>Click on :AddNewimport</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:22</td>
+																	<td class='step-details'>verify if the AddmanufactureTxt element contains text 'Add Manufacturer</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:23</td>
+																	<td class='step-details'>verify if the labelName element contains text 'Name*</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:24</td>
+																	<td class='step-details'>Type 'ManuHLCE3DCVKQ' in : Name</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:25</td>
+																	<td class='step-details'>Click on :Savebtn</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:26</td>
+																	<td class='step-details'>Type 'TestItemIDCAP9' in : TestId</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:27</td>
+																	<td class='step-details'>Select '1' option from : itemCategory</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:29</td>
+																	<td class='step-details'>Type 'aliasJW' in : itemalias</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:29</td>
+																	<td class='step-details'>Sucessfully got the attribute value 'bootstrap-switch-off bootstrap-switch-small bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:30</td>
+																	<td class='step-details'>Click on :LotTracking</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:30</td>
+																	<td class='step-details'>Sucessfully got the attribute value 'bootstrap-switch-off bootstrap-switch-small bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:31</td>
+																	<td class='step-details'>Click on :Expiration</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:31</td>
+																	<td class='step-details'>Sucessfully got the attribute value 'bootstrap-switch-off bootstrap-switch-small bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:31</td>
+																	<td class='step-details'>Click on :Implant</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:32</td>
+																	<td class='step-details'>Verify Element : 'Is_Service' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:32</td>
+																	<td class='step-details'>Verify Element : 'GLcode_ropdown' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:32</td>
+																	<td class='step-details'>Verify Element : 'Categories_dropdown' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:32</td>
+																	<td class='step-details'>Verify Element : 'CPTCOde_Input' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:32</td>
+																	<td class='step-details'>Verify Element : 'CPTCOde_Input' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:33</td>
+																	<td class='step-details'>Verify Element : 'hspcs_Input' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:33</td>
+																	<td class='step-details'>Click on :VendorsTab</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:33</td>
+																	<td class='step-details'>Verify Element : 'IsActive' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:34</td>
+																	<td class='step-details'>Verify Element : 'VendorName' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:34</td>
+																	<td class='step-details'>Verify Element : 'Sku' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:34</td>
+																	<td class='step-details'>Verify Element : 'UOM' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:34</td>
+																	<td class='step-details'>Verify Element : 'QTYUOM' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:35</td>
+																	<td class='step-details'>Verify Element : 'MinORder' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:35</td>
+																	<td class='step-details'>Click on :AddVendors</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:36</td>
+																	<td class='step-details'>Click on :Delete_vendor</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:36</td>
+																	<td class='step-details'>Verify Element : 'Deletevalidation' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:36</td>
+																	<td class='step-details'>Click on :ok</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:39</td>
+																	<td class='step-details'>Click on :Vendorsname</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:45</td>
+																	<td class='step-details'>Type 'skuKMZM' in : VendorsSkuName</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:45</td>
+																	<td class='step-details'>Type '1' in : VendorsMinOrderQty</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:46</td>
+																	<td class='step-details'>Verify Element : 'downbutton' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:46</td>
+																	<td class='step-details'>Click on :downbutton</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:47</td>
+																	<td class='step-details'>Click on :QuickCode</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:47</td>
+																	<td class='step-details'>verify if the labelQuickCode element contains text 'Quick Code</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:47</td>
+																	<td class='step-details'>Click on :downbutton</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:11:48</td>
+																	<td class='step-details'>Click on :CWIIDD</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>17:11:59</td>
+																	<td class='step-details'>CWIIDDlabel element not found in '10' seconds timeout</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>17:12:00</td>
+																	<td class='step-details'><a href='D:\hari-hybrint\Hybrent-Fullfunctionality/test-output/screenshots/qa-1/Automation20180711051159.png' data-featherlight='image'><img class='report-img' src='file:///D:\hari-hybrint\Hybrent-Fullfunctionality/test-output/screenshots/qa-1/Automation20180711051159.png' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>17:12:00</td>
+																	<td class='step-details'>verify if the  element contains text 'CWIIDD</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>17:12:01</td>
+																	<td class='step-details'><a href='D:\hari-hybrint\Hybrent-Fullfunctionality/test-output/screenshots/qa-1/Automation20180711051200.png' data-featherlight='image'><img class='report-img' src='file:///D:\hari-hybrint\Hybrent-Fullfunctionality/test-output/screenshots/qa-1/Automation20180711051200.png' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:34</td>
+																	<td class='step-details'>Click on :Save</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:36</td>
+																	<td class='step-details'>verify if the MapValidation element contains text 'Do you want to map this item to your various facilities?</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:37</td>
+																	<td class='step-details'>Click on :MapValidation_Yes</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:40</td>
+																	<td class='step-details'>Sucessfully got the text 'Map Facility for skuKMZM (Medline Industry)'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:40</td>
+																	<td class='step-details'>verify if the SearchFacilityText element contains text 'Search Facility</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:41</td>
+																	<td class='step-details'>Verify Element : 'SearchFacility' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:41</td>
+																	<td class='step-details'>Verify Element : 'Facility' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:42</td>
 																	<td class='step-details'>Verify Element : 'PurchasePrice' is present as expected</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
+																	<td class='timestamp'>17:12:42</td>
+																	<td class='step-details'>Verify Element : 'Facility' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:42</td>
+																	<td class='step-details'>Verify Element : 'GpocontactPrice' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:42</td>
+																	<td class='step-details'>Verify Element : 'Discountprice' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:42</td>
+																	<td class='step-details'>Verify Element : 'AddtoFacility_first' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:43</td>
+																	<td class='step-details'>Verify Element : 'Preferred' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:43</td>
+																	<td class='step-details'>Verify Element : 'Distributed' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:43</td>
+																	<td class='step-details'>Verify Element : 'OnContract' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:44</td>
+																	<td class='step-details'>Click on :AddtoFacility_first</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:44</td>
+																	<td class='step-details'>Verify Element : 'iSActive' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:44</td>
+																	<td class='step-details'>Verify Element : 'Cancel' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:44</td>
+																	<td class='step-details'>Verify Element : 'Save' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:44</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:44</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:45</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:45</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:45</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:45</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:45</td>
+																	<td class='step-details'>stock drop down value is '</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:45</td>
+																	<td class='step-details'>Type '2' in : PurchagePrice</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:46</td>
+																	<td class='step-details'>Select 'Percentage' from : DiscountType_Dropdown</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:46</td>
+																	<td class='step-details'>verify if the DiscountPercentage element contains text 'Discount(%)</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:47</td>
+																	<td class='step-details'>Type '3' in : InputDiscountPercentage</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:47</td>
+																	<td class='step-details'>Click on :Save</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:48</td>
+																	<td class='step-details'>Sucess Toast Message Item added successfully.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:49</td>
+																	<td class='step-details'>Click on :mapallbuttontopright</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:50</td>
+																	<td class='step-details'>Click on :mapwithalltopright</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:51</td>
+																	<td class='step-details'>verify if the verifytextpopup  element contains text 'Map with all facilities</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:51</td>
+																	<td class='step-details'>Verify Element : 'PurchasePrice' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Verify Element : 'StockPrice' is present as expected</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Verify Element : 'Discounttype' is present as expected</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:35</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Stock status drop down value is 'Direct ship from manufacture</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Discount Type drop down value is 'Fixed</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:52</td>
 																	<td class='step-details'>Discount Type drop down value is 'No Discount</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:53</td>
 																	<td class='step-details'>Discount Type drop down value is 'Percentage</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:36</td>
+																	<td class='timestamp'>17:12:53</td>
 																	<td class='step-details'>Verify Element : 'Cancelbtn' is present as expected</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:37</td>
+																	<td class='timestamp'>17:12:53</td>
 																	<td class='step-details'>Type '60' in : purchaseprice</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:38</td>
+																	<td class='timestamp'>17:12:54</td>
 																	<td class='step-details'>Click on :mapallbutton</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:39</td>
-																	<td class='step-details'>Sucess Toast Message All mapped facilities items updated successfully.</td>
+																	<td class='timestamp'>17:12:55</td>
+																	<td class='step-details'>Sucess Toast Message All facilities mapped successfully.</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:40</td>
-																	<td class='step-details'>Sucessfully got the text 'Map Facility for test skuuuu (ALCON LABORATORIES)'</td>
+																	<td class='timestamp'>17:12:55</td>
+																	<td class='step-details'>Verify Element : 'Deletebtn' is present as expected</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:40</td>
+																	<td class='timestamp'>17:12:55</td>
+																	<td class='step-details'>Verify Element : 'Editbtn' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:55</td>
+																	<td class='step-details'>Verify Element : 'VendorUpdate' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:56</td>
+																	<td class='step-details'>Sucessfully got the attribute value 'Not Supported for this vendor.'</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:56</td>
+																	<td class='step-details'>Verify Element : 'Pagination' is present as expected</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:12:57</td>
 																	<td class='step-details'>Click on :Close</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>15:52:40</td>
+																	<td class='timestamp'>17:12:57</td>
 																	<td class='step-details'>Closed browser sucessfully</td>
 																</tr>
 														</tbody>

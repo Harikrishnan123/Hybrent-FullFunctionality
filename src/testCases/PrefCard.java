@@ -284,7 +284,9 @@ public class PrefCard extends ApplicationKeyword
 		String sName=getProperty("Prefcard_StageName");
 		typeIn(OR.prefCard_addStageName, sName);
 		clickOn(OR.prefCard_addStageButton);
+		waitForElement(OR.prefCard_removeStage);
 		clickOn(OR.prefCard_removeStage);
+		waitForElement(OR.prefCard_confirmButton);
 		clickOn(OR.prefCard_confirmButton);
 		if(!isElementDisplayed(OR.prefCard_removeStage, 10))
 		{

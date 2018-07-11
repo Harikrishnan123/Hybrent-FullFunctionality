@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-1" />
+ <test name="Alert" preserve-order="true">
+  <classes>
+   <class name="testcases_functionality.TC_ShopCart">
+   <methods>
+   <include name="TC_ShopCart_001" />
+   <include name="TC_ShopCart_002" />
+   <include name="TC_ShopCart_003" />
+   <include name="TC_ShopCart_004" />
+   <include name="TC_ShopCart_005" />
+   <include name="TC_ShopCart_006" />
+   <include name="TC_ShopCart_007" />
+   <include name="TC_ShopCart_008" />
+   <include name="TC_ShopCart_009" />
+     </methods>
+	</class>
+  </classes>
+   </test>
+   </suite>
+

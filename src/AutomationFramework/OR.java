@@ -390,7 +390,7 @@ public class OR {
 	public static String MyCart_cartFor = "text_cartFor#xpath=//*[contains(text(),'Cart for')]";
 	public static String MyCart_cartFor_Details = "Facility#xpath=//*[@select-list='shippingLocations']/a";
 	public static String MyCart_cartFor_CartMore = "CartMore#xpath=//*[@tour-step='cart-more']/button";
-	public static String MyCart_cartFor_NoElementFound = "NoElementFound#xpath=//*[text()='No Items Found.']";
+	public static String MyCart_cartFor_NoElementFound = "NoElementFound#xpath=(//*[text()='No Items Found.'])[1]";
 	public static String MyCart_searchInCart = "searchInCart#xpath=//*[@id='searchInput']";
 	public static String MyCart_InputQty = "InputQty#xpath=//*[@ng-show='$ctrl.editQty']//big";
 	public static String MyCart_InputQty_InputQtyDecrease = "InputQtyDecrease#xpath=//*[@id='dcr']";
@@ -954,10 +954,15 @@ public class OR {
 	public static String OP_CreatenewOP="CreatenewOP#xpath=//button[@class='btn btn-primary pull-right']";
 	public static String OP_OpName="OpName#xpath=//*[@id='name']";
 	public static String OP_CreatenewOPText="CreatenewOPText#xpath=//*[@class='headtext']/span";
+	public static String OP_FacilityInput="Facilty#xpath=(//*[@id='facility']/input)[1]";
 	public static String OP_FacilityDropDown="FacilityDropDown#xpath=//*[@id='facility']";
 	public static String OP_disabledSaveButton="disabledSaveButton#xpath=//*[@class='modal-footer']/button[1]";
+	public static String OP_editheader="Editheader#xpath=//*[contains(text(),'Edit Operating Room')]";
 	public static String OP_enabledSaveButton="enabledSaveButton#xpath=//*[@class='modal-footer']/button[@disabled='disabled']";
 	public static String OP_searchTextBox="searchTextBox#xpath=//input[@id='search']";
+	public static String OP_Name="Name#xpath=//table//*[contains(text(),'Name')]";
+	public static String OP_Facility="Facility#xpath=//th[contains(text(),'Facility')]";
+	public static String OP_created_at="created_at#xpath=//*[@ng-click=\"order('created_at')\"]";
 	public static String OP_searchButton="searchButton#xpath=//button[@type='submit']";
 	public static String OP_firstOPRoom="firstOPRoom#xpath=//*[@class='table table-striped']//tr/td";
 	public static String OP_EditButton="EditButton#xpath=//*[@class='pull-right']//i[1]";
@@ -1036,10 +1041,19 @@ public class OR {
 	public static String Procedure_Physicians="Physicians#xpath=//*[@ng-model='suggestPhysicians']";
 	public static String Procedure_SelectPhysican1Label="SelectPhysican1Label#xpath=(//*[@class='checkbox ng-scope'])[1]";
 	public static String Procedure_SelectPhysican1Labe2="SelectPhysican2Label#xpath=(//*[@class='checkbox ng-scope'])[2]";
-
+	public static String Procedure_HeaderProcedure="HeaderProcedure#xpath=//th/a[contains(text(),'Procedure')]";
+	public static String Procedure_HeaderCPTCode="HeaderCPTCode#xpath=//th/a[contains(text(),'CPT Code')]";
+	public static String Procedure_HeaderLastUpdateat="HeaderLastUpdateat#xpath=//th/a[contains(text(),'Last Updated at')]";
+	public static String Procedure_Edit="Edit#xpath=//*[@title='Edit Procedure']";
+	public static String Procedure_Delete="Delete#xpath=//*[@uib-tooltip='Delete Procedure']";
+	public static String Procedure_DeleteValidation="Deletevalidation#xpath=//h2/following-sibling::p";
+	public static String Procedure_EditHeader="EditHeader#xpath=//*[contains(text(),'Edit Procedure')]";
 	public static String Procedure_SelectPhysican2="SelectPhysican2#xpath=(//*[@ng-click='setSelectedPhysicians()'])[2]";
 	public static String Procedure_cptCode="cptCode#xpath=//input[@id='cpt_code']";	 
-	public static String Procedure_SaveButton="SaveButton#xpath=//button[@class='btn btn-primary pull-right ng-scope' and @ng-click='saveProcedureFn(procedure)']";
+	public static String Procedure_SaveButton="SaveButton#xpath=//button[contains(text(),'Save')]";
+	public static String Procedure_CloseButton ="CloseButton#xpath=//*[@value='Close']";
+	public static String Procedure_SaveforChanges ="SaveforChanges#xpath=//*[contains(text(),'Save Form Changes.')]";
+	public static String Procedure_Exitwithoutsave ="Exitwithoutsave#xpath=//button[text()='Exit Without Save']";
 	public static String Procedure_SearchTextBox="SearchTextBox#xpath=//*[@id='search']";
 	public static String Procedure_wait="wait#xpath=//*[@id='ng-view']";
 	public static String Procedure_EditButton="EditButton#xpath=(//i[@class='fa fa-edit'])[1]";
@@ -1073,7 +1087,8 @@ public class OR {
 	public static String prefCard_AddPrefCard="AddPrefCard#xpath=//*[@href='#/preference-card/card/create']";
 	// public static String prefCard_AddPrefCard="AddPrefCard#xpath=Patient_firstPatient
 	public static String prefCard_CardName="CardName#xpath=//*[@id='cardName']"; 
-	public static String prefCard_PhysicianName="PhysicianName#xpath=//*[@id='physician']"; 
+	public static String prefCard_PhysicianName="PhysicianName#xpath=//*[@id='physician']";
+	public static String Prefcard_CopyCard="CopyCard#xpath=//button[text()='Copy Card']";
 	public static String prefCard_GlovesSize="GlovesSize#xpath=//*[@id='gloves_size']"; 
 	public static String prefCard_addStage="addStage#xpath=//input[@value='Add Stage']";	 
 	public static String prefCard_addStageText="addStageText#xpath=//*[@class='modal-header']/h4";
@@ -1081,27 +1096,39 @@ public class OR {
 	public static String prefCard_addStageName="addStageName#xpath=//*[@id='prefCardStage']";
 	public static String prefCard_addStageButton="addStageButton#xpath=//button[@class='btn btn-primary ng-binding']";
 	public static String prefCard_reorderStageButton="reorderStageButton#xpath=//*[@value='Re-order Stage']";
+	public static String prefCard_reorderStage_hash="hash#xpath=//*[@class='form-group']/h3[contains(text(),'#')]";
+	public static String prefCard_reorderStage_Name="Name#xpath=//*[@class='form-group']/h3[contains(text(),'Name')]";
 	public static String prefCard_firstStage="firstStage#xpath=//ul[@dnd-list='Ctrl.prefCardStages']/li[1]//p";
 	public static String prefCard_secondStage="secondStage#xpath=//ul[@dnd-list='Ctrl.prefCardStages']/li[2]//p";
 	public static String prefCard_DragfirstStage="DragfirstStage#xpath=//ul[@dnd-list='Ctrl.prefCardStages']/li[1]";
 	public static String prefCard_DragsecondStage="DragsecondStage#xpath=//ul[@dnd-list='Ctrl.prefCardStages']/li[2]";
 	public static String prefCard_addItemInCart = "addItemInCart#xpath=//button[@id='btnAdd']";
-	public static String prefCard_searchInCart = "searchInCart#xpath=//*[@id='searchInput']";
-	public static String prefCard_catName = "catName#xpath=(//tr//h4)[1]";	
+	public static String prefCard_searchInCart = "searchInCart#xpath=//*[@class='tab-pane ng-scope active']//input[@id='searchInput']";
+	public static String prefCard_OpenQty = "OpenQty#xpath=(//*[@ng-click='openQtyForm.$show();'])[1]";
+	public static String prefCard_OpenQtyIncrease = "OpenQtyIncrease#xpath=(//*[@ng-click='openQtyForm.$show();'])[1]/following-sibling::button[text()='+']";
+	public static String prefCard_HoldQtyIncrease = "holdQtyIncrease#xpath=(//*[@ng-click='holdQtyForm.$show();'])[1]/following-sibling::button[text()='+']";
+	public static String prefCard_HoldQty = "holdQty#xpath=(//*[@ng-click='holdQtyForm.$show();'])[1]";
+	public static String prefCard_ItemDes = "ItemDes#xpath=(//*[@id='suggestions']//strong)[1]";
+	public static String prefCard_Sku = "Sku#xpath=(//*[@id='suggestions']//*[@class='text-muted'])[2]";
+	public static String prefCard_catName = "catName#xpath=(//tr//h4)[1]";
+	public static String prefCard_OpenQtyValidation = "OpenQtyValidation#xpath=//*[text()='Open Quantity can not be less than zero.']";
+	public static String prefCard_number = "number#xpath=//*[@type='number']";
 	public static String prefCard_InitialopenQty = "InitialopenQty#xpath=//*[@editable-number='prefCardStageItem.open']//span";
 	public static String prefCard_IntialHoldQty = "intialHoldQty#xpath=//*[@editable-number='prefCardStageItem.hold']//span";
 	public static String prefCard_plusIconOpenQTY = "plusIconOpenQTY #xpath=//*[@editable-number='prefCardStageItem.open']//button[2]";
 	public static String prefCard_plusIconHoldQTY= "plusIconHoldQTY#xpath=//*[@editable-number='prefCardStageItem.open']//button[2]";
-	public static String prefCard_deleteQty= "deleteQty#xpath=//i[@class='glyphicon glyphicon-trash']";
+	public static String prefCard_deleteQty= "deleteQty#xpath=(//i[@class='glyphicon glyphicon-trash'])[1]";
 	public static String prefCard_confirmButton= "deleteQty#xpath=//button[@class='confirm']";
 	public static String prefCard_NoItemText= "NoItemText#xpath=//h4[@class='text-center']";
+	public static String prefCard_DeleteStage_validation= "Validation#xpath=//*[text()='Do you really want to remove the item from stage?']";
 	public static String prefCard_removeStage="removeStage#xpath=//*[@ng-click='removeStage(prefCardStage)']";
 	public static String prefCard_copyStages="copyStages#xpath=//input[@value='Copy Stages']";
 	public static String prefCard_copyStagesPopUpText="copyStagesPopUpText#xpath=//*[@class='modal-header']//h4";
 	public static String prefCard_copyPredCardDrpDown="copyPredCardDrpDown#xpath=//*[@id='prefCard']";
 	public static String prefCard_copyPredCardStageDroppDown="copyPredCardStageDroppDown#xpath=//*[@id='prefCardStage']";
 	public static String prefCard_addButtton="addButtton#xpath=//button[text()='ADD']";
-	public static String prefCard_copyButtton="addButtton#xpath=//button[text()='Copy']";
+	public static String prefCard_copyButtton="addcopyButtton#xpath=//button[text()='Copy']";
+	public static String prefCard_ADDButtton="addButtton#xpath=//button[text()='ADD']";
 	public static String prefCard_stageName="stageName#xpath=(//uib-tab-heading)[1]";
 	public static String prefCard_saveButton="saveButton#xpath=//*[@ng-click='savePreferenceCard(preferenceCard)']";
 	public static String prefCard_searchTextBox = "searchTextBox#xpath=//*[@id='search']";
@@ -1110,6 +1137,8 @@ public class OR {
 	public static String prefCard_NoPrefCardText = "NoPrefCardText#xpath=//td[@class='text-center']";
 	public static String prefCard_copyCard= "copyCard#xpath=//i[@class='fa fa-file-o']";
 	public static String prefCard_copyCardPopUpText= "copyCardPopUpText#xpath=//*[@class='modal-header']//h4";
+	public static String prefCard_Copy_card_name= "card_name#xpath=//*[@id='card_name']";
+	public static String prefCard_selectPhyscian= "Physcian#xpath=//*[@ng-model='searchParams.physician_id']";
 
 	//Manage Inventory
 	public static String manageInv_pageLink= "pageLink#xpath=//*[@href='#/inventory']";
@@ -1734,6 +1763,7 @@ public class OR {
 	    public static String preferenceCard="preferenceCard#xpath=//*[@href='#/preference-card/cards']";	
 	    public static String preferenceCard_AddPreferenceCard="AddPreferenceCard#xpath=//a[@href='#/preference-card/card/create']";
 	    public static String preferenceCard_AddStage="AddStage#xpath=//*[@value='Add Stage']";
+	    public static String preferenceCard_AddStageHeader="AddStage#xpath=//*[@class='modal-header']//*[contains(text(),'Add Stage')]";
 	    public static String preferenceCard_InputAddStage="InputAddStage#xpath=//*[@id='prefCardStage']";
 	    public static String preferenceCard_BtnAddStage="BtnStage#xpath=//button[text()='Add Stage']";
 	    public static String preferenceCard_Reorder="Reorder#xpath=//button[text()='Reorder items']";

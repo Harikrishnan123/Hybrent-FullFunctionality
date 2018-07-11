@@ -85,7 +85,7 @@ public class Itemcatalog extends ApplicationKeyword{
 		LotEnabletoogle();
 		//ActiveEnabletoogle();
 		ExpirationEnabletoogle();
-		BillOnlyEnabletoogle();
+		//BillOnlyEnabletoogle();
 		ImplantEnabletoogle();
 		verifyElement(OR.ItemCatalog_additem_Is_Service_toogle);
 		//Is_ServiceEnabletoogle();

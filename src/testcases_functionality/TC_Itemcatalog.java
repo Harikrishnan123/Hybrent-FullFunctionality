@@ -66,7 +66,6 @@ public class TC_Itemcatalog extends ApplicationKeyword{
 	@Test
 	public void Tc_Itemcatalog_002() {
 		testStarts("Tc_Itemcatalog_002", "Verify that User can only Add/Edit items if he/she has access to Add/Edit items in 'Inventory Catalog access' in User profile.");
-		//Loginpage.OpenBrowserAndLoginnew();
 		Itemcatalog.NavigatetoItemcatalog();
 		Itemcatalog.addNewItem();
 	}

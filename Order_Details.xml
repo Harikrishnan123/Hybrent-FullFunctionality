@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-1" />
+ <test name="Dashboard" preserve-order="true">
+  <classes>
+   <class name="testcases_functionality.TC_OrderDetails">
+   <methods>
+   <include name="TC_OrderDetails_001" />
+   <include name="TC_OrderDetails_002" />
+   <include name="TC_OrderDetails_003" />
+   <include name="TC_OrderDetails_004" />
+   <include name="TC_OrderDetails_005" />
+   <include name="TC_OrderDetails_006" />
+   <include name="TC_OrderDetails_007" />
+      <include name="TC_OrderDetails_008" />
+      <include name="TC_OrderDetails_009" />
+      <include name="TC_OrderDetails_010"/>
+      <include name="TC_OrderDetails_011" />
+      <include name="TC_OrderDetails_012" />
+     </methods>
+	</class>
+  </classes>
+   </test>
+   </suite>
+

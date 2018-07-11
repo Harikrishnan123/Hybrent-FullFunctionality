@@ -42,10 +42,36 @@ public class TC_Procedure extends ApplicationKeyword{
 	}
 
 	
-	@Test
-	public void Tc_Procedure_001() {
+	@Test 
+	public void Tc_Procedure_001()
+	{
 		testStarts("Tc_Procedure_001", "Verify that \"Manage Procedures\" heading appears on top left side of page.");
 		Loginpage.OpenBrowserAndLoginnew();
+		Procedure.procedurePageLinkandwait();
+		Procedure.verifyPage();
+		Procedure.addProcedureWithoutSave();
+		clickOn(OR.Procedure_CloseButton);
+		waitUntilPageReady();
+		if(isElementDisplayed(OR.Procedure_SaveforChanges))
+		{
+			waitforclick(OR.Procedure_SaveforChanges);
+			verifyElementText(OR.Procedure_SaveforChanges, "Save Form Changes.");
+			verifyElement(OR.glCode_saveButton);
+			verifyElement(OR.Procedure_Exitwithoutsave);
+			clickOn(OR.Procedure_Exitwithoutsave);
+		}
+		Procedure.addProcedureWithoutSave();
+		clickOn(OR.Procedure_SaveButton);
+		ToastmesssageSucess();
+		Procedure.SearchProcedure();
+		Procedure.Edit();
+		Procedure.Delete();
+	}
+	
+	
+	@Test
+	public void Tc_Procedure_002() {
+		testStarts("Tc_Procedure_002", "Verify that \"Manage Procedures\" heading appears on top left side of page.");
 		Physicians.NavigatetoPhysicians();
 		Physicians.Addphy();
 		Planner.procedurePageLinkandwait();
@@ -79,9 +105,6 @@ public class TC_Procedure extends ApplicationKeyword{
 		clickOn(OR.Procedure_SaveButton);
 		waitForElementToDisplayWithoutFail(OR.Procedure_SearchTextBox, 10);
 		typeIn(OR.Procedure_SearchTextBox, procName);
-		
-		waitTime(10);
-		
 		String firstElemAfterSearch=getText(OR.Procedure_firstElem);
 		String finalName=firstElemAfterSearch.substring(2).trim();
 		if(finalName.equals(procName))
@@ -92,8 +115,8 @@ public class TC_Procedure extends ApplicationKeyword{
 		{
 			testLogFail("Procedure is not added successfully");			
 		}
+		Procedure.NPINumber();
 	}
-	
 	@AfterTest
 	public void endReport()
 	{

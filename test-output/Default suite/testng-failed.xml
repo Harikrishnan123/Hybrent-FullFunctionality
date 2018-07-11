@@ -3,14 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases_functionality.TC_Inventorylocation">
+      <class name="testcases_functionality.TC_Vendor">
         <methods>
-          <include name="endReport"/>
-          <include name="Tc_Inventorylocation_003"/>
-          <include name="startReport"/>
+          <include name="Tc_Vendor_004"/>
           <include name="setBrowser"/>
+          <include name="endReport"/>
+          <include name="Tc_Vendor_001"/>
+          <include name="startReport"/>
+          <include name="Tc_Vendor_002"/>
+          <include name="Tc_Vendor_003"/>
         </methods>
-      </class> <!-- testcases_functionality.TC_Inventorylocation -->
+      </class> <!-- testcases_functionality.TC_Vendor -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
