@@ -49,14 +49,14 @@ public class OperationRoom extends ApplicationKeyword{
 		setProperty("OPerationRoom", opRoom);
 		typeIn(OR.OP_OpName, opRoom);
 		clickOn(OR.OP_FacilityDropDown);		
-		String fact = getProperty("userdefaultFac");
+		String fact = getProperty("UserAddfailityName");
 		if(isElementDisplayed(OR.OP_FacilityInput))
 		{
 			typeIn(OR.OP_FacilityInput, "Seventh November");
 		}
 		
 		verifyElement(OR.csManufacture_Close);
-		WebElement elem2=driver.findElement(By.xpath("//*[@class='ui-select-choices-row-inner']//*[text()='Seventh November']"));
+		WebElement elem2=driver.findElement(By.xpath("//*[@class='ui-select-choices-row-inner']//*[text()='"+fact+"']"));
 		elem2.click();
 		if(!isElementDisplayed(OR.OP_enabledSaveButton,10))
 		{

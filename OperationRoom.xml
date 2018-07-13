@@ -9,6 +9,7 @@
   <classes>
    <class name="testcases_functionality.TC_OperationRoom">
    <methods>
+   <include name="TC_OperationRoom_001" />
      <include name="TC_OperationRoom_002" />
      </methods>
 	</class>

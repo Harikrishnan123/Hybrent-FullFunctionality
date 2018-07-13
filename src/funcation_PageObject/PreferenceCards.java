@@ -364,7 +364,7 @@ public class PreferenceCards extends ApplicationKeyword {
 		
 		String cardName = "cardName"+ApplicationKeyword.randomAlphaNumeric(2);
 		typeIn(OR.prefCard_CardName, cardName);
-		setProperty("PreferenceCards1", cardName);
+		setProperty("PreferenceCards", cardName);
 		selectFromDropdown(OR.prefCard_PhysicianName, getProperty("firstPhysician"));
 		waitForElementToDisplayWithoutFail(OR.prefCard_saveButton, 10);
 		CopyStage();
@@ -376,10 +376,11 @@ public class PreferenceCards extends ApplicationKeyword {
 	
 	public static void ReOrder()
 	{
-		verifyElement(OR.prefCard_reorderStageButton);
+		waitForElement(OR.prefCard_reorderStageButton);
 		if(getAttributeValue(OR.prefCard_reorderStageButton, "disabled")==null)
 		{
-			clickOn(OR.prefCard_reorderStageButton);
+			WebElement ele = driver.findElement(By.xpath("//*[@value='Re-order Stage']"));
+			executor.executeScript("arguments[0].click();",ele); 
 			verifyElementText(OR.prefCard_reorderStage_hash, "#");
 			verifyElementText(OR.prefCard_reorderStage_Name, "Name");
 			verifyElement(OR.Vendor_Customersupport_Custom_Close);

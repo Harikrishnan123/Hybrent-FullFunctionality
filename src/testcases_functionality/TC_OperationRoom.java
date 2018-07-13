@@ -59,7 +59,6 @@ public class TC_OperationRoom extends ApplicationKeyword{
 	@Test
 	public void TC_OperationRoom_002() {
 		testStarts("TC_OperationRoom_002", "Verify that “Manage Inventory Locations” heading appears on top left side of page.");
-		Loginpage.OpenBrowserAndLoginnew();
 		OperationRoom.navigateOperationRoom();
 		waitForElement(OR.OP_CreatenewOP);
 		clickOn(OR.OP_CreatenewOP);
@@ -67,7 +66,7 @@ public class TC_OperationRoom extends ApplicationKeyword{
 		setProperty("OPerationRoom", opRoom);
 		typeIn(OR.OP_OpName, opRoom);
 		clickOn(OR.OP_FacilityDropDown);		
-		String fact = getProperty("userdefaultFac");
+		String fact = getProperty("UserAddfailityName");
 		if(isElementDisplayed(OR.OP_FacilityInput))
 		{
 			typeIn(OR.OP_FacilityInput, fact);

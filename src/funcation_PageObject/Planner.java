@@ -1,5 +1,7 @@
 package funcation_PageObject;
 
+import java.util.Calendar;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -20,6 +22,7 @@ public class Planner extends ApplicationKeyword {
 	}
 	public static void patientsPageLinkandwait()
 	{	 
+		waitUntilPageReady();
 		JavascriptExecutor je = (JavascriptExecutor) driver;
 		WebElement element = driver.findElement(By.xpath("//a[@href='#/preference-card/patients']"));
 		je.executeScript("arguments[0].scrollIntoView(true);",element);
@@ -37,6 +40,7 @@ public class Planner extends ApplicationKeyword {
 	{
 		try
 		{
+			waitForElement(OR.Cases_CasesPageLink);
 			JavascriptExecutor je = (JavascriptExecutor) driver;
 			WebElement element = driver.findElement(By.xpath("//a[@href='#/preference-card/cases']"));
 			je.executeScript("arguments[0].scrollIntoView(true);",element);
@@ -63,6 +67,7 @@ public class Planner extends ApplicationKeyword {
 	}
 	public static void plannerPageLinkandwait()
 	{	 
+		waitUntilPageReady();
 		JavascriptExecutor je = (JavascriptExecutor) driver;
 		WebElement element = driver.findElement(By.xpath("//*[@href='#/preference-card/planner']"));
 		je.executeScript("arguments[0].scrollIntoView(true);",element);
@@ -87,6 +92,67 @@ public class Planner extends ApplicationKeyword {
 			testLogPass("Header is "+value);
 		}
 		verifyPagination();
+	}
+	
+	public static void paitent_ApplyPrefcard()
+	{
+		waitForElement(OR.Paintet_ApplyPrefCard);
+		clickOn(OR.Paintet_ApplyPrefCard);
+		String Name = getProperty("PaitentFirstName")+" "+getProperty("PaitentLastName");
+		verifyElementText(OR.Paintet_HeaderPrefCard, "Apply Preference Card To ("+Name+")");
+		verifyElement(OR.Paintet_Inventory);
+		verifyElement(OR.Paintet_Prefcard);
+		verifyElement(OR.Paintet_physician);
+		verifyElement(OR.Paintet_procedure);
+		verifyElement(OR.Paintet_operating_room);
+		verifyElement(OR.Paintet_procedureDate);
+		verifyElement(OR.Paintet_procedureTime_hours);
+		verifyElement(OR.Paintet_procedureTime_minutes);
+		verifyElement(OR.Paintet_gloves_size);
+		verifyElement(OR.Paintet_surgeon_notes);
+		verifyElement(OR.Paintet_surgeon_interruptions);
+		verifyElement(OR.Paintet_preparation_notes);
+		
+		testLogPass("Procedure Time *"+getText(OR.Paintet_procedureTime_hours)+"-"+getText(OR.Paintet_procedureTime_minutes));
+		
+		String inventory = getProperty("UserAddInvetoryName");
+		String PrefCard = getProperty("PreferenceCards");
+		String Physician  = getProperty("firstPhysician");
+		String Procedure  = getProperty("ProcedureName_pro");
+		String operating_room  = getProperty("OPerationRoom");
+		
+		clickOn(OR.Paintet_calander);
+		
+		waitUntilPageReady();
+		int sieofday = driver.findElements(By.xpath("//*[@role='gridcell']/button")).size();
+		for(int i=1;i<=sieofday;i++)
+		{
+			WebElement calalandarActive = driver.findElement(By.xpath("(//*[@role='gridcell']/button)["+i+"]"));
+			if(calalandarActive.getAttribute("class").contains("active"))
+			{
+				//String datte = calalandarActive.getText();
+				calalandarActive.click();
+				break;
+			}
+		
+		}
+		
+		selectFromDropdown(OR.Paintet_Inventory, inventory);
+		selectFromDropdown(OR.Paintet_physician, Physician);
+		selectFromDropdown(OR.Paintet_Prefcard, PrefCard);
+		selectFromDropdown(OR.Paintet_procedure, 1);
+		selectFromDropdown(OR.Paintet_operating_room, operating_room);
+		
+		String prefBtn= getAttributeValue(OR.Paintet_AddPrefernceCard, "disabled");
+		if(prefBtn==null)
+		{
+			clickOn(OR.Paintet_AddPrefernceCard);
+			
+		}else if(prefBtn.equals(false))
+		{
+		testLogFail("Mandatory field are not filled");	
+		}
+		clickOn(OR.Request_cancelPopUP);
 	}
 	
 	public static void Delete()
@@ -154,6 +220,8 @@ public class Planner extends ApplicationKeyword {
 		String lastName="Patient";		
 		String AccNo ="465000";
 		String MrnNumbe =  "00001";
+		setProperty("PaitentFirstName", firstName);
+		setProperty("PaitentLastName", lastName);
 		typeIn(OR.Patient_firstName, firstName);
 		//typeIn(OR.Patient_middleName, "Pat");
 		typeIn(OR.Patient_lastName, lastName);
@@ -161,6 +229,7 @@ public class Planner extends ApplicationKeyword {
 		typeIn(OR.Patient_accNumber, AccNo);
 		typeIn(OR.Patient_dob, "11112007");
 		clickOn(OR.Patient_facDropDown);
+		waitTime(2);
 		WebElement elem=driver.findElement(By.xpath("//li[@class='ui-select-choices-group']//span[text()='"+facility_Name+"']"));
 		elem.click();
 		if(!isElementDisplayed(OR.Patient_enabledSaveButton,10))
@@ -172,6 +241,7 @@ public class Planner extends ApplicationKeyword {
 			testLogFail("SAVE button is not enabled when all mandatory fields are filled");				
 		}
 		clickOn(OR.glCode_CloseButton);
+		waitUntilPageReady();
 		waitForElement(OR.Patient_AddPatient);
 		clickOn(OR.Patient_AddPatient);
 		waitForElement(OR.Patient_disabledSaveButton);
@@ -181,7 +251,7 @@ public class Planner extends ApplicationKeyword {
 		}
 		else
 		{
-			testLogFail("Save button is not isabled");
+			testLogFail("Save button is not enabled");
 		}
 		
 		typeIn(OR.Patient_firstName, firstName);
@@ -193,6 +263,48 @@ public class Planner extends ApplicationKeyword {
 		clickOn(OR.Patient_facDropDown);
 		WebElement elem1=driver.findElement(By.xpath("//*[@id='facility']//*[text()='"+facility_Name+"']"));
 		elem1.click();
+		clickOn(OR.glCode_saveButton);
+		ToastmesssageSucess();
+		waitForElementToDisplayWithoutFail(OR.Patient_firstPatient, 10);
+		typeIn(OR.Patient_searchTextBox, firstName+" "+lastName);
+		clickOn(OR.Patient_searchbutton);
+		waitForElementToDisplayWithoutFail(OR.Patient_firstPatient, 10);
+		String patientName=getText(OR.Patient_firstPatient);
+		String finalName=patientName.substring(2).trim();
+		if(finalName.equals(firstName+" "+lastName))
+		{
+			testLogPass("New Patient is added");
+		}
+		else
+		{
+			testLogFail("New Patient is not added");
+		}									
+	}
+	
+	
+	public static void addPaitentwithoutClose()
+	{
+		String facility_Name=getText(OR.Patient_getfacilityName);
+		waitForElement(OR.Patient_AddPatient);
+		clickOn(OR.Patient_AddPatient);
+		waitForElement(OR.Patient_disabledSaveButton);
+
+		String firstName="Test"+randomAlphaNumeric(6);
+		String lastName="Patient";		
+		String AccNo ="465000";
+		String MrnNumbe =  "00001";
+		setProperty("PaitentName", firstName);
+		typeIn(OR.Patient_firstName, firstName);
+		//typeIn(OR.Patient_middleName, "Pat");
+		typeIn(OR.Patient_lastName, lastName);
+		typeIn(OR.Patient_mrnNumber, MrnNumbe);
+		typeIn(OR.Patient_accNumber, AccNo);
+		typeIn(OR.Patient_dob, "11112007");
+		clickOn(OR.Patient_facDropDown);
+		WebElement elem=driver.findElement(By.xpath("//li[@class='ui-select-choices-group']//span[text()='"+facility_Name+"']"));
+		elem.click();
+		
+		clickOn(OR.glCode_CloseButton);
 		clickOn(OR.glCode_saveButton);
 		ToastmesssageSucess();
 		waitForElementToDisplayWithoutFail(OR.Patient_firstPatient, 10);
@@ -243,5 +355,165 @@ public class Planner extends ApplicationKeyword {
 		waitForElementToDisplay(OR.prefCard_addItemInCart, 10);
 		clickOn(OR.prefCard_addItemInCart);
 	}
-
+	
+	public static void Selectcases()
+	{
+		
+		String phy = getProperty("firstPhysician");
+		String pocedurename = getProperty("ProcedureName_pro");
+		String one = "Cases#xpath=(//*[contains(text(),'"+phy+" ("+pocedurename+")')])[1]";
+		if(driver.findElements(By.xpath("(//*[contains(text(),'"+phy+" ("+pocedurename+")')])[1]")).size()!=0)
+		{
+		
+		waitForElement(one);
+		clickOn(one);
+		testLogPass("Prefcard : "+getText(OR.prefCard_cases_Prefcard));
+		testLogPass("Procedure : "+getText(OR.prefCard_cases_Procedure));
+		testLogPass("Facility : "+getText(OR.prefCard_cases_Facility));
+		testLogPass("CPT : "+getText(OR.prefCard_cases_CPT));
+		
+		int size = driver.findElements(By.xpath("//*[text()='Patient Details']/following-sibling::div")).size();
+		for(int i=1;i<=size;i++)
+		{
+			String one1 = driver.findElement(By.xpath("(//*[text()='Patient Details']/following-sibling::div)["+i+"]")).getText();
+			testLogPass(one1);
+		}
+		
+		int Itemdes = driver.findElements(By.xpath("//*[contains(text(),'"+getProperty("ItemDesc")+"')]")).size();
+		if(Itemdes!=0)
+		{
+			testLogPass("Item is same");
+		}
+		else
+		{
+			testLogFail("Item is not same");
+		}
+		verifyElement(OR.Templates_SearchScan);
+		typeIn(OR.Templates_SearchScan, getProperty("ItemDesc"));
+		int Itemdes1 = driver.findElements(By.xpath("//*[@class=\"tab-pane ng-scope active\"]//*[@id='suggestions']//strong")).size();
+		if(Itemdes1!=0)
+		{
+			testLogPass("Item is in suggestion box");
+		}
+		else
+		{
+			testLogFail("Item is in suggestion not box");
+		}
+		
+		}
+		else
+		{
+			testLogFail("created case is not present");
+		}
+	}
+	
+	public static void PaitentHeader()
+	{
+		clickOn(OR.Scanout_plus);
+		waitUntilPageReady();
+		int sizeHeader = driver.findElements(By.xpath("//*[starts-with(@class,'table')]//th")).size();
+		for(int i =1; i<=sizeHeader; i++)
+		{
+			String HeaderValue = driver.findElement(By.xpath("(//*[starts-with(@class,'table')]//th)["+i+"]")).getText();
+			if(HeaderValue.isEmpty() && HeaderValue==null)
+			{
+							
+			}
+			else
+			{
+				testLogPass("paitent Header value is "+HeaderValue);
+			}
+		}
+	}
+	
+	public static void PaitentMousover()
+	{
+		MouseOverToolTip(OR.Paintet_Edit);
+		MouseOverToolTip(OR.Paintet_Delete);
+		MouseOverToolTip(OR.Paintet_print);
+	}
+	
+	public static void VerifyPreferendCard()
+	{
+		if(getText(OR.Paintet_prefCardName).equals(getProperty("PreferenceCards")))
+		{
+			testLogPass("Prefered card is same");
+		}
+		else
+		{
+			testLogFail("Prefered card is not same");
+		}
+	}
+	
+	public static void Edit()
+	{
+		waitForElement(OR.Paintet_Edit);
+		clickOn(OR.Paintet_Edit);
+		//clickOn(OR.//*[starts-with(@class,'pagehead')]);
+		getTextchild("//*[starts-with(@class,'pagehead')]");
+		waitForElement(OR.Vendor_Customersupport_Custom_Close);
+		clickOn(OR.Vendor_Customersupport_Custom_Close);
+	}
+	
+	public static void CreatePlanner()
+	{
+		String facility_Name=getText(OR.Patient_getfacilityName);
+		clickOn(OR.Planner_createPatient);		
+		//verifyElementText(OR.Planner_popUpText, "Create Patient ");
+		String firstName="Test1"+randomAlphaNumeric(5);
+		setProperty("PlannerFirstName", firstName);
+		String lastName="Patient1";		
+		typeIn(OR.Patient_firstName, firstName);
+		//typeIn(OR.Patient_middleName, "Pat");
+		typeIn(OR.Patient_lastName, lastName);
+		typeIn(OR.Patient_mrnNumber, "00001");
+		typeIn(OR.Patient_accNumber, "465000");
+		typeIn(OR.Patient_dob, "11112017");
+		clickOn(OR.Patient_facDropDown);
+		WebElement elem=driver.findElement(By.xpath("//li[@class='ui-select-choices-group']//span[text()='"+facility_Name+"']"));
+		elem.click();
+		clickOn(OR.Planner_AddPatient);
+		ToastmesssageSucess();
+		
+		WebElement element = driver.findElement(By.xpath("//*[starts-with(@data-time,'10:00')]//*[@class='fc-widget-content']"));
+		executor.executeScript("arguments[0].click();", element);
+		if(driver.findElements(By.xpath("//*[@title='Patient']//*[@ng-click='selectItem();']")).size()!=0)
+		{
+		waitForElement(OR.Planner_selectpaitent);
+		clickOn(OR.Planner_selectpaitent);
+		
+		waitUntilPageReady();
+		String PlannerName = getProperty("PlannerFirstName");
+		typeIn(OR.prefCard_searchTextBox, PlannerName);
+		waitUntilPageReady();
+		String one = "Select#xpath=((//*[starts-with(@ng-repeat,'item ')]/td[1])/following-sibling::td//*[text()='Select'])[1]";
+		clickOn(one);
+		
+		selectFromDropdown(OR.Planner_inventory_id, 1);
+		selectFromDropdown(OR.Planner_physician_id, 1);
+		selectFromDropdown(OR.Planner_pref_card_id, 1);
+		selectFromDropdown(OR.Planner_procedure_id, 1);
+		selectFromDropdown(OR.Planner_pref_card_id, 1);
+		selectFromDropdown(OR.Planner_operating_room_id, 1);
+		clickOn(OR.Planner_ScheduleCase);
+		
+		}
+		
+		Planner.patientsPageLinkandwait();
+		typeIn(OR.Patient_searchTextBox, firstName+" "+lastName);
+		clickOn(OR.Patient_searchbutton);
+		waitForElementToDisplayWithoutFail(OR.Patient_firstPatient, 20);
+		verifyElement(OR.Patient_firstPatient);
+		String patientName=getText(OR.Patient_firstPatient);
+		String finalName=patientName.substring(2).trim();
+		if(finalName.equals(firstName+" "+lastName))
+		{
+			testLogPass("New Patient is added");
+		}
+		else
+		{
+			testLogFail("New Patient is not added");
+		}			
+	}
 }
+

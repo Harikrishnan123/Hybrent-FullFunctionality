@@ -159,5 +159,12 @@ public class ApplicationKeyword extends Generickeywords
 		}
 		Loginpage.newlogin(getProperty("created_NeUser"), getProperty("updated_NewPassword"));
 	}
+	
+	public static void MouseOverToolTip(String objLocator)
+	{
+		mouseOver(objLocator);
+		testLogPass("ToolTip value is "+getAttributeValue(objLocator, "uib-tooltip"));
+		
+	}
 }
 

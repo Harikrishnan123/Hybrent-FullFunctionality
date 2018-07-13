@@ -9,7 +9,8 @@
   <classes>
    <class name="testcases_functionality.TC_Planner">
    <methods>
-     <include name="Tc_Planner_01" />
+   <include name="Tc_Planner_01" />
+   <include name="Tc_Planner_02" />
      </methods>
 	</class>
   </classes>

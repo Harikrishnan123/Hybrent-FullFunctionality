@@ -8,7 +8,7 @@ import AutomationFramework._OR;
 
 public class Loginpage  extends ApplicationKeyword{
 	public static String UserName = "admin";
-	public static String Password = "goouser";
+	public static String Password = "goouser1";
 	public static String URL = "https://qa4.test.hybrent.com/b/";
 	public static String Invalid_Username ="Test";
 	public static String Invalid_Password ="Test";

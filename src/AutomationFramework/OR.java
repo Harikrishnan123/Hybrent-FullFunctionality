@@ -1072,9 +1072,18 @@ public class OR {
 	public static String Planner_createCaseHeading="createCaseHeading#xpath=(//*[@class='modal-header']//h4)";
 	public static String Planner_createPatient="createPatient#xpath=//button[@ng-click='addPatientFn();']";
 	public static String Planner_popUpText="popUpText#xpath=//*[@class='headtext']/span";
+	public static String Planner_tabel6="table6#xpath=//*[starts-with(@data-time,'06:3')]//*[@class='fc-widget-content']";
+	public static String Planner_tabel7="table7#xpath=//*[starts-with(@data-time,'07:30')]//*[@class='fc-widget-content']";
 	public static String Planner_AddPatient="AddPatient#xpath=//*[@class='modal-footer']/button[@class='btn btn-primary pull-right ng-scope']";
-
-
+	public static String Planner_Day ="Day#xpath=//button[contains(text(),'Day')]";
+	public static String Planner_inventory_id="inventory_id#xpath=//*[@id='inventory_id']";
+	public static String Planner_selectpaitent="selectpaitent#xpath=//*[@title='Patient']//*[@ng-click='selectItem();']";
+	public static String Planner_physician_id="physician_id#xpath=//*[@id='physician_id']";
+	public static String Planner_pref_card_id="pref_card_id#xpath=//*[@id='pref_card_id']";
+	public static String Planner_procedure_id="procedure_id#xpath=//*[@id='procedure_id']";
+	public static String Planner_operating_room_id="operating_room_id#xpath=//*[@id='operating_room_id']";
+	public static String Planner_ScheduleCase="ScheduleCase#xpath=//*[text()='Schedule Case']";
+	
 	//User;s default FACILITy
 
 	public static String Profile_defaultFacility="defaultFacility#xpath=(//*[@class='form-horizontal custom-form'])[2]//*[@class='form-group']//span";
@@ -1132,6 +1141,11 @@ public class OR {
 	public static String prefCard_stageName="stageName#xpath=(//uib-tab-heading)[1]";
 	public static String prefCard_saveButton="saveButton#xpath=//*[@ng-click='savePreferenceCard(preferenceCard)']";
 	public static String prefCard_searchTextBox = "searchTextBox#xpath=//*[@id='search']";
+	public static String prefCard_cases_Prefcard = "Prefcard#xpath=(//p)[1]";
+	public static String prefCard_cases_Procedure = "Prefcard#xpath=(//p)[2]";
+	public static String prefCard_cases_Facility = "Facility#xpath=(//p)[3]";
+	public static String prefCard_cases_CPT  = "CPT #xpath=(//p)[4]";
+	public static String prefCard_selectCases = "selectCases#xpath=(//*[@class='fc-title'])[1]";
 	public static String prefCard_firstprefcard = "firstprefcard#xpath=//*[@class='table table-striped']//tr[1]/td[1]";
 	public static String prefCard_removePrefCard = "removePrefCard#xpath=//i[@class='fa fa-trash-o']";
 	public static String prefCard_NoPrefCardText = "NoPrefCardText#xpath=//td[@class='text-center']";
@@ -1773,8 +1787,30 @@ public class OR {
 	    // Paitent
 	    public static String Paintet="Paintet#xpath=//*[@href=\"#/preference-card/patients\"]";
 	    public static String Paintet_First="FirstPaintet#xpath=(//button[contains(text(),'+')])[1]";
-	    
+	    public static String Paintet_Edit="EditPaintet#xpath=//*[@ng-if='patient.expanded']//*[@class='fa fa-edit']";
+	    public static String Paintet_Delete="DeletePaintet#xpath=//*[@ng-if='patient.expanded']//*[starts-with(@class,'fa fa-trash')]";
+	    public static String Paintet_ApplyPrefCard="ApplyPrefCard#classname=fa-paperclip";
+	    public static String Paintet_HeaderPrefCard="HeaderPrefCard#classname=modal-title";
+	    public static String Paintet_Inventory = "Inventory#angular_Model=Ctrl.form.inventory_id";
+	    public static String Paintet_Prefcard = "Prefcard#angular_Model=Ctrl.form.pref_card_id";
+	    public static String Paintet_physician = "physician#angular_Model=Ctrl.form.physician_id";
+	    public static String Paintet_procedure = "procedure#angular_Model=Ctrl.form.procedure_id";
+	    public static String Paintet_operating_room = "operating_room#angular_Model=Ctrl.form.operating_room_id";
+	    public static String Paintet_procedureDate = "procedureDate#angular_Model=Ctrl.procedureDate";
+	    public static String Paintet_procedureTime_hours = "hours#angular_Model=hours";
+	    public static String Paintet_procedureTime_minutes = "minutes#angular_Model=minutes";
+	    public static String Paintet_gloves_size = "gloves_size#angular_Model=Ctrl.form.gloves_size";
+	    public static String Paintet_surgeon_notes = "surgeon_notes#angular_Model=Ctrl.form.surgeon_notes";
+	    public static String Paintet_surgeon_interruptions = "interruptions#angular_Model=Ctrl.form.interruptions";
+	    public static String Paintet_preparation_notes = "preparation_notes#angular_Model=Ctrl.form.preparation_notes";
+	    public static String Paintet_calander = "calander#classname=glyphicon-calendar";
+	    public static String Paintet_music = "music#angular_Model=Ctrl.form.music";
+	    public static String Paintet_position = "position#angular_Model=Ctrl.form.position";
+	    public static String Paintet_instructions = "instructions#angular_Model=Ctrl.form.instructions";
+	    public static String Paintet_print="printPaintet#xpath=//*[@ng-if='patient.expanded']//*[starts-with(@class,'fa fa-print')]";
+	    public static String Paintet_AddPrefernceCard="AddPrefernceCard#xpath=//button[text()='Add Preference Card']";
 	    public static String Paintet_FirstPhysician="FirstPaintetPhysician#xpath=(//*[@ng-repeat-start='patient in patients']/td)[1]";	    
+	    public static String Paintet_prefCardName="prefCardName#xpath=(//*[starts-with(@ng-repeat,'prefCard')]//td)[1]";
 	    // cases
 	    public static String Cases ="Cases#xpath=//a[@href='#/preference-card/cases']";
 	    public static String Cases_dateRange ="dateRange#xpath=//*[@id='dateRange']";

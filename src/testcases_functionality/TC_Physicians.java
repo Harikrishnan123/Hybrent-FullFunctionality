@@ -47,8 +47,7 @@ public class TC_Physicians extends ApplicationKeyword{
 	@Test
 	public void Tc_Physicians_001() {
 		testStarts("Tc_Physicians_001", "Verify that “Manage Physicians” heading appears on top left side of page.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
+		Loginpage.OpenBrowserAndLoginnew();
 		Physicians.NavigatetoPhysicians();
 		Physicians.VerifyPhysicians();
 		Physicians.AddPhysician();

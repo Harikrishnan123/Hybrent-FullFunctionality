@@ -10,6 +10,7 @@
    <class name="testcases_functionality.TC_Patients">
    <methods>
      <include name="Tc_Patients_01" />
+     <include name="Tc_Patients_02" />
      </methods>
 	</class>
   </classes>

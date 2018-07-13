@@ -5,16 +5,16 @@
   <parameter name="browser" value="chrome"/>
   <parameter name="siteName" value="qa-1"/>
   <parameter name="nodeUrl" value="http://localhost:4444/wd/hub"/>
-  <test name="Dashboard(failed)">
+  <test name="Planner(failed)">
     <classes>
-      <class name="testcases_functionality.TC_OperationRoom">
+      <class name="testcases_functionality.TC_Planner">
         <methods>
+          <include name="Tc_Planner_01"/>
           <include name="setBrowser"/>
-          <include name="TC_OperationRoom_001"/>
           <include name="startReport"/>
           <include name="endReport"/>
         </methods>
-      </class> <!-- testcases_functionality.TC_OperationRoom -->
+      </class> <!-- testcases_functionality.TC_Planner -->
     </classes>
-  </test> <!-- Dashboard(failed) -->
+  </test> <!-- Planner(failed) -->
 </suite> <!-- Failed suite [example suite 1] -->
