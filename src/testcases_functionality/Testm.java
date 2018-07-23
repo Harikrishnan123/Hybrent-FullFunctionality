@@ -87,15 +87,15 @@ public class Testm extends ApplicationKeyword{
 		testStarts("Tc_Test_001", "Verify that user gets redirected to \"User Alert\" page when clicks on \" Alert\" button.");
 		openBrowser(Loginpage.URL);
 		Loginpage.login(Loginpage.UserName, Loginpage.Password);
-		
-		
-		selectFromDropdown(OR.VendorAccSetup_VendorDropdown, "Cardinal Pharma");
-		int sie = driver.findElements(By.xpath("//*[starts-with(@id,'facility_account_text')]")).size();
-		for(int i=1;i<=sie;i++)
-		{driver.findElement(By.xpath("(//*[starts-with(@id,'facility_account_text')])["+i+"]")).clear();
-		driver.findElement(By.xpath("(//*[starts-with(@id,'facility_account_text')])["+i+"]")).sendKeys("123");
-		}
-		System.out.println("123");
+//		
+//		
+//		selectFromDropdown(OR.VendorAccSetup_VendorDropdown, "Cardinal Pharma");
+//		int sie = driver.findElements(By.xpath("//*[starts-with(@id,'facility_account_text')]")).size();
+//		for(int i=1;i<=sie;i++)
+//		{driver.findElement(By.xpath("(//*[starts-with(@id,'facility_account_text')])["+i+"]")).clear();
+//		driver.findElement(By.xpath("(//*[starts-with(@id,'facility_account_text')])["+i+"]")).sendKeys("123");
+//		}
+//		System.out.println("123");
 	}
 	
 	@AfterTest

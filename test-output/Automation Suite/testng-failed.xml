@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Automation Suite]" parallel="tests">
+  <test name="Login Test cases 02(failed)" parallel="methods">
+    <parameter name="siteUrl" value="https://qa4.test.hybrent.com/b/"/>
+    <parameter name="browser" value="firefox"/>
+    <parameter name="siteName" value="qa-4"/>
+    <parameter name="nodeUrl" value="http://localhost:4444/wd/hub"/>
+    <classes>
+      <class name="testcases_functionality.TC_Organization">
+        <methods>
+          <include name="TC_Organization_06"/>
+          <include name="setBrowser"/>
+          <include name="endReport"/>
+          <include name="startReport"/>
+        </methods>
+      </class> <!-- testcases_functionality.TC_Organization -->
+    </classes>
+  </test> <!-- Login Test cases 02(failed) -->
+  <test name="Login Test cases 01(failed)" parallel="methods">
+    <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="siteName" value="qa-1"/>
+    <parameter name="nodeUrl" value="http://localhost:4444/wd/hub"/>
+    <classes>
+      <class name="testcases_functionality.TC_Organization">
+        <methods>
+          <include name="TC_Organization_06"/>
+          <include name="setBrowser"/>
+          <include name="endReport"/>
+          <include name="startReport"/>
+        </methods>
+      </class> <!-- testcases_functionality.TC_Organization -->
+    </classes>
+  </test> <!-- Login Test cases 01(failed) -->
+</suite> <!-- Failed suite [Automation Suite] -->

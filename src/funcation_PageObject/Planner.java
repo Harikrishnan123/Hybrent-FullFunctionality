@@ -73,6 +73,7 @@ public class Planner extends ApplicationKeyword {
 		je.executeScript("arguments[0].scrollIntoView(true);",element);
 		clickOn(OR.Planner_PageLink);
 		
+		
 	}
 	
 	public static void EditPaitent()
@@ -200,6 +201,99 @@ public class Planner extends ApplicationKeyword {
 		verifyElement(OR.Planner_FilterByPhysician);
 		verifyElement(OR.Patient_getfacilityName);
 		getText(OR.manageInv_actaulFac);
+	}
+	
+	
+	public static void VerifyPlannercreated()
+	{
+		waitUntilPageReady();
+		clickOn(OR.Planner_Day);
+		clickOn(OR.Planner_Today);
+		String facility_Name=getText(OR.Patient_getfacilityName);
+		String ValueTime = null;
+		int svalue , S = 0;
+		if(driver.findElements(By.xpath("//*[@class='fc-bg']/ancestor::div//*[@class='fc-title']/ancestor::div//*[@class='fc-time']")).size()!=0)
+		{
+			testLogPass("Planner is created already");
+			waitUntilPageReady();
+			int sie =driver.findElements(By.xpath("//*[@class='fc-bg']/ancestor::div//*[@class='fc-title']/ancestor::div//*[@class='fc-time']")).size();
+			for(int i=1;i<=sie;i++)
+			{
+				ValueTime =driver.findElement(By.xpath("(//*[@class='fc-bg']/ancestor::div//*[@class='fc-title']/ancestor::div//*[@class='fc-time'])["+i+"]")).getAttribute("data-start");
+				
+			}
+			String valueconvert = ValueTime.replaceAll(":00", "").replaceAll("0", "");
+			S = Integer.valueOf(valueconvert);
+			int AfterAdd =	S+2;
+			if(S==12 || S==11)
+			{
+				int F = S-2;
+				if(F==10)
+				{
+					driver.findElement(By.xpath("//*[@data-time='"+F+":00:00']")).click();
+				}
+				else
+				{
+					driver.findElement(By.xpath("//*[@data-time='0"+F+":00:00']")).click();
+				}
+			}
+			else
+			{
+				driver.findElement(By.xpath("//*[@data-time='0"+AfterAdd+":00:00']")).click();
+				System.out.println("");
+				
+			}
+			CreatePlanner1(facility_Name);
+		}
+		else
+		{
+			driver.findElement(By.xpath("//*[@data-time='0"+S+":00:00']")).click();
+			CreatePlanner1(facility_Name);
+		}
+	}
+	
+	public static void complete()
+	{
+		if(isElementDisplayed(OR.Cases_SelectAll))
+		{
+			selectCheckBox(OR.Cases_SelectAll);
+			if(driver.findElements(By.xpath("//button[text()='Complete Case(s)']")).size()!=0)
+			{
+				testLogPass("complete cases button is present");
+				clickOn(OR.Cases_CompleteCases);
+				ToastmesssageSucess();
+				setProperty("Completecases", getProperty("PlannerFirstName"));
+			}
+			else
+			{
+				testLogFail("complete cases button is not present ");
+			}
+		}
+		
+	}
+	
+	public static void casesverifyPage()
+	{
+		testLogPass("Page head "+getText(OR.PrintBarcodes_headerText));
+		verifyElement(OR.Patient_searchTextBox);
+		verifyElement(OR.Cases_procedure);
+		verifyElement(OR.Cases_status);
+		verifyElement(OR.prefCard_PhysicianName);
+		
+		int sizeStatus  = driver.findElements(By.xpath("//*[@id='caseStatus']/option")).size();
+		for(int i =1;i<=sizeStatus;i++)
+		{
+			String one = driver.findElement(By.xpath("(//*[@id='caseStatus']/option)["+i+"]")).getText();
+			testLogPass("status DropDown value "+one);
+		}
+		verifyElement(OR.Cases_dateRange);
+		int sizeStatus1  = driver.findElements(By.xpath("(//*[@id='dateRange']/option)")).size();
+		for(int i =1;i<=sizeStatus1;i++)
+		{
+			String one = driver.findElement(By.xpath("(//*[@id='dateRange']/option)[1]["+i+"]")).getText();
+			testLogPass("Date DropDown value "+one);
+		}
+		
 	}
 	
 	public static void addPaitent()
@@ -458,6 +552,7 @@ public class Planner extends ApplicationKeyword {
 	public static void CreatePlanner()
 	{
 		String facility_Name=getText(OR.Patient_getfacilityName);
+		System.out.println("dsd");
 		clickOn(OR.Planner_createPatient);		
 		//verifyElementText(OR.Planner_popUpText, "Create Patient ");
 		String firstName="Test1"+randomAlphaNumeric(5);
@@ -474,9 +569,8 @@ public class Planner extends ApplicationKeyword {
 		elem.click();
 		clickOn(OR.Planner_AddPatient);
 		ToastmesssageSucess();
-		
-		WebElement element = driver.findElement(By.xpath("//*[starts-with(@data-time,'10:00')]//*[@class='fc-widget-content']"));
-		executor.executeScript("arguments[0].click();", element);
+		waitUntilPageReady();
+		clickOn(OR.Planner_tabel6);
 		if(driver.findElements(By.xpath("//*[@title='Patient']//*[@ng-click='selectItem();']")).size()!=0)
 		{
 		waitForElement(OR.Planner_selectpaitent);
@@ -514,6 +608,197 @@ public class Planner extends ApplicationKeyword {
 		{
 			testLogFail("New Patient is not added");
 		}			
+	}
+	public static void CreatePlanner1(String facilityName)
+	{
+		
+		System.out.println("dsd");
+		clickOn(OR.Cases_createPatient);		
+		//verifyElementText(OR.Planner_popUpText, "Create Patient ");
+		String firstName="Test1"+randomAlphaNumeric(5);
+		setProperty("PlannerFirstName", firstName);
+		String lastName="Patient1";		
+		typeIn(OR.Patient_firstName, firstName);
+		//typeIn(OR.Patient_middleName, "Pat");
+		typeIn(OR.Patient_lastName, lastName);
+		typeIn(OR.Patient_mrnNumber, "00001");
+		typeIn(OR.Patient_accNumber, "465000");
+		typeIn(OR.Patient_dob, "11112017");
+		clickOn(OR.Patient_facDropDown);
+		WebElement elem=driver.findElement(By.xpath("//li[@class='ui-select-choices-group']//span[text()='"+facilityName+"']"));
+		elem.click();
+		clickOn(OR.Planner_AddPatient);
+		ToastmesssageSucess();
+		waitUntilPageReady();
+		if(driver.findElements(By.xpath("//*[@title='Patient']//*[@ng-click='selectItem();']")).size()!=0)
+		{
+		waitForElement(OR.Planner_selectpaitent);
+		clickOn(OR.Planner_selectpaitent);
+		waitUntilPageReady();
+		String PlannerName = getProperty("PlannerFirstName");
+		typeIn(OR.prefCard_searchTextBox, PlannerName);
+		waitUntilPageReady();
+		String one = "Select#xpath=((//*[starts-with(@ng-repeat,'item ')]/td[1])/following-sibling::td//*[text()='Select'])[1]";
+		clickOn(one);
+		selectFromDropdown(OR.Planner_inventory_id, getProperty("UserAddInvetoryName"));
+		selectFromDropdown(OR.Planner_physician_id, 1);
+		selectFromDropdown(OR.Planner_pref_card_id, getProperty("PreferenceCards"));
+		selectFromDropdown(OR.Planner_procedure_id,1);		
+		selectFromDropdown(OR.Planner_operating_room_id, getProperty("OPerationRoom"));
+		clickOn(OR.Planner_ScheduleCase);
+		
+		}
+		
+		Planner.patientsPageLinkandwait();
+		typeIn(OR.Patient_searchTextBox, firstName+" "+lastName);
+		clickOn(OR.Patient_searchbutton);
+		waitForElementToDisplayWithoutFail(OR.Patient_firstPatient, 20);
+		verifyElement(OR.Patient_firstPatient);
+		String patientName=getText(OR.Patient_firstPatient);
+		String finalName=patientName.substring(2).trim();
+		if(finalName.equals(firstName+" "+lastName))
+		{
+			testLogPass("New Patient is added");
+		}
+		else
+		{
+			testLogFail("New Patient is not added");
+		}			
+	}
+	
+	public static void CasesVerify()
+	{
+		
+		selectFromDropdown(OR.Cases_procedure, "All Procedures");
+		selectFromDropdown(OR.prefCard_PhysicianName, "All Physicians ");
+		selectFromDropdown(OR.Cases_operatingRoom, "All Operating Rooms");
+		selectFromDropdown(OR.Cases_status, "-- All Cases --");
+		selectFromDropdown(OR.Cases_dateRange, "Custom");
+		verifyElement(OR.Invoice_FromDate);
+		verifyElement(OR.Invoice_ToDate);
+		
+		selectFromDropdown(OR.Cases_dateRange, "-- All Dates --");
+		String searchPlanner = getProperty("PlannerFirstName");
+		typeIn(OR.Patient_searchTextBox, searchPlanner);
+		clickOn(OR.PrintBarcodes_searchButton);
+		verifyElement(OR.Cases_paitent);
+		verifyElement(OR.Cases_MRNNumber);
+		verifyElement(OR.Cases_AccNumber);
+		verifyElement(OR.Cases_DOB);
+		verifyElement(OR.Cases_PhNumber);
+		
+		
+		int sizeHeader = driver.findElements(By.xpath("(//*[@ng-repeat-start='prefCard in cases'][1])//td")).size();
+		for(int i =1; i<=sizeHeader; i++)
+		{
+			String HeaderValue = driver.findElement(By.xpath("((//*[@ng-repeat-start='prefCard in cases'])[1]//td)["+i+"]")).getText();
+			if(HeaderValue.isEmpty() && HeaderValue==null)
+			{
+							
+			}
+			else
+			{
+				testLogPass("Cases Header value is "+HeaderValue);
+			}
+		}
+		mouseOver(OR.Cases_Delete);
+		mouseOver(OR.Cases_Edit);
+		verifyPagination();
+	}
+	
+	public static void EditCases()
+	{
+		waitForElement(OR.Cases_Edit);
+		clickOn(OR.Cases_Edit);
+		waitForElement(OR.PrintBarcodes_headerText);
+		getText(OR.PrintBarcodes_headerText);
+		verifyElement(OR.glCode_saveButton);
+		getText(OR.Cases_PaitentDetails);
+		int sizeHeader = driver.findElements(By.xpath("//*[text()='Patient Details']/following-sibling::div")).size();
+		for(int i =1; i<=sizeHeader; i++)
+		{
+			String HeaderValue = driver.findElement(By.xpath("(//*[text()='Patient Details']/following-sibling::div)["+i+"]")).getText();
+			if(HeaderValue.isEmpty() && HeaderValue==null)
+			{
+							
+			}
+			else
+			{
+				testLogPass("Paitent details are "+HeaderValue);
+			}
+		}
+		verifyElement(OR.Templates_SearchScan);
+		typeIn(OR.Templates_SearchScan, getProperty("ItemDesc"));
+		
+		verifyElement(OR.InvLoc_Add_MinusBtn);
+		verifyElement(OR.InvLoc_Add_PlusBtn);
+		testLogPass("Item description "+getText(OR.prefCard_ItemDes));
+		testLogPass("Item Sku "+getText(OR.prefCard_Sku));
+		testLogPass("Item Sku "+getText(OR.prefCard_Sku));
+		typeIn(OR.Templates_SearchScan, "");
+		int sizeStage = driver.findElements(By.xpath("//uib-tab-heading")).size();
+		for(int i =1; i<=sizeStage; i++)
+		{
+			String StageHeaderValue = driver.findElement(By.xpath("(//uib-tab-heading)["+i+"]")).getText();
+			if(StageHeaderValue.isEmpty() && StageHeaderValue==null)
+			{
+							
+			}
+			else
+			{
+				testLogPass("Paitent details are "+StageHeaderValue);
+			}
+		}
+		IncreaseDecreaseQty();
+		WebElement e = driver.findElement(By.xpath("(//button[text()='Close'])[1]"));
+		executor.executeScript("arguments[0].click();", e);
+		clickOn(OR.csManufacture_Close);
+	}
+	
+	public static void Print()
+	{
+		waitForElement(OR.manageInven_Print);
+		clickOn(OR.manageInven_Print);
+		waitForElement(OR.Receive_PrintPReviewclose);
+		clickOn(OR.OrderDetails_PrintItems_download);
+		clickOn(OR.Receive_PrintPReviewclose);
+	}
+	
+	public static void IncreaseDecreaseQty()
+	{
+			String BeforeHoldqtyIncrease = getText(OR.prefCard_HoldQty);
+			String BeforeusedqtyIncrease = getText(OR.Cases_UsedQty);
+			int holdqtyysize = Integer.parseInt(BeforeHoldqtyIncrease);
+			int Usedqtyysize = Integer.parseInt(BeforeusedqtyIncrease);
+			testLogPass("Before Hold Increase "+holdqtyysize);
+			testLogPass("Before Used Increase "+Usedqtyysize);
+			clickOn(OR.Cases_HoldQty_Plus);
+			clickOn(OR.Cases_UsedQty_Plus);
+			String BeforeHoldqtyIncrease1 = getText(OR.prefCard_HoldQty);
+			String BeforeOpenqtyIncrease1 = getText(OR.Cases_UsedQty);
+			int holdqtyysize1 = Integer.parseInt(BeforeHoldqtyIncrease1);
+			int Openqtyysize1 = Integer.parseInt(BeforeOpenqtyIncrease1);
+			testLogPass("After Hold Increase "+holdqtyysize1);
+			testLogPass("After Open Increase "+Openqtyysize1);
+			
+			String AfterHoldqtyDecrease = getText(OR.prefCard_HoldQty);
+			String AfterOenDec = getText(OR.Cases_UsedQty);
+			int holdqtyysizeDec = Integer.parseInt(AfterHoldqtyDecrease);
+			int OpenqtyysizeDec = Integer.parseInt(AfterOenDec);
+			testLogPass("After Hold Decrease "+holdqtyysizeDec);
+			testLogPass("After Open Decrease "+OpenqtyysizeDec);
+			
+			clickOn(OR.prefCard_HoldQty);
+			if(isElementDisplayed(OR.prefCard_number))
+			{
+				typeIn(OR.prefCard_number, "-1");
+				clickOn(OR.Templates_EditSubmit);
+				waitForElement(OR.prefCard_HoldQtyValidation);
+				getText(OR.prefCard_HoldQtyValidation);
+				clickOn(OR.Confirmionok);
+				
+			}
+		
 	}
 }
 

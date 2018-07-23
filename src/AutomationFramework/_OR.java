@@ -57,7 +57,7 @@ public class _OR {
 	public static String DashBoard_Admin_Hybrent_Apis = "Hybrent_Apis#xpath=//a[text()='Hybrent Apis']";
 	
 	// User Setting
-		public static String Dashboard_User = "User#xpath=//*[@class='user-cont']";
+		public static String Dashboard_User = "User#xpath=//*[@class='caret']";
 		public static String Dashboard_User_Profile = "Profile#xpath=//a[@href='#/user/update-profile']";
 		public static String Dashboard_User_NotificationSetting = "NotificationSetting#xpath=//*[@href='#/notification/settings']";
 		public static String Dashboard_User_alert = "alert#xpath=//*[@href='#/user/update-profile/alert']";
@@ -103,7 +103,7 @@ public class _OR {
 	
 	// Dashboard - sub menu
 	public static String Dashboard_Submenu_Dashboard ="submenuDashboard#xpath=//*[@ng-if='nav.noSubMenu' and @href='#/dashboard']";
-	public static String Dashboard_Submenu_shop ="submenushop#xpath=//*[@ng-if='nav.noSubMenu' and @href='#/shop']";
+	public static String Dashboard_Submenu_shop ="submenushop#xpath=//*[@href='#/shop']";
 	public static String Dashboard_Submenu_Orders ="submenuOrders#xpath=//*[@ng-if='nav.noSubMenu' and @href='#/orders']";
 	public static String Dashboard_Submenu_Requestservices ="submenuRequestServices#xpath=//*[@ng-if='nav.noSubMenu' and @href='#/service-request/create']";
 	public static String Dashboard_Submenu_OrderApprove ="submenuOrderApprove#xpath=//*[@ng-if='nav.noSubMenu' and @href='#/orders/approve']";

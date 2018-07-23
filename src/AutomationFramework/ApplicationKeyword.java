@@ -166,5 +166,21 @@ public class ApplicationKeyword extends Generickeywords
 		testLogPass("ToolTip value is "+getAttributeValue(objLocator, "uib-tooltip"));
 		
 	}
+	
+
+	
+	public static void OrgSettingChangerelogin()
+	{
+		waitUntilPageReady();
+		verifyElementText(OR.organization_OrgSettingUpdate, "Organization update.");
+		getText(OR.organization_OrganizationSettingUpdate_validation);
+		clickOn(OR.MyCart_confirmButton);
+		verifyElementText(OR.organization_SettingUpdate, "Setting update.");
+		getText(OR.organization_SettingUpdate_validation);
+		waitUntilPageReady();
+		clickOn(OR.organization_SettingUpdate_Logout);
+		waitUntilPageReady();
+		Loginpage.newlogin(getProperty("created_NeUser"), getProperty("updated_NewPassword"));
+	}
 }
 

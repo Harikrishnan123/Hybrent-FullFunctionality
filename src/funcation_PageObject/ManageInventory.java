@@ -13,12 +13,12 @@ import pageObject.ManageInventoryPOpage;
 //contains javascript function
 public class ManageInventory extends ApplicationKeyword
 {
-	public static void PageLinkAndWait(String pagepartialTitle, String fullLink)
+	public static void PageLinkAndWait()
     {
 		JavascriptExecutor je = (JavascriptExecutor) driver;		
-		WebElement element = driver.findElement(By.xpath("//a[@href='#/"+pagepartialTitle+"']"));
+		WebElement element = driver.findElement(By.xpath("//a[@href='#/inventory']"));
 		je.executeScript("arguments[0].scrollIntoView(true);",element);
-		clickOn(fullLink);
+		clickOn(OR.manageInvenLink);
 		//waitForElementToDisplay(OR.manageInv_firstItemDesc, 10);
 	}
 	
@@ -81,7 +81,7 @@ public class ManageInventory extends ApplicationKeyword
 	{		
 		String fac=getDefaultFac();
 		System.out.println("FAC---"+fac);
-		PageLinkAndWait(pagepartialTitle, fullLink);
+		PageLinkAndWait();
 		//PageLinkAndWait("inventory", OR.manageInv_pageLink);
 		waitTime(3);
 		String actualFac=getText(facLocator);	

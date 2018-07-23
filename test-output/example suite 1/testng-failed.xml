@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [example suite 1]">
-  <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/"/>
-  <parameter name="browser" value="chrome"/>
-  <parameter name="siteName" value="qa-1"/>
-  <parameter name="nodeUrl" value="http://localhost:4444/wd/hub"/>
-  <test name="Planner(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [example suite 1]" parallel="tests">
+  <test name="Dashboard1(failed)" parallel="tests">
+    <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/"/>
+    <parameter name="browser" value="firefox"/>
+    <parameter name="siteName" value="qa-1"/>
+    <parameter name="nodeUrl" value="http://localhost:4444/wd/hub"/>
     <classes>
-      <class name="testcases_functionality.TC_Planner">
+      <class name="testcases_functionality.Testm">
         <methods>
-          <include name="Tc_Planner_01"/>
-          <include name="setBrowser"/>
-          <include name="startReport"/>
+          <include name="Tc_Test_002"/>
           <include name="endReport"/>
+          <include name="startReport"/>
+          <include name="setBrowser"/>
         </methods>
-      </class> <!-- testcases_functionality.TC_Planner -->
+      </class> <!-- testcases_functionality.Testm -->
     </classes>
-  </test> <!-- Planner(failed) -->
+  </test> <!-- Dashboard1(failed) -->
 </suite> <!-- Failed suite [example suite 1] -->

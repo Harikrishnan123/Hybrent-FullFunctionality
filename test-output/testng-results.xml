@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
+<testng-results skipped="0" failed="1" ignored="1" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="example suite 1" duration-ms="626381" started-at="2018-07-13T10:52:04Z" finished-at="2018-07-13T11:02:30Z">
+  <suite name="Sample Suite" duration-ms="24937" started-at="2018-07-22T07:08:12Z" finished-at="2018-07-22T07:08:37Z">
     <groups>
     </groups>
-    <test name="Planner" duration-ms="626381" started-at="2018-07-13T10:52:04Z" finished-at="2018-07-13T11:02:30Z">
-      <class name="testcases_functionality.TC_Planner">
-        <test-method status="PASS" signature="startReport(java.lang.String, java.lang.String)[pri:0, instance:testcases_functionality.TC_Planner@5f9d02cb]" name="startReport" is-config="true" duration-ms="851" started-at="2018-07-13T16:22:04Z" finished-at="2018-07-13T16:22:04Z">
+    <test name="Dashboard1" duration-ms="24937" started-at="2018-07-22T07:08:12Z" finished-at="2018-07-22T07:08:37Z">
+      <class name="testcases_functionality.Testm">
+        <test-method status="PASS" signature="startReport(java.lang.String, java.lang.String)[pri:0, instance:testcases_functionality.Testm@5f9d02cb]" name="startReport" is-config="true" duration-ms="809" started-at="2018-07-22T12:38:12Z" finished-at="2018-07-22T12:38:13Z">
           <params>
             <param index="0">
               <value>
@@ -23,11 +23,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReport -->
-        <test-method status="PASS" signature="setBrowser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testcases_functionality.TC_Planner@5f9d02cb]" name="setBrowser" is-config="true" duration-ms="3290" started-at="2018-07-13T16:22:04Z" finished-at="2018-07-13T16:22:08Z">
+        <test-method status="PASS" signature="setBrowser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testcases_functionality.Testm@5f9d02cb]" name="setBrowser" is-config="true" duration-ms="23297" started-at="2018-07-22T12:38:13Z" finished-at="2018-07-22T12:38:36Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
             <param index="1">
@@ -44,12 +44,12 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method status="FAIL" signature="Tc_Planner_01()[pri:0, instance:testcases_functionality.TC_Planner@5f9d02cb]" name="Tc_Planner_01" duration-ms="551011" started-at="2018-07-13T16:22:08Z" finished-at="2018-07-13T16:31:19Z">
+        <test-method status="FAIL" signature="Tc_Test_002()[pri:0, instance:testcases_functionality.Testm@5f9d02cb]" name="Tc_Test_002" duration-ms="29" started-at="2018-07-22T12:38:36Z" finished-at="2018-07-22T12:38:36Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at funcation_PageObject.Planner.VerifyPreferendCard(Planner.java:438)
-	at testcases_functionality.TC_Planner.Tc_Planner_01(TC_Planner.java:62)
+	at funcation_PageObject.Loginpage.login(Loginpage.java:18)
+	at testcases_functionality.Testm.Tc_Test_002(Testm.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -63,37 +63,24 @@
 	at org.testng.TestRunner.privateRun(TestRunner.java:744)
 	at org.testng.TestRunner.run(TestRunner.java:602)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Tc_Planner_01 -->
-        <test-method status="PASS" signature="Tc_Planner_02()[pri:0, instance:testcases_functionality.TC_Planner@5f9d02cb]" name="Tc_Planner_02" duration-ms="50209" started-at="2018-07-13T16:31:19Z" finished-at="2018-07-13T16:32:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Tc_Planner_02 -->
-        <test-method status="PASS" signature="Tc_Planner_03()[pri:0, instance:testcases_functionality.TC_Planner@5f9d02cb]" name="Tc_Planner_03" duration-ms="20084" started-at="2018-07-13T16:32:09Z" finished-at="2018-07-13T16:32:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Tc_Planner_03 -->
-        <test-method status="PASS" signature="endReport()[pri:0, instance:testcases_functionality.TC_Planner@5f9d02cb]" name="endReport" is-config="true" duration-ms="869" started-at="2018-07-13T16:32:29Z" finished-at="2018-07-13T16:32:30Z">
+        </test-method> <!-- Tc_Test_002 -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:testcases_functionality.Testm@5f9d02cb]" name="endReport" is-config="true" duration-ms="767" started-at="2018-07-22T12:38:36Z" finished-at="2018-07-22T12:38:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- testcases_functionality.TC_Planner -->
-    </test> <!-- Planner -->
-  </suite> <!-- example suite 1 -->
+      </class> <!-- testcases_functionality.Testm -->
+    </test> <!-- Dashboard1 -->
+  </suite> <!-- Sample Suite -->
 </testng-results>

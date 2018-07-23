@@ -377,4 +377,10 @@ public class User extends ApplicationKeyword{
 //			clickOn(_OR.user_readnotes_ok);
 	 }
 	 
+	 public static void Search(String searchuser)
+	 {
+		 waitForElement(OR.Dep_SearchTextBox);
+		 typeIn(OR.Dep_SearchTextBox, searchuser);
+		 clickOn(OR.Users_SearchButton);
+	 }
 }

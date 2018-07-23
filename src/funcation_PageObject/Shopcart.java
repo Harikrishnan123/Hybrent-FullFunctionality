@@ -75,6 +75,7 @@ public class Shopcart extends ApplicationKeyword{
 
     public static void Additem() 
     {
+    	waitUntilPageReady();
     	String beforeadd, AfterAdd;
     	beforeadd = getText(OR.MyCart_count);
     	int countitem =Integer.parseInt(beforeadd);
@@ -89,8 +90,21 @@ public class Shopcart extends ApplicationKeyword{
 		{
 			clickOn(OR.MyCart_warningPopup);
 		}
+		
 		waitUntilPageReady();
 		}
+		
+		
+		if(driver.findElements(By.xpath("//*[text()='This item is not under contract or a preference item from your distributor, It may cost more.']")).size()!=0)
+		{
+		String one3 = getTextchild("//*[text()='This item is not under contract or a preference item from your distributor, It may cost more.']") ;
+		if(one3.contains("This item is not under contract or a preference item from your distributor, It may cost more."))
+		{
+			clickOn(OR.MyCart_warningPopup);
+		}
+		waitUntilPageReady();
+		}
+		
 		if(driver.findElements(By.xpath("//*[@class='modal-title']")).size()!=0)
 		{
 		String one1 = getTextchild("//*[@class='modal-title']") ;
@@ -104,6 +118,63 @@ public class Shopcart extends ApplicationKeyword{
 		testLogPass("After adding the item to cart is "+AfterAdd1);
     }
     
+    public static void AdditemDecrease() 
+    {
+    	waitUntilPageReady();
+    	typeIn(OR.MyCart_searchInCart, getProperty("ItemDesc"));
+    	waitUntilPageReady();
+    	if(driver.findElements(By.xpath("//*[@id='btnAdd' and contains(text(),'Add')]")).size()!=0)
+    	{
+    		clickOn(OR.Shop_SHopfor_Search_Addtocart_First);
+    	}
+    	else
+    	if(driver.findElements(By.xpath("//*[@id='dcr']/following-sibling::big")).size()!=0)
+    	{
+    		String si = driver.findElement(By.xpath("//*[@id='dcr']/following-sibling::big")).getText();
+    		int s = Integer.parseInt(si);
+    		for(int i=1;i<=s;i++)
+    		{
+    			clickOn(OR.MyCart_InputQty_InputQtyDecrease);
+    		}
+    		waitUntilPageReady();
+        	if(driver.findElements(By.xpath("//*[@id='btnAdd' and contains(text(),'Add')]")).size()!=0)
+        	{
+        		clickOn(OR.Shop_SHopfor_Search_Addtocart_First);
+        	}
+    	}
+    	
+		if(driver.findElements(By.xpath("//*[@class='modal-title']")).size()!=0)
+		{
+		String one = getTextchild("//*[@class='modal-title']") ;
+		if(one.contains("Price check"))
+		{
+			clickOn(OR.MyCart_warningPopup);
+		}
+		
+		waitUntilPageReady();
+		}
+		
+		
+		if(driver.findElements(By.xpath("//*[text()='This item is not under contract or a preference item from your distributor, It may cost more.']")).size()!=0)
+		{
+		String one3 = getTextchild("//*[text()='This item is not under contract or a preference item from your distributor, It may cost more.']") ;
+		if(one3.contains("This item is not under contract or a preference item from your distributor, It may cost more."))
+		{
+			clickOn(OR.MyCart_warningPopup);
+		}
+		waitUntilPageReady();
+		}
+		
+		if(driver.findElements(By.xpath("//*[@class='modal-title']")).size()!=0)
+		{
+		String one1 = getTextchild("//*[@class='modal-title']") ;
+		if(one1.contains("Item reorder warning"))
+		{
+			clickOn(OR.MyCart_warningPopup);
+		}
+		}
+		
+    }
     public static void CartMore()
     {
     	Select select = new Select(driver.findElement(By.xpath("//*[@id='shippingLocationDepartment']")));
@@ -161,8 +232,13 @@ public class Shopcart extends ApplicationKeyword{
     
     public static void SearchItem(String Search)
     {
+    	waitUntilPageReady();
     	typeIn(OR.MyCart_searchInCart, Search);
-    	clickOn(OR.Shop_GeneratePo);
+    	if(driver.findElements(By.xpath("//*[@id='btnAdd' and contains(text(),'Add')]")).size()!=0)
+    	{
+    		clickOn(OR.Shop_SHopfor_Search_Addtocart_First);
+    	}
+    	//clickOn(OR.Shop_GeneratePo);
     }
     
     public static void vendor()

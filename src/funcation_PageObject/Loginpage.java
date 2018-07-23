@@ -44,6 +44,7 @@ public class Loginpage  extends ApplicationKeyword{
 		}
 		if(driver.findElements(By.className("adfslogin-link")).size()!=0)
 		{
+			testLogPass("Adf login is present");
 			clickOn(_OR.Login_link_LoginHybrent);
 			typeIn(_OR.Login_Username, Username);
 			typeIn(OR.Login_Password, Password);

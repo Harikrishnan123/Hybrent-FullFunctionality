@@ -46,7 +46,6 @@ public class TC_ApprovedItem extends ApplicationKeyword{
 	public void TC_ApprovedItem_001() {
 		testStarts("TC_ApprovedItem_001", "Verify that \"APPROVE ITEMS FOR Facility Name\" label appears on top left of page.");
 		Loginpage.OpenBrowserAndLogin();
-		
 		ApproveItem.navigateApprvedItem();
 
 	}

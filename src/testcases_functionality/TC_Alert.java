@@ -45,11 +45,36 @@ public class TC_Alert extends ApplicationKeyword{
 	@Test
 	public void Tc_Alert_001() {
 		testStarts("Tc_Alert_001", "Verify that user gets redirected to \"User Alert\" page when clicks on \" Alert\" button.");
-		openBrowser(Loginpage.URL);
-		Loginpage.login(Loginpage.UserName, Loginpage.Password);
-		//Loginpage.OpenBrowserAndLogin();
-		clickOn(_OR.Dashboard_User);
-		clickOn(_OR.Dashboard_User_alert);
+		Loginpage.OpenBrowserAndLoginnew();
+		Alert.NavigateToAlert();
+		
+	}
+	
+	@Test
+	public void Tc_Alert_002() {
+		testStarts("Tc_Alert_002", "Verify that “Preferred Item Warning” popup appears when user tries to add corresponding item to cart if “Show Preferred Item Warning” is set as Active.");
+		User.adminAndUserPage();
+		User.Search(getProperty("created_NeUser"));
+		clickOn(OR.glCode_Home_Editfirst);
+		waitForElement(_OR.user_add_poalert);
+		clickOn(_OR.user_add_poalert);
+		 String accessON = getAttributeValue(_OR.user_addUser_input_accesscustomer, "class");
+		 if(accessON.contains("bootstrap-switch-off"))
+		 {
+			 clickOn(_OR.user_addUser_input_accesscustomer);
+			 clickOn(_OR.user_addUser_addinventory_facilitysave); 
+		 }
+		 waitUntilPageReady();
+		 if(driver.findElements(By.xpath("//*[@value='Cancel']")).size()!=0)
+		 {
+			 clickOn(OR.Profile_Btn_cancel);
+			 
+		 }
+		 waitUntilPageReady();
+		 waitForElement(OR.MyCart);
+			clickOn(OR.MyCart);
+			waitUntilPageReady();
+			Shopcart.AdditemDecrease();
 	}
 	
 	@AfterTest

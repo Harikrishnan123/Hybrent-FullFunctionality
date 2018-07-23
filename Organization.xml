@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="example suite 1" verbose="1" >
+ <test name="Organiation" preserve-order="true">
+  <parameter name="browser" value="chrome" />
+ <parameter name="siteUrl" value="https://qa1.test.hybrent.com/b/" />
+ <parameter name="nodeUrl" value="http://localhost:4444/wd/hub" />
+ <parameter name="siteName" value="qa-1" />
+  <classes>
+   <class name="testcases_functionality.TC_Organization">
+   <methods>
+      <include name="TC_Organization_001" />
+   <include name="TC_Organization_002" />
+   <include name="TC_Organization_003" />
+   <include name="TC_Organization_004" />
+   <include name="TC_Organization_005" />
+   <include name="TC_Organization_006" />
+   <include name="TC_Organization_007" />
+   <include name="TC_Organization_008" />
+   <include name="TC_Organization_009" />
+   <include name="TC_Organization_010" />
+   <include name="TC_Organization_011" />
+   <include name="TC_Organization_012" />
+   <include name="TC_Organization_013" />
+   <include name="TC_Organization_014" />
+   <include name="TC_Organization_015" />
+   <include name="TC_Organization_016" />
+   <include name="TC_Organization_017" />
+   <include name="TC_Organization_018" />
+   <include name="TC_Organization_019" />
+   <include name="TC_Organization_020" />
+   <include name="TC_Organization_021" />
+     </methods>
+	</class>
+  </classes>
+   </test>
+   </suite>
+

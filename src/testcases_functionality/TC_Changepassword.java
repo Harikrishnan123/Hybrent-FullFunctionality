@@ -1,8 +1,6 @@
 package testcases_functionality;
 
 import java.io.File;
-
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -11,9 +9,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import AutomationFramework.ApplicationKeyword;
 import AutomationFramework.Generickeywords;
 import AutomationFramework._OR;
-import AutomationFramework.OR;
 import funcation_PageObject.*;
-import pageObject.Alertpage;
 import pageObject.Changepasswordpage;
 
 public class TC_Changepassword extends ApplicationKeyword{
